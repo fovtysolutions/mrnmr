@@ -17043,11 +17043,11 @@ body {
   height: 60px; 
 }
 
-.logo-image-icon{
+.logo-image-icon {
   margin-top: 2px;
-  margin-left: 6px;
-  height: 40px; 
-  margin-right: 10px; 
+  /* margin-left: 6px; */
+  height: 35px;
+  /* margin-right: 10px; */
 }
 
 .az-header-left {
@@ -17859,7 +17859,7 @@ padding-left: 2px;
 }
 
 .az-iconbar {
-  width: 64px;
+  width: 75px;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -17913,7 +17913,9 @@ padding-left: 2px;
 }
 .az-iconbar .nav-link.active {
   color: #ffffff;
-    /* background: rgba(255, 255, 255, 0.18) */
+  padding: 30px 8px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 13px;
 }
 .az-iconbar .nav-link + .nav-link {
   margin-top: 10px;
@@ -17970,7 +17972,7 @@ padding-left: 2px;
   border-right: 1px solid #b4bdce;
   position: fixed;
   top: 0;
-  left: 64px;
+  left: 75px;
   overflow-y: auto;
   z-index: 600;
   display: none;
@@ -19115,6 +19117,9 @@ padding-left: 2px;
 }
 .nav-icon .nav-link:active {
   color:#ffffff !important;
+  padding: 30px 8px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 13px;
 
 }
 
@@ -26045,7 +26050,7 @@ ul.list-ckeck-soft li::after {
 @media (min-width: 992px) {
   .az-content-dashboard-six {
     border-left: 1px solid #cdd4e0;
-    margin-left: 64px;
+    margin-left: 75px;
     z-index: 550;
   }
 }

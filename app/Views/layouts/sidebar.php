@@ -11,23 +11,25 @@
   </a>
   <nav class="nav-icon">
     <a href="#asideDashboard" onclick="location.href='<?= base_url('admin') ?>';" class="nav-link active">
-      <i class="typcn typcn-home"></i>
+      <!-- <i class="typcn typcn-home"></i> -->
+    <img width="24" height="24" src="<?= base_url('assets/img/dashboards.svg') ?>" alt="dashboard"/>
       <span>Dashboard</span>
     </a>
     <a href="#asidemember" onclick="location.href='<?= base_url('admin/member') ?>';" class="nav-link">
-      <i class="typcn typcn-th-large"></i>
+    <img width="24" height="24" src="<?= base_url('assets/img/members.svg') ?>" alt="user"/>
       <span>Member</span>
     </a>
     <a href="#asidemrperfect" onclick="location.href='<?= base_url('admin/mrperfect') ?>';" class="nav-link">
-      <i class="typcn typcn-th-large"></i>
-      <span>My Mr Perfect</span>
+    <img width="24" height="24" src="<?= base_url('assets/img/perfectmatch.svg') ?>" alt="perfect match"/>
+      <span>Perfect</span>
     </a>
     <a href="#asidepotentialmatches" onclick="location.href='<?= base_url('admin/potentialmatches') ?>';" class="nav-link">
-      <i class="typcn typcn-th-large"></i>
-      <span>Potential Matches</span>
+    <img width="24" height="24" src="<?= base_url('assets/img/match.svg') ?>" alt="perfect match"/>
+
+      <span>Matches</span>
     </a>
     <a href="#asideevents" onclick="location.href='<?= base_url('admin/events') ?>';" class="nav-link">
-      <i class="typcn typcn-th-large"></i>
+    <img width="24" height="24" src="<?= base_url('assets/img/event.svg') ?>" alt="perfect match"/>
       <span>Events</span>
     </a>
     <a href="#asideAppsPages" onclick="location.href='#';" class="nav-link">

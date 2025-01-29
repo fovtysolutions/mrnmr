@@ -47,29 +47,115 @@
                 }
             });
         </script>
-       <script>
+       <!-- <script>
        $(document).ready(function () {
-  // Handle nav-link click event
   $('.az-iconbar .nav-link').on('click', function (e) {
     e.preventDefault();
     var target = $(this).attr('href');
-
-    // Remove active state from all nav-links
     $('.az-iconbar .nav-link').removeClass('active');
     $(this).addClass('active');
-
-    // Hide all aside panes and show the target pane
     $('.az-iconbar-aside .az-iconbar-pane').removeClass('show');
     $(target).addClass('show');
-
-    // Ensure the sidebar is visible
     $('.az-iconbar-aside').addClass('show');
   });
-
-  // Handle toggle functionality
   $('.az-iconbar-toggle-menu').on('click', function () {
     $('.az-iconbar-aside').toggleClass('show');
   });
 });
 
+       </script> -->
+       <script>
+        $(function() {
+            'use strict';
+            var activeLink = localStorage.getItem('activeNavLink');
+
+            // Set initial active link
+            if (activeLink) {
+                $('.az-iconbar .nav-link').removeClass('active');
+                $('.az-iconbar .nav-link[href="' + activeLink + '"]').addClass('active');
+                $(activeLink).addClass('show');
+            } else {
+                $('.az-iconbar .nav-link').first().addClass('active');
+                var firstLinkHref = $('.az-iconbar .nav-link').first().attr('href');
+                $(firstLinkHref).addClass('show');
+            }
+
+            $('.az-iconbar-aside').addClass('show');
+            $('body').addClass('az-iconbar-show');
+
+            // Click event for nav links
+            $('.az-iconbar .nav-link').on('click', function(e) {
+                e.preventDefault();
+                var href = $(this).attr('href');
+
+                // Check if sidebar is hidden and show it
+                if (!$('body').hasClass('az-iconbar-show')) {
+                    $('body').addClass('az-iconbar-show');
+                    $('.az-iconbar-aside').addClass('show');
+                }
+
+                // Set active state
+                $('.az-iconbar .nav-link').removeClass('active'); // Remove active class from all
+                $(this).addClass('active'); // Add active class to the clicked link
+                $(href).addClass('show');
+                $(href).siblings().removeClass('show');
+                
+                localStorage.setItem('activeNavLink', href);
+            });
+
+            $('.az-iconbar-body .with-sub').on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().addClass('show');
+                $(this).parent().siblings().removeClass('show');
+            });
+
+            $('.az-iconbar-toggle-menu').on('click', function(e) {
+                e.preventDefault();
+                if (window.matchMedia('(min-width: 992px)').matches) {
+                    $('.az-iconbar .nav-link.active').removeClass('active');
+                    $('.az-iconbar-aside').removeClass('show');
+                    $('body').removeClass('az-iconbar-show');
+                } else {
+                    $('body').removeClass('az-iconbar-show');
+                }
+            });
+
+            $('#azIconbarShow').on('click', function(e) {
+                e.preventDefault();
+                $('body').toggleClass('az-iconbar-show');
+            });
+
+            $.plot('#flotChart2', [{
+                data: flotSampleData1,
+                color: '#969dab'
+            }], {
+                series: {
+                    shadowSize: 0,
+                    lines: {
+                        show: true,
+                        lineWidth: 2,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 0
+                            }, {
+                                opacity: 0.2
+                            }]
+                        }
+                    }
+                },
+                grid: {
+                    borderWidth: 0,
+                    labelMargin: 0
+                },
+                yaxis: {
+                    show: false
+                },
+                xaxis: {
+                    show: false
+                }
+            });
+
+            $('.peity-bar').peity('bar');
+        });
        </script>
