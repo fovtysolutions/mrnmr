@@ -6,6 +6,7 @@
         <script src="<?=base_url('lib/jquery.flot/jquery.flot.js')?>"></script>
         <script src="<?=base_url('lib/jquery.flot/jquery.flot.resize.js')?>"></script>
         <script src="<?=base_url('lib/peity/jquery.peity.min.js')?>"></script>
+        <script src="<?=base_url('assets/js/azia.js')?>"></script>
 
         <!-- JavaScript Files -->
         <script src="<?=base_url('assets/js/sidebar.js')?>"></script>
@@ -48,28 +49,9 @@
             });
         </script>
        <!-- <script>
-       $(document).ready(function () {
-  $('.az-iconbar .nav-link').on('click', function (e) {
-    e.preventDefault();
-    var target = $(this).attr('href');
-    $('.az-iconbar .nav-link').removeClass('active');
-    $(this).addClass('active');
-    $('.az-iconbar-aside .az-iconbar-pane').removeClass('show');
-    $(target).addClass('show');
-    $('.az-iconbar-aside').addClass('show');
-  });
-  $('.az-iconbar-toggle-menu').on('click', function () {
-    $('.az-iconbar-aside').toggleClass('show');
-  });
-});
-
-       </script> -->
-       <script>
         $(function() {
             'use strict';
             var activeLink = localStorage.getItem('activeNavLink');
-
-            // Set initial active link
             if (activeLink) {
                 $('.az-iconbar .nav-link').removeClass('active');
                 $('.az-iconbar .nav-link[href="' + activeLink + '"]').addClass('active');
@@ -83,20 +65,17 @@
             $('.az-iconbar-aside').addClass('show');
             $('body').addClass('az-iconbar-show');
 
-            // Click event for nav links
             $('.az-iconbar .nav-link').on('click', function(e) {
                 e.preventDefault();
                 var href = $(this).attr('href');
 
-                // Check if sidebar is hidden and show it
                 if (!$('body').hasClass('az-iconbar-show')) {
                     $('body').addClass('az-iconbar-show');
                     $('.az-iconbar-aside').addClass('show');
                 }
 
-                // Set active state
-                $('.az-iconbar .nav-link').removeClass('active'); // Remove active class from all
-                $(this).addClass('active'); // Add active class to the clicked link
+                $('.az-iconbar .nav-link').removeClass('active'); 
+                $(this).addClass('active'); 
                 $(href).addClass('show');
                 $(href).siblings().removeClass('show');
                 
@@ -158,4 +137,30 @@
 
             $('.peity-bar').peity('bar');
         });
-       </script>
+       </script> -->
+       <script>
+$(document).ready(function () {
+  'use strict';
+
+  // Toggle aside bar when clicking on az-iconbar links
+  $('.az-iconbar .nav-link').on('click', function (e) {
+    e.preventDefault();
+    $('.az-iconbar-aside').addClass('show'); // Open aside bar
+
+    // Show the corresponding pane
+    var target = $(this).attr('href');
+    $(target).addClass('show').siblings().removeClass('show');
+  });
+
+  // Close aside bar after selecting an option
+  $('.az-iconbar-aside .nav-link').on('click', function () {
+    $('.az-iconbar-aside').removeClass('show'); // Close aside bar
+  });
+
+  // Toggle aside bar with the toggle menu button
+  $('.az-iconbar-toggle-menu').on('click', function (e) {
+    e.preventDefault();
+    $('.az-iconbar-aside').removeClass('show'); // Close aside bar
+  });
+});
+</script>

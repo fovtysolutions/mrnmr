@@ -15,13 +15,13 @@
           <label>Password</label>
           <div class="password-container">
             <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
-            <input type="hidden" id="csrfpro" name="<?php echo csrf_token(); ?>" value="<?php echo csrf_hash(); ?>">
             <span class="toggle-password">
               <i id="eyeIcon1" class="fas fa-eye"></i>
             </span>
           </div>
         </div><!-- form-group -->
-          <button type="button" class="btn btn-primary" id="loginbtn">Login</button>
+        <button type="button" class="btn btn-primary" id="loginbtn">Login</button>
+        <input type="hidden" id="csrfpro" name="<?php echo csrf_token(); ?>" value="<?php echo csrf_hash(); ?>">
         </form>
       </div><!-- az-signup-header -->
       <div class="az-signup-footer">

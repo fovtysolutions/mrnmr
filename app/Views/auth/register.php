@@ -57,25 +57,25 @@
             <div class="password-container">
               <input type="password" id="password" name="password" class="form-control" placeholder="Create a password"
                 required>
-              <input type="hidden" id="csrfpro" name="<?php echo csrf_token(); ?>" value="<?php echo csrf_hash(); ?>">
-              <span class="toggle-password">
-                <i id="eyeIcon1" class="fas fa-eye"></i>
-              </span>
-            </div>
-          </div><!-- form-group -->
-          <div class="form-group mb-2 password-wrapper col-6">
-            <label>Confirm Password</label>
-            <div class="password-container">
-              <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
+                <span class="toggle-password">
+                  <i id="eyeIcon1" class="fas fa-eye"></i>
+                </span>
+              </div>
+            </div><!-- form-group -->
+            <div class="form-group mb-2 password-wrapper col-6">
+              <label>Confirm Password</label>
+              <div class="password-container">
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
                 placeholder="Confirm your password" required>
-              <span class="toggle-password">
-                <i id="eyeIcon2" class="fas fa-eye"></i>
-              </span>
-            </div>
-          </div><!-- form-group -->
-        </div>
-        <button type="button" class="btn btn-primary" id="registerbtn">Register</button>
-      </form>
+                <span class="toggle-password">
+                  <i id="eyeIcon2" class="fas fa-eye"></i>
+                </span>
+              </div>
+            </div><!-- form-group -->
+          </div>
+          <button type="button" class="btn btn-primary" id="registerbtn">Register</button>
+          <input type="hidden" id="csrfpro" name="<?php echo csrf_token(); ?>" value="<?php echo csrf_hash(); ?>">
+        </form>
     </div><!-- az-signup-header -->
     <div class="az-signup-footer mt-3">
       <p>Already have an account? <a href="<?= base_url('/login') ?>">Login now</a>.</p>

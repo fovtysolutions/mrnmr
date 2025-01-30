@@ -177,7 +177,7 @@
   --bs-body-font-size: 0.875rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #031b4e;
+  --bs-body-color: #495057;
   --bs-body-color-rgb: 3, 27, 78;
   --bs-body-bg: #fff;
   --bs-body-bg-rgb: 255, 255, 255;
@@ -3216,10 +3216,10 @@ textarea.form-check-input.parsley-error ~ .form-check-label {
 
 .btn-danger {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #dc3545;
+  --bs-btn-bg: #575757;
   --bs-btn-border-color: #dc3545;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #bb2d3b;
+  --bs-btn-hover-bg: #383636;
   --bs-btn-hover-border-color: #b02a37;
   --bs-btn-focus-shadow-rgb: 225, 83, 97;
   --bs-btn-active-color: #fff;
@@ -13786,7 +13786,7 @@ textarea.form-check-input.parsley-error ~ .form-check-label {
   --bs-btn-hover-border-color: #1542cc;
   --bs-btn-focus-shadow-rgb: 60, 109, 255;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #2952cc;
+  --bs-btn-active-bg: #000000;
   --bs-btn-active-border-color: #143ebf;
   --bs-btn-active-shadow: none;
   --bs-btn-disabled-color: #fff;
@@ -17997,7 +17997,7 @@ padding-left: 2px;
 .az-iconbar-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 20px;
   padding-left: 0;
 }
@@ -18012,6 +18012,9 @@ padding-left: 2px;
   color: #ffffff;
   font-size: 28px;
   opacity: 0.5;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
 }
 .az-iconbar-toggle-menu:hover-focus() {
   opacity: 1;
@@ -18060,10 +18063,10 @@ padding-left: 2px;
   border-top: 1px dotted #cdd4e0;
 }
 .az-iconbar-body .nav-item.active .nav-link {
-  color: #5b47fb;
+  color: #ffffff;
 }
 .az-iconbar-body .nav-item.active .nav-link i {
-  color: #5b47fb;
+  color: #ffffff;
 }
 .az-iconbar-body .nav-item.show .nav-sub {
   display: block;
@@ -19098,9 +19101,9 @@ padding-left: 2px;
   flex-direction: column;
   align-items: flex-start;
   height: 100%;
-  padding-top: 10px;
-  padding-bottom: 20px;
+  padding: 10px 0;
   box-sizing: border-box;
+  gap:20px;
 }
 
 .nav-icon .nav-link {
@@ -19108,7 +19111,7 @@ padding-left: 2px;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 18px; */
   text-decoration: none;
   color: #9ea4aa;
   padding: 8px;

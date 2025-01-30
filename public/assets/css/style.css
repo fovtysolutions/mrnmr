@@ -84,19 +84,19 @@
 }
 
 .btn-table-primary {
-  background-color: #035185; /* Primary button background color */
+  background-color: #1E2020; /* Primary button background color */
 }
 
 .btn-table-secondary {
-  background-color: #28862b; /* Secondary button background color */
+  background-color: #b7b7b7; /* Secondary button background color */
 }
 
 .btn-table-danger {
-  background-color: red; /* Danger button background color */
+  background-color: #313131; /* Danger button background color */
 }
 
 .btn-table-warning {
-  background-color: orange; /* Warning button background color */
+  background-color: #b7b7b7; /* Warning button background color */
 }
 
 .btn-table-info {
@@ -209,10 +209,10 @@ a {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #086baf;
+  --bs-btn-bg: #1E2020;
   --bs-btn-border-color: #086baf;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #035185;
+  --bs-btn-hover-bg: #000000;
   --bs-btn-hover-border-color: #2952cc;
   --bs-btn-focus-shadow-rgb: 82, 125, 255;
   --bs-btn-active-color: #fff;
@@ -282,7 +282,7 @@ a {
 }
 .btn-secondary {
   --bs-btn-color: #ffffff;
-  --bs-btn-bg: #418f43;
+  --bs-btn-bg: #3D3F42;
   --bs-btn-border-color: #7987a1;
   --bs-btn-hover-color: #ffffff;
   --bs-btn-hover-bg: #28862b;
