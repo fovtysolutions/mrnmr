@@ -1,11 +1,11 @@
-<?= $this->extend("layouts/backend_layout")?>
+<?= $this->extend("layouts/layout")?>
 <?= $this->section("content")?>
     <?php 
         if($dashboard == 1){
-            echo view("backend/profile/profilep"); 
+            echo view("admin/profile/profilep"); 
         }
         if($dashboard == 2){
-            echo view("backend/profile/edit"); 
+            echo view("admin/profile/edit"); 
         }
         
     ?>

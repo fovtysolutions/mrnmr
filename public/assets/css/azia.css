@@ -863,6 +863,10 @@ progress {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
     max-width: 1120px;
   }
+  .az-content .az-content-profile .container {
+      max-width: 1210px;
+  }
+  
 }
 @media (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
@@ -12488,6 +12492,22 @@ textarea.form-check-input.parsley-error ~ .form-check-label {
   --bs-btn-disabled-bg: #5b47fb;
   --bs-btn-disabled-border-color: #452efa;
 }
+.btn-gray {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #1E2020;
+  --bs-btn-border-color: #452efa;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #000000;
+  --bs-btn-hover-border-color: #3725c8;
+  --bs-btn-focus-shadow-rgb: 97, 77, 251;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #4939c9;
+  --bs-btn-active-border-color: #3423bc;
+  --bs-btn-active-shadow: none;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #5b47fb;
+  --bs-btn-disabled-border-color: #452efa;
+}
 
 .btn-purple {
   --bs-btn-color: #fff;
@@ -12937,7 +12957,7 @@ textarea.form-check-input.parsley-error ~ .form-check-label {
 /* ###### 3.13 Nav ###### */
 .nav-link:hover, .nav-link:focus, .nav-link:active {
   outline: none;
-  color:#ffffff !important;
+  color: #313131 !important;
 }
 
 .nav-pills .nav-link {
@@ -14573,7 +14593,6 @@ textarea.form-check-input.parsley-error ~ .form-check-label {
 @media (min-width: 768px) {
   .az-nav-line .nav-link + .nav-link {
     margin-top: 0;
-    margin-left: 30px;
   }
 }
 .az-nav-line .nav-link.active {
@@ -16652,7 +16671,7 @@ textarea.parsley-success:focus {
 
 @media (min-width: 992px) {
   .az-content {
-    padding: 30px 0;
+    padding: 30px;
   }
 }
 .az-content .container,
@@ -22483,6 +22502,15 @@ padding-left: 2px;
   padding: 20px 20px 20px 0;
   border-bottom: 1px solid #cdd4e0;
 }
+.az-content-body-profile .nav{
+  gap: 30px;
+}
+.info-card-content ul{
+padding-left: 0;
+}
+.info-card-content ul p{
+margin: 0;
+}
 @media (min-width: 576px) {
   .az-content-body-profile .nav {
     flex-direction: row;
@@ -22508,10 +22536,10 @@ padding-left: 2px;
 }
 .az-content-body-profile .az-nav-line .nav-link.active {
   font-weight: 700;
-  color: #5b47fb;
+  color: #313131;
 }
 .az-content-body-profile .az-nav-line .nav-link.active::before {
-  background-color: #5b47fb;
+  background-color: #313131;
 }
 @media (min-width: 576px) and (max-width: 767.98px) {
   .az-content-body-profile .az-nav-line .nav-link.active::before {
@@ -22530,7 +22558,6 @@ padding-left: 2px;
 @media (min-width: 576px) and (max-width: 767.98px) {
   .az-content-body-profile .az-nav-line .nav-link + .nav-link {
     margin-top: 0;
-    margin-left: 20px;
   }
 }
 
@@ -23840,11 +23867,14 @@ ul.list-ckeck-soft li::after {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  color: #0dcaf0;
+  color: #313131;
   font-size: 16px;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+.media-icon:hover {
+  color: #1E2020;
 }
 .media-icon img {
   width: 16px;

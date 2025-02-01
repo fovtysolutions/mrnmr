@@ -3,10 +3,44 @@
 namespace App\Controllers;
 
 use App\Models\AuthModel;
+use App\Models\ProfilePersonalInfoModel;
+use App\Models\ProfileReferenceModel;
+use App\Models\ProfileSocialmediaModel;
+use App\Models\ProfileDocumentsModel;
+use App\Models\ProfileMrRightModel;
 
 class ProfileController extends BaseController
-{public function index()
+{
+    protected $authModel;
+    protected $personalinfomodel;
+    protected $referencemodel;
+    protected $socialmodel;
+    protected $documentmodel;
+    protected $mrrightmodel;
+    protected $alltable;
+ 
+    public function __construct() {
+    
+        $this->authModel = new AuthModel();
+        $this->personalinfomodel = new ProfilePersonalInfoModel();
+        $this->reference = new ProfileReferenceModel();
+        $this->socialmodel = new ProfileSocialmediaModel();
+        $this->documentmodel = new ProfileDocumentsModel();
+        $this->mrrightmodel = new ProfileMrRightModel();
+    
+        // Query builder without executing `get()`
+        $this->alltable = $this->authModel
+            ->select('auth.*, personal_information.*, profile_reference.*, profile_social_media_links.*, profile_your_mr_right.*, profile_documents.*')
+            ->join('personal_information', 'auth.uid = personal_information.uid', 'left')
+            ->join('profile_reference', 'auth.uid = profile_reference.uid', 'left')
+            ->join('profile_social_media_links', 'auth.uid = profile_social_media_links.uid', 'left')
+            ->join('profile_your_mr_right', 'auth.uid = profile_your_mr_right.uid', 'left')
+            ->join('profile_documents', 'auth.uid = profile_documents.uid', 'left');
+    }
+    
+    public function index()
     {
+        dd($this->alltable);
         return view('admin/profile/profile',[ 'dashboard' => 1, 'title' => 'Profile' ]);
     }
 
@@ -14,7 +48,7 @@ class ProfileController extends BaseController
     {
         $branchModel = new AuthModel();
         $branch = $branchModel->find($num);
-        return view('backend/profile/profile',[ 'dashboard' => $num,'title' => 'Profile', 'branch' => $branch ]);
+        return view('admin/profile/profile',[ 'dashboard' => $num,'title' => 'Profile', 'branch' => $branch ]);
     }
 
     public function update()
@@ -41,10 +75,10 @@ class ProfileController extends BaseController
             'email' => $this->request->getPost('email'),
             'mobile' => $this->request->getPost('mobile'),
             'role' => $this->request->getPost('role'),
-            'github_link' => $this->request->getPost('github_link'),
+            'facebook_link' => $this->request->getPost('facebook_link'),
+            'instagram_link' => $this->request->getPost('instagram_link'),
             'twitter_link' => $this->request->getPost('twitter_link'),
             'linkdin_link' => $this->request->getPost('linkdin_link'),
-            'portfolio_link' => $this->request->getPost('portfolio_link'),
             'formtextarea' => $formTextarea,
             'profile_image' => $imagePath,
         ];
@@ -71,3 +105,5 @@ class ProfileController extends BaseController
       
     }
 }
+
+

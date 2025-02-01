@@ -1,0 +1,437 @@
+DEBUG - 2025-01-31 04:15:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 04:15:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 04:15:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 04:15:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 04:16:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-31 04:43:57 --> ErrorException: Undefined variable $dashboard
+[Method: GET, Route: profile/]
+in APPPATH\Views\admin\profile\profile.php on line 4.
+ 1 APPPATH\Views\admin\profile\profile.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $dashboard', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profile.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profile.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profile/profile', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(11): view('admin/profile/profile')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:45:29 --> ErrorException: Undefined variable $dashboard
+[Method: GET, Route: profile/]
+in APPPATH\Views\admin\profile\profile.php on line 4.
+ 1 APPPATH\Views\admin\profile\profile.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $dashboard', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profile.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profile.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profile/profile', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(11): view('admin/profile/profile')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:45:32 --> ErrorException: Undefined variable $dashboard
+[Method: GET, Route: profile/]
+in APPPATH\Views\admin\profile\profile.php on line 4.
+ 1 APPPATH\Views\admin\profile\profile.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $dashboard', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profile.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profile.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profile/profile', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(11): view('admin/profile/profile')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:45:40 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layouts/backend_layout.php"
+[Method: GET, Route: profile/]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/backend_layout.php')
+ 2 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/backend_layout', [], true)
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profile/profile', [], true)
+ 4 APPPATH\Controllers\ProfileController.php(11): view('admin/profile/profile')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:45:57 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layouts/backend_layout.php"
+[Method: GET, Route: profile/]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layouts/backend_layout.php')
+ 2 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/backend_layout', [], true)
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profile/profile', [], true)
+ 4 APPPATH\Controllers\ProfileController.php(11): view('admin/profile/profile')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:48:30 --> ErrorException: Undefined variable $masterkey
+[Method: GET, Route: profile/]
+in APPPATH\Views\admin\profilem\mrperfect.php on line 3.
+ 1 APPPATH\Views\admin\profilem\mrperfect.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $masterkey', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:49:34 --> ErrorException: Undefined variable $masterkey
+[Method: GET, Route: profile/]
+in APPPATH\Views\admin\profilem\mrperfect.php on line 3.
+ 1 APPPATH\Views\admin\profilem\mrperfect.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $masterkey', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:49:52 --> ErrorException: Undefined variable $heading
+[Method: GET, Route: profile/]
+in APPPATH\Views\hooks\module\fronttabcontent.php on line 3.
+ 1 APPPATH\Views\hooks\module\fronttabcontent.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $heading', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hooks/module/fronttabcontent', [], true)
+ 5 APPPATH\Views\admin\profilem\mrperfect.php(7): view('hooks/module/fronttabcontent')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 9 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:50:56 --> ErrorException: Undefined variable $heading
+[Method: GET, Route: profile/]
+in APPPATH\Views\hooks\module\fronttabcontent.php on line 3.
+ 1 APPPATH\Views\hooks\module\fronttabcontent.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $heading', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hooks/module/fronttabcontent', [], true)
+ 5 APPPATH\Views\admin\profilem\mrperfect.php(7): view('hooks/module/fronttabcontent')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 9 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:53:20 --> ErrorException: Undefined variable $title
+[Method: GET, Route: profile/]
+in APPPATH\Views\layouts\css.php on line 4.
+ 1 APPPATH\Views\layouts\css.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('layouts/css', null, true)
+ 5 APPPATH\Views\layouts\layout.php(4): CodeIgniter\View\View->include('layouts/css')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\layout.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/layout', [], true)
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+10 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:53:23 --> ErrorException: Undefined variable $title
+[Method: GET, Route: profile/]
+in APPPATH\Views\layouts\css.php on line 4.
+ 1 APPPATH\Views\layouts\css.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('layouts/css', null, true)
+ 5 APPPATH\Views\layouts\layout.php(4): CodeIgniter\View\View->include('layouts/css')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\layout.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/layout', [], true)
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+10 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:53:24 --> ErrorException: Undefined variable $title
+[Method: GET, Route: profile/]
+in APPPATH\Views\layouts\css.php on line 4.
+ 1 APPPATH\Views\layouts\css.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('layouts/css', null, true)
+ 5 APPPATH\Views\layouts\layout.php(4): CodeIgniter\View\View->include('layouts/css')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\layout.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/layout', [], true)
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+10 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:53:35 --> ErrorException: Undefined variable $title
+[Method: GET, Route: profile/]
+in APPPATH\Views\layouts\css.php on line 4.
+ 1 APPPATH\Views\layouts\css.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('layouts/css', null, true)
+ 5 APPPATH\Views\layouts\layout.php(4): CodeIgniter\View\View->include('layouts/css')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\layout.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/layout', [], true)
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+10 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:54:24 --> ErrorException: Undefined variable $title
+[Method: GET, Route: profile/]
+in APPPATH\Views\layouts\css.php on line 4.
+ 1 APPPATH\Views\layouts\css.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('layouts/css', null, true)
+ 5 APPPATH\Views\layouts\layout.php(4): CodeIgniter\View\View->include('layouts/css')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\layout.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/layout', [], true)
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+10 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+CRITICAL - 2025-01-31 04:57:35 --> ErrorException: Undefined variable $title
+[Method: GET, Route: profile/]
+in APPPATH\Views\layouts\css.php on line 4.
+ 1 APPPATH\Views\layouts\css.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php', 4)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\css.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render('layouts/css', null, true)
+ 5 APPPATH\Views\layouts\layout.php(4): CodeIgniter\View\View->include('layouts/css')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\layouts\\layout.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layouts/layout', [], true)
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+10 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+DEBUG - 2025-01-31 05:16:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-31 05:17:08 --> ErrorException: Undefined variable $heading
+[Method: GET, Route: profile/]
+in APPPATH\Views\hooks\module\fronttabcontent.php on line 3.
+ 1 APPPATH\Views\hooks\module\fronttabcontent.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $heading', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hooks/module/fronttabcontent', [], true)
+ 5 APPPATH\Views\admin\profilem\mrperfect.php(7): view('hooks/module/fronttabcontent')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 9 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+DEBUG - 2025-01-31 05:17:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 05:18:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-31 05:20:21 --> ErrorException: Undefined variable $heading
+[Method: GET, Route: profile/]
+in APPPATH\Views\hooks\module\fronttabcontent.php on line 3.
+ 1 APPPATH\Views\hooks\module\fronttabcontent.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $heading', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hooks/module/fronttabcontent', [], true)
+ 5 APPPATH\Views\admin\profilem\mrperfect.php(7): view('hooks/module/fronttabcontent')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 9 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+DEBUG - 2025-01-31 05:20:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-31 05:21:11 --> ErrorException: Undefined variable $heading
+[Method: GET, Route: profile/]
+in APPPATH\Views\hooks\module\fronttabcontent.php on line 3.
+ 1 APPPATH\Views\hooks\module\fronttabcontent.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $heading', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hooks/module/fronttabcontent', [], true)
+ 5 APPPATH\Views\admin\profilem\mrperfect.php(7): view('hooks/module/fronttabcontent')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 9 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+DEBUG - 2025-01-31 05:21:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-31 06:51:07 --> ErrorException: Undefined variable $heading
+[Method: GET, Route: profile/]
+in APPPATH\Views\hooks\module\fronttabcontent.php on line 3.
+ 1 APPPATH\Views\hooks\module\fronttabcontent.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $heading', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hooks/module/fronttabcontent', [], true)
+ 5 APPPATH\Views\admin\profilem\mrperfect.php(7): view('hooks/module/fronttabcontent')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 9 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+DEBUG - 2025-01-31 06:54:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 06:54:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 06:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 06:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-31 06:54:54 --> ErrorException: Undefined variable $heading
+[Method: GET, Route: profile/]
+in APPPATH\Views\hooks\module\fronttabcontent.php on line 3.
+ 1 APPPATH\Views\hooks\module\fronttabcontent.php(3): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $heading', 'C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php', 3)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\hooks\\module\\fronttabcontent.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hooks/module/fronttabcontent', [], true)
+ 5 APPPATH\Views\admin\profilem\mrperfect.php(7): view('hooks/module/fronttabcontent')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profilem\\mrperfect.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profilem/mrperfect', [], true)
+ 9 APPPATH\Controllers\ProfileController.php(11): view('admin/profilem/mrperfect', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+DEBUG - 2025-01-31 06:56:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:02:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:02:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-31 07:02:16 --> CSRF token verified.
+DEBUG - 2025-01-31 07:02:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:02:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:02:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-31 07:02:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "backend/profile/profilep.php"
+[Method: GET, Route: admin/profile]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('backend/profile/profilep.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('backend/profile/profilep', [], true)
+ 3 APPPATH\Views\admin\profile\profile.php(5): view('backend/profile/profilep')
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profile.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profile/profile', [], true)
+ 7 APPPATH\Controllers\ProfileController.php(10): view('admin/profile/profile', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+DEBUG - 2025-01-31 07:05:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-31 07:05:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "hooks/imageorfileupload.php"
+[Method: GET, Route: admin/profile]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('hooks/imageorfileupload.php')
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('hooks/imageorfileupload', [], true)
+ 3 APPPATH\Views\admin\profile\profilep.php(8): view('hooks/imageorfileupload', [...])
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profilep.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profile/profilep', [], true)
+ 7 APPPATH\Views\admin\profile\profile.php(5): view('admin/profile/profilep')
+ 8 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\mrnmr\\app\\Views\\admin\\profile\\profile.php')
+ 9 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('admin/profile/profile', [], true)
+11 APPPATH\Controllers\ProfileController.php(10): view('admin/profile/profile', [...])
+12 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\ProfileController->index()
+13 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+14 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mrnmr\\public\\index.php')
+DEBUG - 2025-01-31 07:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:11:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:22:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:23:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:23:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:23:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:30:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-31 07:30:36 --> CSRF token verified.
+DEBUG - 2025-01-31 07:30:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:30:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:36:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:36:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:37:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 07:44:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 08:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-31 08:03:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

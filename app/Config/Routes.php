@@ -33,7 +33,14 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('setevents', 'EventsController::dataInsert');
     $routes->post('setupdateevents', 'EventsController::dataUpdate');
     $routes->post('getevents', 'EventsController::getalldetails');
+
+    //profile
+    $routes->get('profile', 'ProfileController::index');
+    $routes->get('profile/(:any)', 'ProfileController::nextpage/$1');
+    $routes->post('profile/updateprofile', 'ProfileController::update');
 });
+
+
 $routes->get('/getschools', 'SchoolController::getalldetails');
 $routes->post('/setcertificate', 'HomeController::dataInsert');
 $routes->get('/', 'HomeController::index');
