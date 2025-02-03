@@ -20,17 +20,12 @@
     CREATE TABLE IF NOT EXISTS personal_information(
         id INT(10) AUTO_INCREMENT PRIMARY KEY,
         uid VARCHAR(120) NOT NULL,
-        name VARCHAR(120) NOT NULL,
-        email VARCHAR(120) NOT NULL,
-        mobile VARCHAR(15) DEFAULT NULL,
-        age VARCHAR(15) DEFAULT NULL,
         dob VARCHAR(120) DEFAULT NULL,
         height VARCHAR(120) DEFAULT NULL,
         weight VARCHAR(120) DEFAULT NULL,
         location VARCHAR(255) DEFAULT NULL,
         complete_address VARCHAR(255) DEFAULT NULL,
         education VARCHAR(255) DEFAULT NULL,
-        profession VARCHAR(255) DEFAULT NULL,
         annual_income VARCHAR(120) DEFAULT NULL,
         food_pref VARCHAR(255) DEFAULT NULL,
         lifestyle_habits VARCHAR(255) DEFAULT NULL,
@@ -40,7 +35,6 @@
         degree_of_openness VARCHAR(255) DEFAULT NULL,
         ideology VARCHAR(255) DEFAULT NULL,
         hobbies VARCHAR(255) DEFAULT NULL,
-        family_info text DEFAULT NULL,
         describe_d text DEFAULT NULL,
         past_relationship VARCHAR(255) DEFAULT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -70,6 +64,17 @@
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
+     -- Documents
+      CREATE TABLE IF NOT EXISTS profile_documents(
+        id INT(10) AUTO_INCREMENT PRIMARY KEY,
+        uid VARCHAR(120) NOT NULL,
+        photo1 VARCHAR(255) DEFAULT NULL,
+        photo2 VARCHAR(255) DEFAULT NULL,
+        address_proof VARCHAR(255) DEFAULT NULL,
+        pan_card VARCHAR(255) DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
     -- Profile Your Mr Right
     CREATE TABLE IF NOT EXISTS profile_your_mr_right(
         id INT(10) AUTO_INCREMENT PRIMARY KEY,
@@ -93,17 +98,7 @@
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
-     -- Documents
-      CREATE TABLE IF NOT EXISTS profile_documents(
-        id INT(10) AUTO_INCREMENT PRIMARY KEY,
-        uid VARCHAR(120) NOT NULL,
-        photo1 VARCHAR(255) DEFAULT NULL,
-        photo2 VARCHAR(255) DEFAULT NULL,
-        address_proof VARCHAR(255) DEFAULT NULL,
-        pan_card VARCHAR(255) DEFAULT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    );
+    
     -- Members
     CREATE TABLE IF NOT EXISTS member(
         id INT(10) AUTO_INCREMENT PRIMARY KEY,

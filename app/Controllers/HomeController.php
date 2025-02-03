@@ -13,8 +13,8 @@ class HomeController extends \App\Controllers\BaseController
     {
         $this->session = \Config\Services::session(); 
         helper(['url']);
-        $this->routes = 'certificate'; 
-        $this->masters = 'Certificate'; 
+        $this->routes = 'dashboard'; 
+        $this->masters = 'Dashboard'; 
     }
 
     public function index()

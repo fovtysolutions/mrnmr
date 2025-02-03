@@ -3,6 +3,7 @@
 <head>
     <?= $this->include("layouts/css") ?>
     <link rel="icon" id="favicon" href="<?=base_url('assets/img/logoicon.png')?>">
+    <title>MR & MR</title>
 </head>
     <body class="az-body az-light">
         <div>

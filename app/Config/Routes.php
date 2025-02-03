@@ -36,8 +36,8 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
     //profile
     $routes->get('profile', 'ProfileController::index');
-    $routes->get('profile/(:any)', 'ProfileController::nextpage/$1');
-    $routes->post('profile/updateprofile', 'ProfileController::update');
+    $routes->get('profile/(:any)', 'ProfileController::editprofile/$1');
+    $routes->post('updateprofile', 'ProfileController::update');
 });
 
 
@@ -54,3 +54,4 @@ $routes->post('/login', 'AuthController::login');
 $routes->post('/forgotpasswordpost', 'AuthController::forgotpasswordpost');
 $routes->post('/resetPasswordpost', 'AuthController::resetPasswordpost');
 $routes->get('/logout', 'AuthController::logout');
+$routes->post('fileorimageupload', 'FileorImageUploadController::index');

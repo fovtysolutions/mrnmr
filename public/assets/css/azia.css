@@ -3122,7 +3122,7 @@ textarea.form-check-input.parsley-error ~ .form-check-label {
   --bs-btn-hover-border-color: #2952cc;
   --bs-btn-focus-shadow-rgb: 82, 125, 255;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #2952cc;
+  --bs-btn-active-bg: #000000;
   --bs-btn-active-border-color: #264dbf;
   --bs-btn-active-shadow: none;
   --bs-btn-disabled-color: #fff;
@@ -12957,7 +12957,7 @@ textarea.form-check-input.parsley-error ~ .form-check-label {
 /* ###### 3.13 Nav ###### */
 .nav-link:hover, .nav-link:focus, .nav-link:active {
   outline: none;
-  color: #313131 !important;
+  color: #313131;
 }
 
 .nav-pills .nav-link {

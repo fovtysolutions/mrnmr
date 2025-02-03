@@ -9,7 +9,7 @@ class ProfilePersonalInfoModel extends Model
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $returnType     = 'array';
-    protected $allowedFields = ['uid', 'name', 'email', 'mobile', 'age', 'dob', 'height', 'weight', 'location', 'complete_address','education', 'profession', 'annual_income', 'food_pref', 'lifestyle_habits', 'religion','drinker', 'smoker', 'degree_of_openness', 'ideology', 'hobbies', 'family_info','describe_d', 'past_relationship','created_at','updated_at'];
+    protected $allowedFields = ['uid','dob', 'height', 'weight', 'location', 'complete_address','education', 'annual_income', 'food_pref', 'lifestyle_habits', 'religion','drinker', 'smoker', 'degree_of_openness', 'ideology', 'hobbies','describe_d', 'past_relationship','created_at','updated_at'];
 
     public function getSearchAll($searchMain = null)
     {
@@ -29,17 +29,12 @@ class ProfilePersonalInfoModel extends Model
 
         if (!empty($searchMain)) {
             $builder->groupStart()
-                ->like('name', $searchMain)
-                ->orLike('email', $searchMain)
-                ->orLike('mobile', $searchMain)
-                ->orLike('age', $searchMain)
                 ->orLike('dob', $searchMain)
                 ->orLike('height', $searchMain)
                 ->orLike('weight', $searchMain)
                 ->orLike('location', $searchMain)
                 ->orLike('complete_address', $searchMain)
                 ->orLike('education', $searchMain)
-                ->orLike('profession', $searchMain)
                 ->orLike('annual_income', $searchMain)
                 ->orLike('food_pref', $searchMain)
                 ->orLike('lifestyle_habits', $searchMain)
@@ -49,7 +44,6 @@ class ProfilePersonalInfoModel extends Model
                 ->orLike('degree_of_openness', $searchMain)
                 ->orLike('ideology', $searchMain)
                 ->orLike('hobbies', $searchMain)
-                ->orLike('family_info', $searchMain)
                 ->orLike('describe_d', $searchMain)
                 ->orLike('past_relationship', $searchMain)
                 ->orLike('created_at', $searchMain)

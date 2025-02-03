@@ -9,7 +9,7 @@ class ProfileSocialmediaModel extends Model
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $returnType     = 'array';
-    protected $allowedFields = ['uid','instagram_link', 'facebook_link', 'twitter_link', 'linkedin_link','created_at','updated_at'];
+    protected $allowedFields = ['uid','instagram_link', 'facebook_link', 'twitter_link', 'linkdin_link','created_at','updated_at'];
 
     public function getSearchAll($searchMain = null)
     {

@@ -4,8 +4,11 @@
     overflow-y: scroll !important;
     scrollbar-width: none !important;
   }
+  .m-sidebar a:hover{
+    color: #ffffff !important;
+  }
 </style>
-<div class="az-iconbar">
+<div class="az-iconbar m-sidebar">
   <a href="<?= base_url() ?>" class="az-iconbar-logo">
     <img src="<?= base_url('assets/img/logo.png') ?>" alt="MR n MR Logo" class="logo-image-icon">
   </a>
