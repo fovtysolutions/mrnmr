@@ -17781,7 +17781,10 @@ padding-left: 2px;
   display: flex;
   align-items: center;
   font-size: 13px;
-  color: #596882;
+  color: #333333;
+}
+.az-profile-menu .dropdown-item:active {
+  background-color: #4945452e;
 }
 .az-profile-menu .dropdown-item i {
   font-size: 24px;
@@ -17834,7 +17837,7 @@ padding-left: 2px;
 .az-header-profile h6, .az-header-profile .h6 {
   font-size: 24px;
   font-weight: 700;
-  color: #1c273c;
+  color: #333333;
   margin-bottom: 0;
 }
 @media (min-width: 576px) {
@@ -22457,7 +22460,7 @@ padding-left: 2px;
 }
 
 .az-profile-name {
-  color: #1c273c;
+  color: #333333;
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 2px;
@@ -22604,7 +22607,7 @@ margin: 0;
 .az-profile-view-info h6, .az-profile-view-info .h6 {
   font-size: 32px;
   font-weight: 500;
-  color: #1c273c;
+  color: #333333;
   margin-bottom: 0;
 }
 .az-profile-view-info span {

@@ -15,6 +15,15 @@
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
+        -- users OTP
+    CREATE TABLE IF NOT EXISTS otp(
+        id INT(10) AUTO_INCREMENT PRIMARY KEY,
+        useruid VARCHAR(120) NOT NULL,
+        userotp VARCHAR(120) NOT NULL,
+        userlink VARCHAR(255) DEFAULT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
 -- Profiles
     -- Personal Information
     CREATE TABLE IF NOT EXISTS personal_information(
