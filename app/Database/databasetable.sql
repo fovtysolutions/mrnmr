@@ -202,3 +202,25 @@
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     );
+-- Settings
+    -- Role setup
+    CREATE TABLE IF NOT EXISTS rolesetup(
+        id INT(10) AUTO_INCREMENT PRIMARY KEY,
+        uid VARCHAR(120) NOT NULL,
+        discription TEXT DEFAULT NULL,
+        created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
+
+
+    -- Role and permission
+    CREATE TABLE IF NOT EXISTS rolesandpermission(
+        id INT(10) AUTO_INCREMENT PRIMARY KEY,
+        uid VARCHAR(120) NOT NULL,
+        role_name VARCHAR(120) DEFAULT NULL,
+        role_discription TEXT DEFAULT NULL,
+        role_status ENUM("Active", "Inactive") DEFAULT "Active",
+        permission JSON DEFAULT NULL,
+        created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    );
