@@ -2,10 +2,10 @@
   <?=view('auth/main_heading')?>
   <div class="az-column-signup">
     <div class="logo">
-      <img src="<?=base_url('assets/img/logo.png')?>" alt="Fixcent" class="logo-image">
+      <img src="<?=base_url('assets/img/logo.png')?>" alt="Mr n Mr" class="logo-image">
     </div>
     <div class="az-signup-header">
-      <h2 style="color: seagreen;">Welcome Back</h2>
+      <h2 >Welcome Back</h2>
       <h4>Forgot Password</h4>
       <form action="password-reset-success.html">
       <div class="form-group mb-2">
@@ -13,6 +13,7 @@
         <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
       </div><!-- form-group -->
       <button type="button" class="btn btn-primary" id="forgotbtn">Submit</button>
+      <input type="hidden" id="csrfpro" name="<?php echo csrf_token(); ?>" value="<?php echo csrf_hash(); ?>">
     </form>
     </div><!-- az-signup-header -->
     <div class="az-signup-footer">
@@ -26,6 +27,7 @@
     $(document).ready(function() {
       $("#forgotbtn").click(function() {
           let email = $("#email").val();
+          var csrfTokenValue = $('#csrfpro').val();
 
        if (!email) {
         toastr.error("Please enter your email address.");
@@ -46,16 +48,21 @@
         data: {
           email: email,
         },
+        headers: {
+                  'X-CSRF-TOKEN': csrfTokenValue,
+              },
       }).done(function (response) {
         if (response.status === 'success') {
+          $('#csrfpro').val(response.new_csrf_token);
           toastr.success(response.massage);
           setTimeout(() => {
             location.href = "<?= base_url('resetpassword') ?>";
           }, 2000);
         } else if (response.status === 'error') {
+          $('#csrfpro').val(response.new_csrf_token);
           toastr.error(response.massage);
           setTimeout(() => {
-            $("#registerbtn").val("Register");
+            $("#forgotbtn").val("Submit");
           }, 3000);
         }
       })

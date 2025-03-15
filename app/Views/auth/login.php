@@ -25,7 +25,7 @@
         </form>
       </div><!-- az-signup-header -->
       <div class="az-signup-footer">
-        <!-- <p>Forgot Password? <a href="<?=base_url('/forgotpassword')?>">Reset now</a></p> -->
+        <p>Forgot Password? <a href="<?=base_url('/forgotpassword')?>">Reset now</a></p>
         <p>Don't have an account? <a href="<?=base_url('/register')?>">Register now</a>.</p> 
       </div><!-- az-signin-footer -->
     </div><!-- az-column-signup -->
@@ -64,11 +64,6 @@
 
       if (!password) {
         toastr.error("Please enter your password!");
-        return;
-      }
-      // Password length validation
-      if (password.length < 8) {
-        toastr.error("Password must be at least 8 characters long!");
         return;
       }
       // Validate Password

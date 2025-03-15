@@ -107,7 +107,7 @@
             <div class="media-icon"><i class="ion ion-ios-pin"></i></div>
             <div class="media-body">
               <span>Current Address</span>
-              <div><?= $data['complete_address'] ?></div>
+              <div><?= $data['complete_address']?? '' ?></div>
             </div><!-- media-body -->
           </div><!-- media -->
         </div><!-- az-profile-contact-list -->
@@ -137,7 +137,7 @@
               </tr>
               <tr>
                 <th class="info-title">Age</th>
-                <td class="info-details"><?= $data['age'] ?></td>
+                <td class="info-details"><?= $data['age'] ?? '' ?></td>
               </tr>
               <tr>
                 <th class="info-title">Date Of Birth</th>

@@ -1,8 +1,14 @@
 <div class="tab-pane fade <?= $classes ?>" id="<?= $ids ?>">
     <div class="card-body">
-        <div class="row">
-            <?php echo view($inputs); ?>
-        </div>
+        <?php if(is_array($inputs)) { 
+            foreach ($inputs as $key => $valueinputs) { 
+            echo inputsection($valueinputs['tag'],$valueinputs['label'],$valueinputs['value'],$valueinputs['id'],$valueinputs['type'],$valueinputs['condition1'],$valueinputs['condition2'],$valueinputs['array']);
+        } ?>
+        <?php } else { ?>
+            <div class="row">
+                <?php echo view($inputs); ?>
+            </div>
+        <?php } ?>
         <?php if ($edititsingle == false) { ?>
             <div class="form-buttons mt-3 d-flex justify-content-end">
                 <button type="button" class="btn btn-primary" id="<?= $usedid ?>_add">

@@ -75,8 +75,8 @@
             <div class="az-img-user">
               <img src="<?= base_url('assets/img/faces/face8.jpg') ?>" alt="">
             </div><!-- az-img-user -->
-            <h6>MR & MR</h6>
-            <span>test</span>
+            <h6><?= $data['username'] ?? '' ?></h6>
+            <span><?= $data['email'] ?? '' ?></span>
           </div><!-- az-header-profile -->
 
           <a href="<?= base_url('/admin/profile') ?>" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My

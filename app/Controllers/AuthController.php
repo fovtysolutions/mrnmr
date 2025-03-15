@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\AuthModel;
+use App\Models\OtpModel;
 
 class AuthController extends BaseController
 {
@@ -117,6 +118,75 @@ class AuthController extends BaseController
                 'status' => 'success',
                 'errorno' => 1,
                 'massage' => 'You are register successfuly!!',
+                'new_csrf_token' => csrf_hash()
+            ]);
+        }
+    }
+    public function forgotpasswordpost()
+    {
+        $email = $this->request->getVar("email");
+
+        $userModel = new AuthModel();
+        $userinfo = $userModel->where('email', $email)->first();
+        if($userinfo){
+            $userotp = bin2hex(random_bytes(8));
+            $userUid = $userinfo['uid'];
+            $link = "http://localhost:8080/forgotpassword?linkcode=$userotp&verify=done";
+            $data = [
+                'useruid' => $userUid,
+                'userotp' => $userotp,
+                'userlink' => $link,
+            ];
+            $userOtp = new OtpModel();
+            $userOtp->insert($data);
+
+            session()->set('csrf_token_name', csrf_hash());
+
+            return $this->response->setJSON([
+                'status' => 'success',
+                'errorno' => 0,
+                'massage' => 'Password reset link has been sent to your email address.',
+                'new_csrf_token' => csrf_hash(),
+            ]);
+        }else{
+            // $data = [
+            //     'email' => $email,
+            // ];
+            // $userModel->insert($data);
+            return $this->response->setJSON([
+            'status' => 'error',
+            'errorno' => 1,
+            'massage' => 'Email not found in our records.',
+            'new_csrf_token' => csrf_hash(),
+            ]);
+        }
+    }
+    public function resetPasswordpost()
+    {
+        $email = $this->request->getVar("email");
+        $password = $this->request->getVar("password");
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        $userModel = new AuthModel();
+        $userinfo = $userModel->where('email', $email)->first();
+        if($userinfo){
+            $id = $userinfo['id'];
+            $data = [
+                'password' => $password,
+            ];
+            $userModel->update($id, $data);
+            return $this->response->setJSON([
+                'status' => 'success',
+                'errorno' => 1,
+                'massage' => "Your password has been reset successfuly",
+                'new_csrf_token' => csrf_hash()
+            ]);
+            
+        }else{
+            return $this->response->setJSON([
+                'status' => 'error',
+                'errorno' => 1,
+                'massage' => 'error please try again',
                 'new_csrf_token' => csrf_hash()
             ]);
         }
