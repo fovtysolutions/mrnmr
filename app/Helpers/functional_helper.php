@@ -103,7 +103,65 @@ if (!function_exists('filtersection')) {
         }
     }
 }
+if (!function_exists('permissionvaluecheck')) {
+    function permissionvaluecheck($permissionname)
+    {
+        $session = \Config\Services::session(); 
 
+        if (!$session->get('logged_in')) {
+            redirect()->to('/login')->send();
+            exit;
+        }
+
+        $permissionFound = false;
+        $roleId = $session->get('role');
+        if ($session->get('user_type')) {
+            $permissionFound = true;
+        }
+        $permissionModel = new \App\Models\RolesAndPermissionModel();
+        $role = $permissionModel->find($roleId);
+        if ($role) {
+            $requiredPermission = json_decode($role['permission'], true);
+            foreach ($requiredPermission as $key => $permission) {
+                if (isset($permission['value']) && $permission['value'] === $permissionname) {
+                    $permissionFound = true;
+                    break; 
+                }
+            }
+
+            if (!$permissionFound) {
+                redirect()->to('/dashboard/1')->send();
+                exit;
+            }
+        }
+    }
+}
+
+if (!function_exists('permissiontypecheck')) {
+    function permissiontypecheck($permissionname,$permissiontype)
+    {
+        $session = \Config\Services::session(); 
+
+        $roleId = $session->get('role');
+        $permissionModel = new \App\Models\RolesAndPermissionModel();
+        $role = $permissionModel->find($roleId);
+        $checkPermission = false;
+        if ($role) {
+            $requiredPermission = json_decode($role['permission'], true);
+            foreach ($requiredPermission as $key => $permission) {
+                if (isset($permission['value']) && $permission['value'] === $permissionname) {
+                    if ($permission['type'] == $permissiontype) {
+                        $checkPermission = true;
+                    }
+                }
+            }
+        }
+        if ($session->get('user_type')) {
+            $checkPermission = true;
+        }
+        return $checkPermission;
+    }
+}
 if (!function_exists('showingtablenumberofrow')) {
     function showingtablenumberofrow()
     {

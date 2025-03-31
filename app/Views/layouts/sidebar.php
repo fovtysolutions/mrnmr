@@ -33,14 +33,18 @@
         <img width="24" height="24" src="<?= base_url('assets/img/event.svg') ?>" alt="events"/>
         <span>Events</span>
       </a>
-      <a href="#asideAppsPages" class="nav-link">
+      <a href="#asideliked" class="nav-link">
         <img width="24" height="24" src="<?= base_url('assets/img/heart.svg') ?>" alt="liked"/>
         <span>Liked</span>
       </a>
-      <a href="#asideAppsPages" class="nav-link">
+      <a href="#asidematched" class="nav-link">
         <img width="24" height="24" src="<?= base_url('assets/img/matchedp.svg') ?>" alt="matched"/>
         <span>Matched</span>
       </a>
+      <a href="#asidesettings" class="nav-link">
+      <img width="24" height="24" src="<?= base_url('assets/img/settings.svg') ?>" alt="setting"/>
+      <span>Settings</span>
+    </a>
     <!-- Add other nav links here -->
   </nav>
 </div>
@@ -91,6 +95,30 @@
         <ul class="nav">
           <li class="nav-item">
             <a href="<?= base_url('admin/events') ?>" class="nav-link">Events</a>
+          </li>
+        </ul>
+      </div>
+      <div id="asideliked" class="az-iconbar-pane">
+        <h6 class="az-iconbar-title">Liked</h6>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="<?= base_url('admin/') ?>" class="nav-link">Liked</a>
+          </li>
+        </ul>
+      </div>
+      <div id="asidematched" class="az-iconbar-pane">
+        <h6 class="az-iconbar-title">Matched</h6>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="<?= base_url('admin/') ?>" class="nav-link">Matched</a>
+          </li>
+        </ul>
+      </div>
+      <div id="asidesettings" class="az-iconbar-pane">
+        <h6 class="az-iconbar-title">Settings</h6>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="<?= base_url('admin/') ?>" class="nav-link">Settings</a>
           </li>
         </ul>
       </div>
