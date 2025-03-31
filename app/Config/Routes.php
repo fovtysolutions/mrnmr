@@ -38,23 +38,6 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('profile', 'ProfileController::index');
     $routes->get('profile/(:any)', 'ProfileController::editprofile/$1');
     $routes->post('updateprofile', 'ProfileController::update');
-
-     //Settings Rolesandpermission Routes
-     $routes->get('roleandpermission', 'BranchRoleAndPermissionController::index');
-     $routes->get('roleandpermission/(:any)', 'BranchRoleAndPermissionController::addPage/$1');
-     $routes->get('roleandpermissionedit/(:any)/(:any)', 'BranchRoleAndPermissionController::editPage/$1/$2');
-     $routes->post('setroleandpermission', 'BranchRoleAndPermissionController::dataInsert');
-     $routes->post('deleteroleandpermission', 'BranchRoleAndPermissionController::deletedetails');
-     $routes->post('getroleandpermission', 'BranchRoleAndPermissionController::getalldetails');
- 
-     //Settings Rolessetup Routes
-     $routes->get('Permissions', 'BranchRoleSetup::index');
-     $routes->get('addPermissions/(:any)', 'BranchRoleSetup::addPage/$1');
-     $routes->get('editPermissions/(:any)/(:any)', 'BranchRoleSetup::editPage/$1/$2');
-     $routes->post('deletePermissions', 'BranchRoleSetup::deletedetails');
-     $routes->post('setPermissions', 'BranchRoleSetup::dataInsert');
-     $routes->post('setupdatePermissions', 'BranchRoleSetup::dataUpdate');
-     $routes->post('getPermissions', 'BranchRoleSetup::getalldetails');
 });
 
 

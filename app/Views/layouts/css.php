@@ -302,7 +302,11 @@
   @media only screen and (min-width: 992px) and (max-width: 1199px) {}
 
   /* Medium Devices (Tablets, 768px and up) */
-  @media only screen and (min-width: 768px) and (max-width: 991px) {}
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .az-content .az-content-profile .container{
+      flex-direction: column;
+    }
+  }
 
   /* Small Devices (Landscape phones, 576px and up) */
   @media only screen and (min-width: 576px) and (max-width: 767px) {}
