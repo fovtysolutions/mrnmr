@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Models\Addrolesetup;
 use App\Controllers\PeginationController;
 
-class RoleSetup extends \App\Controllers\BaseController
+class BranchRoleSetup extends \App\Controllers\BaseController
 {
     protected $session;
     protected $permissionname;
@@ -34,10 +34,10 @@ class RoleSetup extends \App\Controllers\BaseController
             'filterids'=>json_encode([]),
             'th'=>["Rolls Name"],
             'mainid'=> "get$master",
-            'addbtnroute'=> "admin/add$master/$master",
-            'routeURL'=> "admin/get$master",
-            'editroute'=> "admin/edit$master/$master/",
-            'deleteURL'=> "admin/delete$master",
+            'addbtnroute'=> "add$master/$master",
+            'routeURL'=> "get$master",
+            'editroute'=> "/edit$master/$master/",
+            'deleteURL'=> "delete$master",
             'td'=>json_encode(["discription"]),
         ];
         return view('admin/settings/permission_settings/manageroles', $mainDetails);
@@ -53,13 +53,12 @@ class RoleSetup extends \App\Controllers\BaseController
         $mainDetails = [   
                             'dashboard' => $master,
                             'title' => $master, 
-                            'print' => '', 
                             'heading'=> "Add $master", 
                             'detailsdata'=> json_encode([]),
                             'editit' => false,
                             'formid' => "form$master",
-                            'formroute' => "admin/set$master",
-                            'successroute' => "admin/$master",
+                            'formroute' => "set$master",
+                            'successroute' => $master,
                         ];
         return view('admin/settings/permission_settings/add_edit_rolesetup', $mainDetails);
     }
@@ -84,8 +83,8 @@ class RoleSetup extends \App\Controllers\BaseController
                         'detailsdata'=> $mainDetails,
                         'editit' => $id,
                         'formid' => "form$master",
-                        'formroute' => "admin/setupdate$master",
-                        'successroute' => "admin/$master",
+                        'formroute' => "setupdate$master",
+                        'successroute' => $master,
                     ];
         return view('admin/settings/permission_settings/add_edit_rolesetup', $addDatas);
     }
@@ -172,23 +171,15 @@ class RoleSetup extends \App\Controllers\BaseController
             ]);
         }
         $detailsModel = new Addrolesetup();
-        
-        if ($this->request->getPost('delete')) {
-            $id = $this->request->getPost('delete');
+        if($this->request->getVar(index: "delete")){
+            $id = $this->request->getVar(index: "delete");
             $detailsModel->delete($id);
-    
             return $this->response->setJSON([
                 'status' => 'success',
-                'message' => 'Deleted row successfully!',
-                'new_csrf_token' => csrf_hash(),
+                'massage' => 'deleted row!!'
             ]);
         }
-    
-        return $this->response->setJSON([
-            'status' => 'error',
-            'message' => 'Invalid request!',
-            'new_csrf_token' => csrf_hash(), 
-        ]);
+
     }
 
     public function getalldetails()

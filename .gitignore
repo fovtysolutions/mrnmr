@@ -1,0 +1,57 @@
+# Ignore the application cache and logs
+/application/cache/*
+/application/logs/*
+
+# Ignore except index.html (optional for security reasons)
+!/application/cache/index.html
+!/application/logs/index.html
+
+# Ignore the .env file for environment-specific configuration
+.env
+
+# Composer vendor directory
+/vendor
+/writable
+
+# Ignore node_modules if you use npm or yarn
+/node_modules
+
+# IDE or editor files
+.idea/
+/.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.swp
+*.tmp
+
+# Ignore public uploads or generated files (modify paths as per your project structure)
+/public/uploads/*
+!/public/uploads/index.html
+
+# Ignore any other cache folders (modify paths as per your project structure)
+/writable/cache/*
+!/writable/cache/index.html
+
+# Ignore writable logs and sessions
+/writable/logs/*
+/writable/session/*
+!/writable/logs/index.html
+!/writable/session/index.html
+
+# Ignore generated environment or build files
+/build/
+/dist/
+*.env.local
+*.env.production
+
+# Debugger logs and files
+/writable/*
+/debugbar/writable/*
+/tmp/debug.log
+/xdebug.log
+/var/log/xdebug/*

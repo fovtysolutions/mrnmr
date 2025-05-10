@@ -3,7 +3,7 @@
         <?php if(is_array($inputs)) { 
             foreach ($inputs as $key => $valueinputs) { 
             echo inputsection($valueinputs['tag'],$valueinputs['label'],$valueinputs['value'],$valueinputs['id'],$valueinputs['type'],$valueinputs['condition1'],$valueinputs['condition2'],$valueinputs['array']);
-        } ?>
+            } ?>
         <?php } else { ?>
             <div class="row">
                 <?php echo view($inputs); ?>

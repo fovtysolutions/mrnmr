@@ -205,8 +205,8 @@ class ComposerStaticInitaff48aa7a2ad02614fe17799ce12c507
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -2116,6 +2116,7 @@ class ComposerStaticInitaff48aa7a2ad02614fe17799ce12c507
         'PHPUnit\\Metadata\\Group' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Group.php',
         'PHPUnit\\Metadata\\IgnoreDeprecations' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/IgnoreDeprecations.php',
         'PHPUnit\\Metadata\\IgnorePhpunitDeprecations' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/IgnorePhpunitDeprecations.php',
+        'PHPUnit\\Metadata\\InvalidAttributeException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Exception/InvalidAttributeException.php',
         'PHPUnit\\Metadata\\InvalidVersionRequirementException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Exception/InvalidVersionRequirementException.php',
         'PHPUnit\\Metadata\\Metadata' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Metadata.php',
         'PHPUnit\\Metadata\\MetadataCollection' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/MetadataCollection.php',
@@ -2423,7 +2424,6 @@ class ComposerStaticInitaff48aa7a2ad02614fe17799ce12c507
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveCacheTokensAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCacheTokensAttribute.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveConversionToExceptionsAttributes' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveConversionToExceptionsAttributes.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveCoverageElementCacheDirectoryAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCoverageElementCacheDirectoryAttribute.php',
-        'PHPUnit\\TextUI\\XmlConfiguration\\RemoveCoverageElementIncludeUncoveredFilesAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCoverageElementIncludeUncoveredFilesAttribute.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveCoverageElementProcessUncoveredFilesAttribute' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveCoverageElementProcessUncoveredFilesAttribute.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveEmptyFilter' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveEmptyFilter.php',
         'PHPUnit\\TextUI\\XmlConfiguration\\RemoveListeners' => __DIR__ . '/..' . '/phpunit/phpunit/src/TextUI/Configuration/Xml/Migration/Migrations/RemoveListeners.php',

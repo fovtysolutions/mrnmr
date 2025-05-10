@@ -40,6 +40,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->post('updateprofile', 'ProfileController::update');
 
      //Settings Rolesandpermission Routes
+
      $routes->get('roleandpermission', 'RoleAndPermissionController::index');
      $routes->get('roleandpermission/(:any)', 'RoleAndPermissionController::addPage/$1');
      $routes->get('roleandpermissionedit/(:any)/(:any)', 'RoleAndPermissionController::editPage/$1/$2');
@@ -52,14 +53,13 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
      $routes->get('addPermissions/(:any)', 'RoleSetup::addPage/$1');
      $routes->get('editPermissions/(:any)/(:any)', 'RoleSetup::editPage/$1/$2');
      $routes->post('deletePermissions', 'RoleSetup::deletedetails');
+     $routes->post('getPermissions', 'RoleSetup::getalldetails');
      $routes->post('setPermissions', 'RoleSetup::dataInsert');
      $routes->post('setupdatePermissions', 'RoleSetup::dataUpdate');
      
      //Calendar
      $routes->get('calendar', 'CalendarController::index');
     });
-    $routes->post('getPermissions', 'RoleSetup::getalldetails');
-
 
 $routes->get('/getschools', 'SchoolController::getalldetails');
 $routes->post('/setcertificate', 'HomeController::dataInsert');

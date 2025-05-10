@@ -5,7 +5,7 @@ use App\Models\RolesAndPermissionModel;
 use App\Models\Addrolesetup;
 use App\Controllers\PeginationController;
 
-class RoleAndPermissionController extends \App\Controllers\BaseController
+class BranchRoleAndPermissionController extends \App\Controllers\BaseController
 {
     protected $session;
     protected $permissionname;
@@ -34,10 +34,10 @@ class RoleAndPermissionController extends \App\Controllers\BaseController
             'filterids'=>json_encode([]),
             'th'=>["Role Name","Role Description","Role Status"],
             'mainid'=> 'getroleandpermission',
-            'addbtnroute'=> "admin/roleandpermission/$master",
-            'routeURL'=> 'admin/getroleandpermission',
-            'editroute'=> "admin/roleandpermissionedit/$master/",
-            'deleteURL'=> 'admin/deleteroleandpermission',
+            'addbtnroute'=> "roleandpermission/$master",
+            'routeURL'=> 'getroleandpermission',
+            'editroute'=> "/roleandpermissionedit/$master/",
+            'deleteURL'=> 'deleteroleandpermission',
             'td'=>json_encode(["role_name","role_discription","role_status"]),
         ];
         return view('admin/settings/permission_settings/rollandpermissions', $mainDetails);
