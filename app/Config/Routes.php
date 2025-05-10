@@ -38,6 +38,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('profile', 'ProfileController::index');
     $routes->get('profile/(:any)', 'ProfileController::editprofile/$1');
     $routes->post('updateprofile', 'ProfileController::update');
+<<<<<<< HEAD
 
      //Settings Rolesandpermission Routes
 
@@ -60,6 +61,10 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
      //Calendar
      $routes->get('calendar', 'CalendarController::index');
     });
+=======
+});
+
+>>>>>>> 7220e496b64f8a18f8d27b163b1c78b7c1812b95
 
 $routes->get('/getschools', 'SchoolController::getalldetails');
 $routes->post('/setcertificate', 'HomeController::dataInsert');

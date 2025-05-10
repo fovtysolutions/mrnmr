@@ -15,45 +15,98 @@
         <div class="form-group row">
             <label for="age_range" class="col-sm-4 col-form-label">Age Range</label>
             <div class="col-sm-8">
-                <input type="number" class="form-control form-control-sm" id="age_range" name="age_range"
-                    placeholder="Enter Age Range">
+                <div class="row">
+                    <div class="col-6">
+                    <input class="form-control form-control-sm" type="number" id="ageRangeMin" name="ageRangeMin" min="18" max="99" placeholder="Min Age">
+                    </div>
+                    <div class="col-6">
+                    <input class="form-control form-control-sm" type="number" id="ageRangeMax" name="ageRangeMax" min="18" max="99" placeholder="Max Age">
+                    </div>
+                </div>
+                <input type="hidden" name="age_range" id="age_range">
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $('#ageRangeMin, #ageRangeMax').on('input', function () {
+                var ageminrange = $('#ageRangeMin').val();
+                var agemaxrange = $('#ageRangeMax').val();
+                $('#age_range').val(ageminrange + ' - ' + agemaxrange);
+            });
+        });
+    </script>
+
 
     <!-- Height -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="height_range" class="col-sm-4 col-form-label">Height Range</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="height_range" name="height_range"
-                    placeholder="Enter Height Range">
+                <div class="row">
+                    <div class="col-6">
+                    <input class="form-control form-control-sm" type="number" id="heightRangeMin" name="heightRangeMin" min="18" max="99" placeholder="Min Height">
+                    </div>
+                    <div class="col-6">
+                    <input class="form-control form-control-sm" type="number" id="heightRangeMax" name="heightRangeMax" min="18" max="99" placeholder="Max Height">
+                    </div>
+                </div>
+                <input type="hidden" name="height_range" id="height_range">
             </div>
         </div>
     </div>
-
-    <!-- Weight -->
+    <script>
+        $(document).ready(function () {
+            $('#heightRangeMin, #heightRangeMax').on('input', function () {
+                var heightminrange = $('#heightRangeMin').val();
+                var heightmaxrange = $('#heightRangeMax').val();
+                $('#height_range').val(heightminrange + ' - ' + heightmaxrange);
+            });
+        });
+    </script>
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="weight_range" class="col-sm-4 col-form-label">Weight Range</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="weight_range" name="weight_range"
-                    placeholder="Enter Weight Range(kg)">
+                <div class="row">
+                    <div class="col-6">
+                    <input class="form-control form-control-sm" type="number" id="weightRangeMin" name="weightRangeMin" min="18" max="99" placeholder="Min Weight">
+                    </div>
+                    <div class="col-6">
+                    <input class="form-control form-control-sm" type="number" id="weightRangeMax" name="weightRangeMax" min="18" max="99" placeholder="Max Weight">
+                    </div>
+                </div>
+                <input type="hidden" name="weight_range" id="weight_range">
             </div>
         </div>
     </div>
-
-    <!-- Location -->
+    <script>
+        $(document).ready(function () {
+            $('#weightRangeMin, #weightRangeMax').on('input', function () {
+                var weightminrange = $('#weightRangeMin').val();
+                var weightmaxrange = $('#weightRangeMax').val();
+                $('#weight_range').val(weightminrange + ' - ' + weightmaxrange);
+            });
+        });
+    </script>
+    <!-- state -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
-            <label for="location" class="col-sm-4 col-form-label">Location</label>
+            <label for="state" class="col-sm-4 col-form-label">State</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="location" name="location">
+                <select class="form-control form-control-sm" id="state" name="state">
                     <option>Select</option>
-                    <option>City Name 1</option>
-                    <option>City Name 2</option>
-                    <option>City Name 3</option>
-                    <!-- Add city names as required -->
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- city -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="city" class="col-sm-4 col-form-label">City</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm" id="city" name="city">
+                    <option>Select</option>
                 </select>
             </div>
         </div>

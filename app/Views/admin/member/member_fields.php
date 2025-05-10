@@ -1,16 +1,58 @@
 <div class="row <?= $increasing == false ? 'd-none' : '' ?>">
-    <!-- MmMR_ID -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="mrnmr_id" class="col-sm-4 col-form-label">MmMR ID</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="mrnmr_id" name="mrnmr_id" placeholder="Enter MRnMR ID">
-            </div>
+
+ 
+    <!-- First Name -->
+<div class="col-md-6 col-xl-4">
+    <div class="form-group row">
+        <label for="first_name" class="col-sm-4 col-form-label">First Name</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="first_name" name="first_name" placeholder="Enter First Name">
         </div>
     </div>
+</div>
 
-    <!-- Date of Registration -->
-    <div class="col-md-6 col-xl-4">
+<!-- Last Name -->
+<div class="col-md-6 col-xl-4">
+    <div class="form-group row">
+        <label for="last_name" class="col-sm-4 col-form-label">Last Name</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="last_name" name="last_name" placeholder="Enter Last Name">
+        </div>
+    </div>
+</div>
+
+<!-- MRnMR ID (Auto-filled) -->
+<div class="col-md-6 col-xl-4">
+    <div class="form-group row">
+        <label for="mrnmr_id" class="col-sm-4 col-form-label">MRnMR ID</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="mrnmr_id" name="mrnmr_id" placeholder="Generated MRnMR ID" readonly>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        function generateMRnMRID() {
+            var firstName = $('#first_name').val().trim();
+            var lastName = $('#last_name').val().trim();
+
+            if (firstName.length >= 2 && lastName.length >= 2) {
+                var firstPart = firstName.substring(0, 2).toUpperCase();
+                var lastPart = lastName.substring(0, 2).toUpperCase();
+                var randomNum = Math.floor(100 + Math.random() * 900);
+
+                var mrnmrID = firstPart + lastPart + randomNum;
+                $('#mrnmr_id').val(mrnmrID);
+            } else {
+                $('#mrnmr_id').val('');
+            }
+        }
+        $('#first_name, #last_name').on('input', generateMRnMRID);
+    });
+</script>
+   <!-- Date of Registration -->
+   <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="registration_date" class="col-sm-4 col-form-label">Date of Registration</label>
             <div class="col-sm-8">
@@ -18,27 +60,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Name -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="first_name" class="col-sm-4 col-form-label">First Name</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="first_name" name="first_name" placeholder="Enter First Name">
-            </div>
-        </div>
-    </div>
-
-    <!-- Last Name-->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="last_name" class="col-sm-4 col-form-label">Last Name</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="last_name" name="last_name" placeholder="Enter Last Name">
-            </div>
-        </div>
-    </div>
-
     <!-- Membership Status -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
@@ -76,25 +97,43 @@
         </div>
     </div>
 
-    <!-- Date of Birth -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
-            <div class="col-sm-8">
-                <input type="date" class="form-control form-control-sm" id="dob" name="dob">
-            </div>
+   <!-- Date of Birth -->
+<div class="col-md-6 col-xl-4">
+    <div class="form-group row">
+        <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
+        <div class="col-sm-8">
+            <input type="date" class="form-control form-control-sm" id="dob" name="dob">
         </div>
     </div>
+</div>
 
-    <!-- Age -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="age" class="col-sm-4 col-form-label">Age</label>
-            <div class="col-sm-8">
-                <input type="number" class="form-control form-control-sm" id="age" name="age" placeholder="Enter Age">
-            </div>
+<!-- Age (Auto-filled) -->
+<div class="col-md-6 col-xl-4">
+    <div class="form-group row">
+        <label for="age" class="col-sm-4 col-form-label">Age</label>
+        <div class="col-sm-8">
+            <input type="number" class="form-control form-control-sm" id="age" name="age" placeholder="Auto-calculated Age" readonly>
         </div>
     </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#dob').on('change', function () {
+            var dob = new Date($(this).val());
+            var today = new Date();
+            var age = today.getFullYear() - dob.getFullYear();
+            var monthDiff = today.getMonth() - dob.getMonth();
+            var dayDiff = today.getDate() - dob.getDate();
+
+            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                age--;
+            }
+            $('#age').val(age > 0 ? age : '');
+        });
+    });
+</script>
+
 
     <!-- Height -->
     <div class="col-md-6 col-xl-4">
@@ -116,16 +155,24 @@
         </div>
     </div>
 
-    <!-- Location -->
+  <!-- state -->
+  <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="state" class="col-sm-4 col-form-label">State</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm" id="state" name="state">
+                    <option>Select</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- city -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
-            <label for="location" class="col-sm-4 col-form-label">Location</label>
+            <label for="city" class="col-sm-4 col-form-label">City</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="location" name="location">
-                    <option>City Name 1</option>
-                    <option>City Name 2</option>
-                    <option>City Name 3</option>
-                    <!-- Add city names as required -->
+                <select class="form-control form-control-sm" id="city" name="city">
+                    <option>Select</option>
                 </select>
             </div>
         </div>

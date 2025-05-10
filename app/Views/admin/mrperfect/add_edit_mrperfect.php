@@ -13,10 +13,10 @@
                     <input type="hidden" name="masterkey" value="<?=$masterkey?>">
                 <?php 
                     $usedid = $masterkey;
-                    $ids = ["mrnmr_id","age_range","height_range","weight_range","location","food_pref","lifestyle","degree_of_openness","hobbies","religion","ideology","qualities","additional","negotiable_requirement","non_negotiable_requirements","partner_sexual_position","political_ideology","pet_friendly","want_to_have_children","want_to_get_married","have_children","previous_marriage","hiv_status"];
+                    $ids = ["mrnmr_id","age_range","height_range","weight_range","state","city","food_pref","lifestyle","degree_of_openness","hobbies","religion","ideology","qualities","additional","negotiable_requirement","non_negotiable_requirements","partner_sexual_position","political_ideology","pet_friendly","want_to_have_children","want_to_get_married","have_children","previous_marriage","hiv_status",'state','city'];
                     $requireids = [];
-                    $name = ["MrnMr ID","Age Range","Height Range","Weight Range","Location","Food Pref","Lifestyle","Degree of Openness","Hobbies","Religion","Ideology","Qualities","Additional","Negotiable Requirement","Non Negotiable Requirements","Partner Sexual Position","Political Ideology","Pet Friendly","Want To Have Children","Want To Get Married","Have Children ?","Previous Marriage ?","HIV Status"];
-                    $statecity = '';
+                    $name = ["MrnMr ID","Age Range","Height Range","Weight Range","State","City","Food Pref","Lifestyle","Degree of Openness","Hobbies","Religion","Ideology","Qualities","Additional","Negotiable Requirement","Non Negotiable Requirements","Partner Sexual Position","Political Ideology","Pet Friendly","Want To Have Children","Want To Get Married","Have Children ?","Previous Marriage ?","HIV Status"];
+                    $statecity = ['state','city'];
                     $pagepath = 'admin/mrperfect/mrperfect_fields';
                 ?>
                 <?php echo view('hooks/module/tabcontent', [

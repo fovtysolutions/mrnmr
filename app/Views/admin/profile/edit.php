@@ -36,24 +36,45 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Date of Birth -->
+                <div class="col-md-6 col-xl-4">
+                    <div class="form-group row">
+                        <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control form-control-sm" id="dob" name="dob"  value="<?= $data['dob'] ?? '' ?>">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Age (Auto-filled) -->
                 <div class="col-md-6 col-xl-4">
                     <div class="form-group row">
                         <label for="age" class="col-sm-4 col-form-label">Age</label>
                         <div class="col-sm-8">
                             <input type="number" class="form-control form-control-sm" id="age" name="age"
-                                placeholder="Enter Age" value="<?= $data['age'] ?? '' ?>">
+                                placeholder="Auto-calculated Age" readonly value="<?= $data['age'] ?? '' ?>">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4">
-                    <div class="form-group row">
-                        <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
-                        <div class="col-sm-8">
-                            <input type="date" class="form-control form-control-sm" id="dob" name="dob"
-                                value="<?= $data['dob'] ?? '' ?>">
-                        </div>
-                    </div>
-                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#dob').on('change', function () {
+                            var dob = new Date($(this).val());
+                            var today = new Date();
+                            var age = today.getFullYear() - dob.getFullYear();
+                            var monthDiff = today.getMonth() - dob.getMonth();
+                            var dayDiff = today.getDate() - dob.getDate();
+
+                            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                                age--;
+                            }
+                            $('#age').val(age > 0 ? age : '');
+                        });
+                    });
+                </script>
+
                 <div class="col-md-6 col-xl-4">
                     <div class="form-group row">
                         <label for="height" class="col-sm-4 col-form-label">Height (Ft'Inches)</label>
@@ -72,12 +93,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4">
+                <!-- <div class="col-md-6 col-xl-4">
                     <div class="form-group row">
                         <label for="location" class="col-sm-4 col-form-label">Location</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control form-control-sm" id="location" name="location"
                                 placeholder="Enter Location" value="<?= $data['location'] ?? '' ?>">
+                        </div>
+                    </div>
+                </div> -->
+                <!-- state -->
+                <div class="col-md-6 col-xl-4">
+                    <div class="form-group row">
+                        <label for="state" class="col-sm-4 col-form-label">State</label>
+                        <div class="col-sm-8">
+                            <select class="form-control form-control-sm" id="state" name="state"
+                                value="<?= $data['state'] ?? '' ?>">
+                                <option>Select</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- city -->
+                <div class="col-md-6 col-xl-4">
+                    <div class="form-group row">
+                        <label for="city" class="col-sm-4 col-form-label">City</label>
+                        <div class="col-sm-8">
+                            <select class="form-control form-control-sm" id="city" name="city"
+                                value="<?= $data['city'] ?? '' ?>">
+                                <option>Select</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -467,6 +512,30 @@
                         </div>
                     </div>
                 </div>
+                <!--Partners state -->
+                <div class="col-md-6 col-xl-4">
+                    <div class="form-group row">
+                        <label for="partner_state" class="col-sm-4 col-form-label">State</label>
+                        <div class="col-sm-8">
+                            <select class="form-control form-control-sm" id="partner_state" name="partner_state"
+                                value="<?= $data['partner_state'] ?? '' ?>">
+                                <option>Select</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--Partners city -->
+                <div class="col-md-6 col-xl-4">
+                    <div class="form-group row">
+                        <label for="partner_city" class="col-sm-4 col-form-label">City</label>
+                        <div class="col-sm-8">
+                            <select class="form-control form-control-sm" id="partner_city" name="partner_city"
+                                value="<?= $data['partner_city'] ?? '' ?>">
+                                <option>Select</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-6 col-xl-4">
                     <div class="form-group row">
                         <label for="partner_education" class="col-sm-4 col-form-label">Education</label>
@@ -671,4 +740,62 @@
             });
         });
     });
+
+   
+   
+
 </script>
+<script>
+        $(document).ready(function () {
+            $.getJSON('<?= base_url('country_state_citys.json') ?>', function (data) {
+                const states = data[0].states;
+                states.forEach(state => {
+                    $('#state').append(
+                        `<option value="${state.name}">${state.name}</option>`
+                    );
+                });
+                $('#state').on('change', function () {
+                    const selectedState = $(this).val();
+                    const stateData = states.find(state => state.name === selectedState);
+
+                    if (stateData && stateData.cities.length > 0) {
+                        stateData.cities.forEach(city => {
+                            $('#city').append(
+                                `<option value="${city.name}">${city.name}</option>`
+                            );
+                        });
+                        $('#city').prop('disabled', false);
+                    } else {
+                        $('#city').empty().append('<option value="">Select City</option>').prop('disabled', true);
+                    }
+                });
+            });
+        });
+    </script>
+<script>
+        $(document).ready(function () {
+            $.getJSON('<?= base_url('country_state_citys.json') ?>', function (data) {
+                const states = data[0].states;
+                states.forEach(state => {
+                    $('#partner_state').append(
+                        `<option value="${state.name}">${state.name}</option>`
+                    );
+                });
+                $('#partner_state').on('change', function () {
+                    const selectedState = $(this).val();
+                    const stateData = states.find(state => state.name === selectedState);
+
+                    if (stateData && stateData.cities.length > 0) {
+                        stateData.cities.forEach(city => {
+                            $('#partner_city').append(
+                                `<option value="${city.name}">${city.name}</option>`
+                            );
+                        });
+                        $('#partner_city').prop('disabled', false);
+                    } else {
+                        $('#partner_city').empty().append('<option value="">Select City</option>').prop('disabled', true);
+                    }
+                });
+            });
+        });
+    </script>
