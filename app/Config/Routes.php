@@ -38,7 +38,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('profile', 'ProfileController::index');
     $routes->get('profile/(:any)', 'ProfileController::editprofile/$1');
     $routes->post('updateprofile', 'ProfileController::update');
-<<<<<<< HEAD
+
 
      //Settings Rolesandpermission Routes
 
@@ -60,11 +60,28 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
      
      //Calendar
      $routes->get('calendar', 'CalendarController::index');
-    });
-=======
-});
 
->>>>>>> 7220e496b64f8a18f8d27b163b1c78b7c1812b95
+      //Settings Rolesandpermission Routes
+
+      $routes->get('roleandpermission', 'RoleAndPermissionController::index');
+      $routes->get('roleandpermission/(:any)', 'RoleAndPermissionController::addPage/$1');
+      $routes->get('roleandpermissionedit/(:any)/(:any)', 'RoleAndPermissionController::editPage/$1/$2');
+      $routes->post('setroleandpermission', 'RoleAndPermissionController::dataInsert');
+      $routes->post('deleteroleandpermission', 'RoleAndPermissionController::deletedetails');
+      $routes->post('getroleandpermission', 'RoleAndPermissionController::getalldetails');
+  
+      //Settings Rolessetup Routes
+      $routes->get('Permissions', 'RoleSetup::index');
+      $routes->get('addPermissions/(:any)', 'RoleSetup::addPage/$1');
+      $routes->get('editPermissions/(:any)/(:any)', 'RoleSetup::editPage/$1/$2');
+      $routes->post('deletePermissions', 'RoleSetup::deletedetails');
+      $routes->post('getPermissions', 'RoleSetup::getalldetails');
+      $routes->post('setPermissions', 'RoleSetup::dataInsert');
+      $routes->post('setupdatePermissions', 'RoleSetup::dataUpdate');
+      
+      //Calendar
+      $routes->get('calendar', 'CalendarController::index');
+    });
 
 $routes->get('/getschools', 'SchoolController::getalldetails');
 $routes->post('/setcertificate', 'HomeController::dataInsert');
