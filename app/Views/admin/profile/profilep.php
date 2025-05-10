@@ -156,6 +156,14 @@
                 <td class="info-details"><?= $data['location'] ?? '' ?></td>
               </tr>
               <tr>
+                <th class="info-title">State</th>
+                <td class="info-details"><?= $data['state'] ?? '' ?></td>
+              </tr>
+              <tr>
+                <th class="info-title">City</th>
+                <td class="info-details"><?= $data['city'] ?? '' ?></td>
+              </tr>
+              <tr>
                 <th class="info-title">Complete Address</th>
                 <td class="info-details"><?= $data['complete_address'] ?? '' ?></td>
               </tr>
