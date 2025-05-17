@@ -1,5 +1,7 @@
 <div class="row">
-    <h5>Member Details</h5>
+    <div class="col-12">
+        <h4 class="mb-4">Member Details</h4>
+    </div>
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="first_name" class="col-sm-4 col-form-label">First Name</label>
@@ -27,7 +29,7 @@
             <label for="mrnmr_id" class="col-sm-4 col-form-label">MRnMR ID</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control form-control-sm" id="mrnmr_id" name="mrnmr_id"
-                    placeholder="Generated MRnMR ID" readonly>
+                    placeholder="Generated MRnMR ID" readonly value="<?= $detailsdata->mrnmr_id ?? '' ?>">
             </div>
         </div>
     </div>
@@ -57,7 +59,7 @@
         <div class="form-group row">
             <label for="registration_date" class="col-sm-4 col-form-label">Date of Registration</label>
             <div class="col-sm-8">
-                <input type="date" class="form-control form-control-sm" id="registration_date" name="registration_date">
+                <input type="date" class="form-control form-control-sm" id="registration_date" name="registration_date" value="<?= $detailsdata->registration_date ?? '' ?>">
             </div>
         </div>
     </div>
@@ -70,8 +72,10 @@
                     <option>Select Membership Status</option>
                     <option <?= isset($detailsdata->membership_status) == 'Internal' ? 'selected' : '' ?>>Internal</option>
                     <option <?= isset($detailsdata->membership_status) == 'Paid' ? 'selected' : '' ?>>Paid</option>
-                    <option <?= isset($detailsdata->membership_status) == 'Payment Pending' ? 'selected' : '' ?>>Payment Pending</option>
-                    <option <?= isset($detailsdata->membership_status) == 'Membership Expired' ? 'selected' : '' ?>>Membership Expired</option>
+                    <option <?= isset($detailsdata->membership_status) == 'Payment Pending' ? 'selected' : '' ?>>Payment
+                        Pending</option>
+                    <option <?= isset($detailsdata->membership_status) == 'Membership Expired' ? 'selected' : '' ?>>
+                        Membership Expired</option>
                     <option <?= isset($detailsdata->membership_status) == 'Banned' ? 'selected' : '' ?>>Banned</option>
                 </select>
             </div>
@@ -84,7 +88,7 @@
             <label for="personal_interview_date" class="col-sm-4 col-form-label">Personal Interview Date</label>
             <div class="col-sm-8">
                 <input type="date" class="form-control form-control-sm" id="personal_interview_date"
-                    name="personal_interview_date">
+                    name="personal_interview_date" value="<?= $detailsdata->personal_interview_date ?? '' ?>">
             </div>
         </div>
     </div>
@@ -95,7 +99,7 @@
             <label for="days_to_reg_end" class="col-sm-4 col-form-label">Days to Reg End</label>
             <div class="col-sm-8">
                 <input type="number" class="form-control form-control-sm" id="days_to_reg_end" name="days_to_reg_end"
-                    placeholder="Enter Days">
+                    placeholder="Enter Days" value="<?= $detailsdata->days_to_reg_end ?? '' ?>">
             </div>
         </div>
     </div>
@@ -105,7 +109,7 @@
         <div class="form-group row">
             <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
             <div class="col-sm-8">
-                <input type="date" class="form-control form-control-sm" id="dob" name="dob">
+                <input type="date" class="form-control form-control-sm" id="dob" name="dob" value="<?= $detailsdata->dob ?? '' ?>">
             </div>
         </div>
     </div>
@@ -116,7 +120,7 @@
             <label for="age" class="col-sm-4 col-form-label">Age</label>
             <div class="col-sm-8">
                 <input type="number" class="form-control form-control-sm" id="age" name="age"
-                    placeholder="Auto-calculated Age" readonly>
+                    placeholder="Auto-calculated Age" readonly value="<?= $detailsdata->age ?? '' ?>">
             </div>
         </div>
     </div>
@@ -145,7 +149,7 @@
             <label for="height" class="col-sm-4 col-form-label">Height</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control form-control-sm" id="height" name="height"
-                    placeholder="Enter Height (cm)">
+                    placeholder="Enter Height (cm)" value="<?= $detailsdata->height ?? '' ?>">
             </div>
         </div>
     </div>
@@ -156,7 +160,7 @@
             <label for="weight" class="col-sm-4 col-form-label">Weight</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control form-control-sm" id="weight" name="weight"
-                    placeholder="Enter Weight (kg)">
+                    placeholder="Enter Weight (kg)" value="<?= $detailsdata->weight ?? '' ?>">
             </div>
         </div>
     </div>
@@ -190,12 +194,12 @@
             <label for="education" class="col-sm-4 col-form-label">Education</label>
             <div class="col-sm-8">
                 <select class="form-control form-control-sm" id="education" name="education">
-                    <option>Select Education</option>
-                    <option>Metrics</option>
-                    <option>Graduate</option>
-                    <option>Post-Graduate</option>
-                    <option>Masters</option>
-                    <option>PhD</option>
+                    <option >Select Education</option>
+                    <option <?= isset($detailsdata->education) == 'Metrics' ? 'selected' : '' ?>>Metrics</option>
+                    <option <?= isset($detailsdata->education) == 'Graduate' ? 'selected' : '' ?>>Graduate</option>
+                    <option <?= isset($detailsdata->education) == 'Post-Graduate' ? 'selected' : '' ?>>Post-Graduate</option>
+                    <option <?= isset($detailsdata->education) == 'Masters' ? 'selected' : '' ?>>Masters</option>
+                    <option <?= isset($detailsdata->education) == 'PhD' ? 'selected' : '' ?>>PhD</option>
                 </select>
             </div>
         </div>
@@ -207,7 +211,7 @@
             <label for="profession" class="col-sm-4 col-form-label">Profession</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control form-control-sm" id="profession" name="profession"
-                    placeholder="Enter Profession">
+                    placeholder="Enter Profession" value="<?= $detailsdata->profession ?? '' ?>">
             </div>
         </div>
     </div>
@@ -218,7 +222,7 @@
             <label for="annual_income" class="col-sm-4 col-form-label">Annual Income (INR)</label>
             <div class="col-sm-8">
                 <input type="number" class="form-control form-control-sm" id="annual_income" name="annual_income"
-                    placeholder="Enter Annual Income">
+                    placeholder="Enter Annual Income" value="<?= $detailsdata->annual_income ?? '' ?>">
             </div>
         </div>
     </div>
@@ -230,11 +234,11 @@
             <div class="col-sm-8">
                 <select class="form-control form-control-sm" id="food_pref" name="food_pref">
                     <option>Select Food Preference</option>
-                    <option>Veg</option>
-                    <option>Non-Veg</option>
-                    <option>Vegan</option>
-                    <option>Pescatarian</option>
-                    <option>Jain</option>
+                    <option <?= isset($detailsdata->food_pref) == 'Veg' ? 'selected' : '' ?>>Veg</option>
+                    <option <?= isset($detailsdata->food_pref) == 'Non-Veg' ? 'selected' : '' ?>>Non-Veg</option>
+                    <option <?= isset($detailsdata->food_pref) == 'Vegan' ? 'selected' : '' ?>>Vegan</option>
+                    <option <?= isset($detailsdata->food_pref) == 'Pescatarian' ? 'selected' : '' ?>>Pescatarian</option>
+                    <option <?= isset($detailsdata->food_pref) == 'Jain' ? 'selected' : '' ?>>Jain</option>
                 </select>
             </div>
         </div>
@@ -247,10 +251,10 @@
             <div class="col-sm-8">
                 <select class="form-control form-control-sm" id="smoker" name="smoker">
                     <option>Select</option>
-                    <option>Sometimes</option>
-                    <option>No</option>
-                    <option>Yes</option>
-                    <option>Trying to quit</option>
+                    <option <?= isset($detailsdata->smoker) == 'Sometimes' ? 'selected' : '' ?>>Sometimes</option>
+                    <option <?= isset($detailsdata->smoker) == 'No' ? 'selected' : '' ?>>No</option>
+                    <option <?= isset($detailsdata->smoker) == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                    <option <?= isset($detailsdata->smoker) == 'Trying to quit' ? 'selected' : '' ?>>Trying to quit</option>
                 </select>
             </div>
         </div>
@@ -573,7 +577,10 @@
         </div>
     </div>
 </div>
- <h5>Mr Perfect Details</h5>
+<hr class="hr-m">
+<div class="col-12">
+    <h4 class="mb-4">Mr Perfect Detail</h4>
+</div>
 <div class="row">
     <!-- MmMR_ID -->
     <div class="col-md-6 col-xl-4">
@@ -593,10 +600,12 @@
             <div class="col-sm-8">
                 <div class="row">
                     <div class="col-6">
-                    <input class="form-control form-control-sm" type="number" id="ageRangeMin" name="ageRangeMin" min="18" max="99" placeholder="Min Age">
+                        <input class="form-control form-control-sm" type="number" id="ageRangeMin" name="ageRangeMin"
+                            min="18" max="99" placeholder="Min Age">
                     </div>
                     <div class="col-6">
-                    <input class="form-control form-control-sm" type="number" id="ageRangeMax" name="ageRangeMax" min="18" max="99" placeholder="Max Age">
+                        <input class="form-control form-control-sm" type="number" id="ageRangeMax" name="ageRangeMax"
+                            min="18" max="99" placeholder="Max Age">
                     </div>
                 </div>
                 <input type="hidden" name="age_range" id="age_range">
@@ -621,10 +630,12 @@
             <div class="col-sm-8">
                 <div class="row">
                     <div class="col-6">
-                    <input class="form-control form-control-sm" type="number" id="heightRangeMin" name="heightRangeMin" min="18" max="99" placeholder="Min Height">
+                        <input class="form-control form-control-sm" type="number" id="heightRangeMin"
+                            name="heightRangeMin" min="18" max="99" placeholder="Min Height">
                     </div>
                     <div class="col-6">
-                    <input class="form-control form-control-sm" type="number" id="heightRangeMax" name="heightRangeMax" min="18" max="99" placeholder="Max Height">
+                        <input class="form-control form-control-sm" type="number" id="heightRangeMax"
+                            name="heightRangeMax" min="18" max="99" placeholder="Max Height">
                     </div>
                 </div>
                 <input type="hidden" name="height_range" id="height_range">
@@ -646,10 +657,12 @@
             <div class="col-sm-8">
                 <div class="row">
                     <div class="col-6">
-                    <input class="form-control form-control-sm" type="number" id="weightRangeMin" name="weightRangeMin" min="18" max="99" placeholder="Min Weight">
+                        <input class="form-control form-control-sm" type="number" id="weightRangeMin"
+                            name="weightRangeMin" min="18" max="99" placeholder="Min Weight">
                     </div>
                     <div class="col-6">
-                    <input class="form-control form-control-sm" type="number" id="weightRangeMax" name="weightRangeMax" min="18" max="99" placeholder="Max Weight">
+                        <input class="form-control form-control-sm" type="number" id="weightRangeMax"
+                            name="weightRangeMax" min="18" max="99" placeholder="Max Weight">
                     </div>
                 </div>
                 <input type="hidden" name="weight_range" id="weight_range">

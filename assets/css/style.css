@@ -784,5 +784,7 @@ a {
 .attendance-table tbody td:last-child {
   font-weight: bold;
 }
-
+.hr-m{
+color:#c1c1c1;
+}
 
