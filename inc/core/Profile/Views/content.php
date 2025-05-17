@@ -1,4 +1,5 @@
 <form id="<?=$formid?>">
+    <input type="hidden" name="edit" value="<?=$editit?>">
     <div class="az-content-body az-content-body-dashboard-six">
         <div class="card-body-container">
             <div class="row">
@@ -10,7 +11,7 @@
                     <div class="form-group row">
                         <label for="name" class="col-sm-4 col-form-label">Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control form-control-sm" id="name" name="username" placeholder="Enter Your Name" value="<?= $profile->username ?? '' ?>">
+                            <input type="text" class="form-control form-control-sm" id="name" name="username" placeholder="Enter Your Name" value="<?= $userprofile->username ?? '' ?>">
                         </div>
                     </div>
                 </div>
@@ -19,21 +20,19 @@
                     <div class="form-group row">
                         <label for="email" class="col-sm-4 col-form-label">Email</label>
                         <div class="col-sm-8">
-                            <input readonly type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Enter Email" value="<?= $profile->email ?? '' ?>">
+                            <input readonly type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Enter Email" value="<?= $userprofile->email ?? '' ?>">
                         </div>
                     </div>
                 </div>
-
                 <!-- Phone -->
                 <div class="col-md-6 col-xl-4">
                     <div class="form-group row">
                         <label for="mobile" class="col-sm-4 col-form-label">Phone</label>
                         <div class="col-sm-8">
-                            <input type="tel" class="form-control form-control-sm" id="mobile" name="mobile" placeholder="Enter Phone Number" value="<?= $profile->mobile ?? '' ?>">
+                            <input type="tel" class="form-control form-control-sm" id="mobile" name="mobile" placeholder="Enter Phone Number" value="<?= $userprofile->mobile ?? '' ?>">
                         </div>
                     </div>
                 </div>
-
                 <!-- Date of Birth -->
                 <div class="col-md-6 col-xl-4">
                     <div class="form-group row">
@@ -43,32 +42,15 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Age (Auto-filled) -->
                 <div class="col-md-6 col-xl-4">
                     <div class="form-group row">
                         <label for="age" class="col-sm-4 col-form-label">Age</label>
                         <div class="col-sm-8">
-                            <input type="number" class="form-control form-control-sm" id="age" name="age" placeholder="Auto-calculated Age" readonly value="<?= $profile->age ?? '' ?>">
+                            <input type="number" class="form-control form-control-sm" id="age" name="age" placeholder="Auto-calculated Age" readonly value="<?= $userprofile->age ?? '' ?>">
                         </div>
                     </div>
                 </div>
-                <script>
-                    $(document).ready(function () {
-                        $('#dob').on('change', function () {
-                            var dob = new Date($(this).val());
-                            var today = new Date();
-                            var age = today.getFullYear() - dob.getFullYear();
-                            var monthDiff = today.getMonth() - dob.getMonth();
-                            var dayDiff = today.getDate() - dob.getDate();
-
-                            if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-                                age--;
-                            }
-                            $('#age').val(age > 0 ? age : '');
-                        });
-                    });
-                </script>
                 <div class="col-md-6 col-xl-4">
                     <div class="form-group row">
                         <label for="height" class="col-sm-4 col-form-label">Height (Ft'Inches)</label>
@@ -90,9 +72,8 @@
                     <div class="form-group row">
                         <label for="state" class="col-sm-4 col-form-label">State</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="state" name="state"
-                                value="<?= $profile->state ?? '' ?>">
-                                <option>Select</option>
+                            <select class="form-control form-control-sm" id="state" name="state">
+                                <option value="">Select</option>
                             </select>
                         </div>
                     </div>
@@ -102,8 +83,7 @@
                     <div class="form-group row">
                         <label for="city" class="col-sm-4 col-form-label">City</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="city" name="city"
-                                value="<?= $profile->city ?? '' ?>">
+                            <select class="form-control form-control-sm" id="city" name="city">
                                 <option>Select</option>
                             </select>
                         </div>
@@ -409,8 +389,8 @@
                     <div class="form-group row">
                         <label for="photo1" class="col-sm-4 col-form-label">Upload Photo 1</label>
                         <div class="col-sm-8">
-                            <input type="file" class="form-control-file form-control-sm" id="photo12" name="photo12"
-                                value="<?= $profile->photo1 ?? '' ?>">
+                            <input type="file" class="form-control-file form-control-sm" id="photo123">
+                            <input type="hidden" class="form-control-file form-control-sm" id="photo12" name="photo1" value="<?= $profile->photo1 ?? '' ?>">
                         </div>
                     </div>
                 </div>
@@ -418,8 +398,8 @@
                     <div class="form-group row">
                         <label for="photo2" class="col-sm-4 col-form-label">Upload Photo 2</label>
                         <div class="col-sm-8">
-                            <input type="file" class="form-control-file form-control-sm" id="photo22" name="photo22"
-                                value="<?= $profile->photo2 ?? '' ?>">
+                            <input type="file" class="form-control-file form-control-sm" id="photo223">
+                            <input type="hidden" class="form-control-file form-control-sm" id="photo22" name="photo2" value="<?= $profile->photo2 ?? '' ?>">
                         </div>
                     </div>
                 </div>
@@ -427,8 +407,8 @@
                     <div class="form-group row">
                         <label for="address_proof" class="col-sm-4 col-form-label">Upload Address Proof</label>
                         <div class="col-sm-8">
-                            <input type="file" class="form-control-file form-control-sm" id="address_proof1"
-                                name="address_proof1" value="<?= $profile->address_proof ?? '' ?>">
+                            <input type="file" class="form-control-file form-control-sm" id="address_proof13">
+                            <input type="hidden" class="form-control-file form-control-sm" id="address_proof1" name="address_proof" value="<?= $profile->address_proof ?? '' ?>">
                         </div>
                     </div>
                 </div>
@@ -436,8 +416,8 @@
                     <div class="form-group row">
                         <label for="pan_card" class="col-sm-4 col-form-label">Upload PAN Card</label>
                         <div class="col-sm-8">
-                            <input type="file" class="form-control-file form-control-sm" id="pan_card1" name="pan_card1"
-                                value="<?= $profile->pan_card ?? '' ?>">
+                            <input type="file" class="form-control-file form-control-sm" id="pan_card13">
+                            <input type="hidden" class="form-control-file form-control-sm" id="pan_card1" name="pan_card" value="<?= $profile->pan_card ?? '' ?>">
                         </div>
                     </div>
                 </div>
@@ -684,5 +664,27 @@
     <input type="hidden" name="<?php echo csrf_token(); ?>" value="<?php echo csrf_hash(); ?>" id="csrf_token">
 </form>
 <?php echo $this->section('script') ?>
+    <script>
+        $(document).ready(function () {
+            $('#dob').on('change', function () {
+                var dob = new Date($(this).val());
+                var today = new Date();
+                var age = today.getFullYear() - dob.getFullYear();
+                var monthDiff = today.getMonth() - dob.getMonth();
+                var dayDiff = today.getDate() - dob.getDate();
+                
+                if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                    age--;
+                }
+                $('#age').val(age > 0 ? age : '');
+            });
+        });
+    </script>
+    <?php echo view('common_script/statecityscript', ['state'=>'state','city'=>'city']); ?>
+    <?php echo view('common_script/statecityscript', ['state'=>'partner_state','city'=>'partner_city']); ?>
+    <?php echo view('common_script/imageorfileupload', ['imageids'=>'photo12','input'=>'photo123','filetype'=>'image']); ?>
+    <?php echo view('common_script/imageorfileupload', ['imageids'=>'photo22','input'=>'photo223','filetype'=>'image']); ?>
+    <?php echo view('common_script/imageorfileupload', ['imageids'=>'address_proof1','input'=>'address_proof13','filetype'=>'image']); ?>
+    <?php echo view('common_script/imageorfileupload', ['imageids'=>'pan_card1','input'=>'pan_card13','filetype'=>'image']); ?>
     <?php echo view('common_script/formsubmit', ['formid' => $formid, 'submitbtn' => 'savebtn', 'formurl' => $formroute]); ?>
 <?php echo $this->endSection() ?>

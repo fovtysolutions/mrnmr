@@ -1,7 +1,7 @@
 <?php // echo view('common_script/imageorfileupload', ['imageids'=>'po_attachment','input'=>'attechment','filetype'=>'image']); ?>
 <!-- <input type="hidden" name="<?=$imageids?>" id="<?=$imageids?>"> -->
 <script>
-    $(document).ready(function () {
+    $(document).ready(function () {        
         const getURL = '<?= base_url('singleuploader') ?>';
         $('#<?= $input ?>').change(function () {
             const formData = new FormData();

@@ -79,9 +79,9 @@
             <span><?= $data['email'] ?? '' ?></span>
           </div><!-- az-header-profile -->
 
-          <a href="<?= base_url('/admin/profile') ?>" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My
+          <a href="<?= base_url('profile') ?>" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My
             Profile</a>
-          <a href="<?= base_url('admin/profile/edit') ?>" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit
+          <a href="<?= base_url('profile/edit') ?>" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit
             Profile</a>
           <!-- <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a> -->
           <a href="<?= base_url('/logout') ?>" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign

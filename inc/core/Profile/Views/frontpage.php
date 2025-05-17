@@ -64,14 +64,15 @@
     <div class="az-content-left az-content-left-profile">
       <div class="az-profile-overview">
         <div class="az-img-user">
-          <img src="<?= base_url(isset($profile->profile_image) ? $profile->profile_image : 'uploads/default_image.jpg'); ?>" id="imgprofile"
-            alt="Profile Image">
+          <img
+            src="<?= base_url(isset($profile->profile_image) ? $profile->profile_image : 'uploads/default_image.jpg'); ?>"
+            id="imgprofile" alt="Profile Image">
         </div>
 
         <div class="d-flex justify-content-between mg-b-20">
           <div>
-            <h5 class="az-profile-name"><?= $profile->username ?? '' ?></h5>
-            <p class="az-profile-name-text"><?= $profile->email ?? '' ?></p>
+            <h5 class="az-profile-name"><?= $userprofile->username ?? '' ?></h5>
+            <p class="az-profile-name-text"><?= $userprofile->email ?? '' ?></p>
           </div>
           <div class="btn-icon-list">
             <button class="btn btn-gray btn-icon" onclick="document.getElementById('imageUpload').click();">
@@ -94,14 +95,14 @@
             <div class="media-icon"><i class="icon ion-md-phone-portrait"></i></div>
             <div class="media-body">
               <span>Mobile</span>
-              <div><?= $profile->mobile ?? '' ?></div>
+              <div><?= $userprofile->mobile ?? '' ?></div>
             </div><!-- media-body -->
           </div><!-- media -->
           <div class="media">
             <div class="media-icon"><i class="icon ion ion-md-mail"></i></div>
             <div class="media-body">
               <span>Email</span>
-              <div><?= $profile->email ?? '' ?></div>
+              <div><?= $userprofile->email ?? '' ?></div>
             </div><!-- media-body -->
           </div><!-- media -->
           <div class="media">
@@ -134,15 +135,15 @@
             <table class="info-table">
               <tr>
                 <th class="info-title">Name</th>
-                <td class="info-details"><?= $profile->username ?? '' ?></td>
+                <td class="info-details"><?= $userprofile->username ?? '' ?></td>
               </tr>
               <tr>
                 <th class="info-title">Age</th>
-                <td class="info-details"><?= $profile->age ?? '' ?></td>
+                <td class="info-details"><?= $userprofile->age ?? '' ?></td>
               </tr>
               <tr>
                 <th class="info-title">Date Of Birth</th>
-                <td class="info-details"><?= $profile->dob ?? '' ?></td>
+                <td class="info-details"><?= $userprofile->dob ?? '' ?></td>
               </tr>
               <tr>
                 <th class="info-title">Height</th>
@@ -158,11 +159,11 @@
               </tr>
               <tr>
                 <th class="info-title">State</th>
-                <td class="info-details"><?= $profile->state ?? '' ?></td>
+                <td class="info-details"><?= $userprofile->state ?? '' ?></td>
               </tr>
               <tr>
                 <th class="info-title">City</th>
-                <td class="info-details"><?= $profile->city ?? '' ?></td>
+                <td class="info-details"><?= $userprofile->city ?? '' ?></td>
               </tr>
               <tr>
                 <th class="info-title">Complete Address</th>
@@ -302,19 +303,20 @@
             <table class="info-table">
               <tr>
                 <th class="info-title">Photo 1</th>
-                <td class="info-details"><img src="<?= $profile->photo1 ?? '' ?>" alt="1"></td>
+                <td class="info-details"><img src="<?= base_url($profile->photo1 ?? '') ?>" alt="1"></td>
               </tr>
               <tr>
                 <th class="info-title">Photo 2</th>
-                <td class="info-details"><img src="<?= $profile->photo2 ?? '' ?>" alt="2"></td>
+                <td class="info-details"><img src="<?= base_url($profile->photo2 ?? '') ?>" alt="2"></td>
               </tr>
               <tr>
                 <th class="info-title">Address Proof</th>
-                <td class="info-details"><img src="<?= $profile->address_proof ?? '' ?>" alt="address proof"></td>
+                <td class="info-details"><img src="<?= base_url($profile->address_proof ?? '') ?>" alt="address proof">
+                </td>
               </tr>
               <tr>
                 <th class="info-title">PAN Card</th>
-                <td class="info-details"><img src="<?= $profile->pan_card ?? '' ?>" alt="pancard"></td>
+                <td class="info-details"><img src="<?= base_url($profile->pan_card ?? '') ?>" alt="pancard"></td>
               </tr>
             </table>
           </div>

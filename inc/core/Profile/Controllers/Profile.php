@@ -15,12 +15,14 @@ class Profile extends \CodeIgniter\Controller
     public function index()
     {
         $master = $this->master;
-        $userprofile = $this->model->getUsersprofile();
+        $userprofile = $this->model->getByuId('user');
+        $profiledetails = $this->model->getByuId('profile_details');
         $contentdetails = [
             'contentfilename' => 'Core\Profile\Views\contentinputfields',
             'title' => $master, 
             'heading' => "Profile", 
-            'profile' => $userprofile
+            'userprofile' => $userprofile,
+            'profile' => $profiledetails,
         ];
         $data = [
             "title" => $this->config['name'],
@@ -33,17 +35,20 @@ class Profile extends \CodeIgniter\Controller
     public function edit()
     {
         $master = $this->master;
-        $userprofile = $this->model->getUsersprofile();
-        $userprofile = $this->model->checkandaddprofile();
+        $checkprofile = $this->model->checkandaddprofile();
+        $userprofile = $this->model->getByuId('user');
+        $profiledetails = $this->model->getByuId('profile_details');
+        $uid = $userprofile->uid;
         $addDatas = [
             'contentfilename' => 'Core\Profile\Views\contentinputfields',
             'title' => "Profile",
             'heading' => "Edit Profile",
-            'editit' => false,
+            'editit' => $uid,
             'formid' => "form$master",
             'formroute' => "$master/datasetup",
             'successroute' => $master,
-            'profile' => $userprofile
+            'userprofile' => $userprofile,
+            'profile' => $profiledetails,
         ];
         $data = [
             "title" => $this->config['name'],
@@ -67,7 +72,18 @@ class Profile extends \CodeIgniter\Controller
                     'new_csrf_token' => csrf_hash()
                 ]);
             }
-            $postData['updated_at'] = date('Y-m-d H:i:s');   
+            $postData['updated_at'] = date('Y-m-d H:i:s');
+            $user = [
+                'username' => $postData['username'],
+                'email' => $postData['email'],
+                'mobile' => $postData['mobile'],
+                'age' => $postData['age'],
+                'city' => $postData['city'],
+                'state' => $postData['state'],
+                'profession' => $postData['profession'],
+                'familybg' => $postData['familybg'],
+            ];   
+
         } else {
             $postData['uid'] = bin2hex(random_bytes(8)); 
             $postData['masterkey'] = $this->master; 
@@ -78,7 +94,15 @@ class Profile extends \CodeIgniter\Controller
             unset($postData['csrf']);
             if ($isEdit) {
                 unset($postData['edit']);
-                if(!$this->model->updateit($isEdit, $postData)){
+                unset($postData['username']);
+                unset($postData['email']);
+                unset($postData['mobile']);
+                unset($postData['age']);
+                unset($postData['city']);
+                unset($postData['state']);
+                unset($postData['profession']);
+                unset($postData['familybg']);
+                if(!$this->model->updateit('profile_details',$isEdit, $postData) && !$this->model->updateit('user',$isEdit, $user)){
                     return $this->response->setJSON([
                         'status' => 'error',
                         'message' => "something went wrong!!",
