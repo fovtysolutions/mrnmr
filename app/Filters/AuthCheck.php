@@ -28,7 +28,7 @@ class AuthCheck implements FilterInterface
         $session = \Config\Services::session();
 
         // Check if the session is not set
-        if (!$session->get('logged_in')) {
+        if (!$session->get('isLogIn')) {
             // Redirect to login page if not authenticated
             return redirect()->to('/login');
         }

@@ -9,7 +9,6 @@
  */
 namespace SebastianBergmann\CodeCoverage\StaticAnalysis;
 
-use const DIRECTORY_SEPARATOR;
 use function file_get_contents;
 use function file_put_contents;
 use function implode;
@@ -22,36 +21,37 @@ use SebastianBergmann\FileIterator\Facade as FileIteratorFacade;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for phpunit/php-code-coverage
- *
- * @phpstan-import-type CodeUnitFunctionType from \SebastianBergmann\CodeCoverage\StaticAnalysis\CodeUnitFindingVisitor
- * @phpstan-import-type CodeUnitMethodType from \SebastianBergmann\CodeCoverage\StaticAnalysis\CodeUnitFindingVisitor
- * @phpstan-import-type CodeUnitClassType from \SebastianBergmann\CodeCoverage\StaticAnalysis\CodeUnitFindingVisitor
- * @phpstan-import-type CodeUnitTraitType from \SebastianBergmann\CodeCoverage\StaticAnalysis\CodeUnitFindingVisitor
- * @phpstan-import-type LinesOfCodeType from \SebastianBergmann\CodeCoverage\StaticAnalysis\FileAnalyser
- * @phpstan-import-type LinesType from \SebastianBergmann\CodeCoverage\StaticAnalysis\FileAnalyser
  */
 final class CachingFileAnalyser implements FileAnalyser
 {
-    private static ?string $cacheVersion = null;
-    private readonly string $directory;
-    private readonly FileAnalyser $analyser;
-    private readonly bool $useAnnotationsForIgnoringCode;
-    private readonly bool $ignoreDeprecatedCode;
-    private array $cache = [];
+    /**
+     * @var ?string
+     */
+    private static $cacheVersion;
 
-    public function __construct(string $directory, FileAnalyser $analyser, bool $useAnnotationsForIgnoringCode, bool $ignoreDeprecatedCode)
+    /**
+     * @var FileAnalyser
+     */
+    private $analyser;
+
+    /**
+     * @var array
+     */
+    private $cache = [];
+
+    /**
+     * @var string
+     */
+    private $directory;
+
+    public function __construct(string $directory, FileAnalyser $analyser)
     {
         Filesystem::createDirectory($directory);
 
-        $this->analyser                      = $analyser;
-        $this->directory                     = $directory;
-        $this->useAnnotationsForIgnoringCode = $useAnnotationsForIgnoringCode;
-        $this->ignoreDeprecatedCode          = $ignoreDeprecatedCode;
+        $this->analyser  = $analyser;
+        $this->directory = $directory;
     }
 
-    /**
-     * @return array<string, CodeUnitClassType>
-     */
     public function classesIn(string $filename): array
     {
         if (!isset($this->cache[$filename])) {
@@ -61,9 +61,6 @@ final class CachingFileAnalyser implements FileAnalyser
         return $this->cache[$filename]['classesIn'];
     }
 
-    /**
-     * @return array<string, CodeUnitTraitType>
-     */
     public function traitsIn(string $filename): array
     {
         if (!isset($this->cache[$filename])) {
@@ -73,9 +70,6 @@ final class CachingFileAnalyser implements FileAnalyser
         return $this->cache[$filename]['traitsIn'];
     }
 
-    /**
-     * @return array<string, CodeUnitFunctionType>
-     */
     public function functionsIn(string $filename): array
     {
         if (!isset($this->cache[$filename])) {
@@ -86,7 +80,7 @@ final class CachingFileAnalyser implements FileAnalyser
     }
 
     /**
-     * @return LinesOfCodeType
+     * @psalm-return array{linesOfCode: int, commentLinesOfCode: int, nonCommentLinesOfCode: int}
      */
     public function linesOfCodeFor(string $filename): array
     {
@@ -97,9 +91,6 @@ final class CachingFileAnalyser implements FileAnalyser
         return $this->cache[$filename]['linesOfCodeFor'];
     }
 
-    /**
-     * @return LinesType
-     */
     public function executableLinesIn(string $filename): array
     {
         if (!isset($this->cache[$filename])) {
@@ -109,9 +100,6 @@ final class CachingFileAnalyser implements FileAnalyser
         return $this->cache[$filename]['executableLinesIn'];
     }
 
-    /**
-     * @return LinesType
-     */
     public function ignoredLinesFor(string $filename): array
     {
         if (!isset($this->cache[$filename])) {
@@ -143,7 +131,10 @@ final class CachingFileAnalyser implements FileAnalyser
         $this->write($filename, $this->cache[$filename]);
     }
 
-    private function read(string $filename): array|false
+    /**
+     * @return mixed
+     */
+    private function read(string $filename)
     {
         $cacheFile = $this->cacheFile($filename);
 
@@ -153,34 +144,24 @@ final class CachingFileAnalyser implements FileAnalyser
 
         return unserialize(
             file_get_contents($cacheFile),
-            ['allowed_classes' => false],
+            ['allowed_classes' => false]
         );
     }
 
-    private function write(string $filename, array $data): void
+    /**
+     * @param mixed $data
+     */
+    private function write(string $filename, $data): void
     {
         file_put_contents(
             $this->cacheFile($filename),
-            serialize($data),
+            serialize($data)
         );
     }
 
     private function cacheFile(string $filename): string
     {
-        $cacheKey = md5(
-            implode(
-                "\0",
-                [
-                    $filename,
-                    file_get_contents($filename),
-                    self::cacheVersion(),
-                    $this->useAnnotationsForIgnoringCode,
-                    $this->ignoreDeprecatedCode,
-                ],
-            ),
-        );
-
-        return $this->directory . DIRECTORY_SEPARATOR . $cacheKey;
+        return $this->directory . DIRECTORY_SEPARATOR . md5($filename . "\0" . file_get_contents($filename) . "\0" . self::cacheVersion());
     }
 
     private static function cacheVersion(): string

@@ -1,100 +1,175 @@
 <?php
 
-use CodeIgniter\Router\RouteCollection;
+namespace Config;
+
+// Create a new instance of our RouteCollection class.
+$routes = Services::routes();
+
+// Load the system's routing file first, so that the app and ENVIRONMENT
+// can override as needed.
+
 
 /**
- * @var RouteCollection $routes
+ * --------------------------------------------------------------------
+ * Router Setup
+ * --------------------------------------------------------------------
  */
-$routes->group('admin', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'HomeController::index');
-    // Members Routes
-    $routes->get('member', 'MemberController::index');
-    $routes->get('addmember/(:any)', 'MemberController::addPage/$1');
-    $routes->get('editmember/(:any)/(:any)', 'MemberController::editPage/$1/$2');
-    $routes->post('deletemember', 'MemberController::deletedetails');
-    $routes->post('setmember', 'MemberController::dataInsert');
-    $routes->post('setupdatemember', 'MemberController::dataUpdate');
-    $routes->post('getmember', 'MemberController::getalldetails');
+$routes->setDefaultNamespace('Core\Home\Controllers');
+$routes->setDefaultController('Home');
+$routes->setDefaultMethod('index');
+$routes->setTranslateURIDashes(false);
+$routes->set404Override();
+$routes->setAutoRoute(true);
+/*
+ * --------------------------------------------------------------------
+ * Route Definitions
+ * --------------------------------------------------------------------
+ */
 
-    // My Mr Perfect Routes
-    $routes->get('mrperfect', 'MrPerfectController::index');
-    $routes->get('addmrperfect/(:any)', 'MrPerfectController::addPage/$1');
-    $routes->get('editmrperfect/(:any)/(:any)', 'MrPerfectController::editPage/$1/$2');
-    $routes->post('deletemrperfect', 'MrPerfectController::deletedetails');
-    $routes->post('setmrperfect', 'MrPerfectController::dataInsert');
-    $routes->post('setupdatemrperfect', 'MrPerfectController::dataUpdate');
-    $routes->post('getmrperfect', 'MrPerfectController::getalldetails');
+// We get a performance increase by specifying the default
+// route since we don't have to scan directories.
 
-    // Events Routes
-    $routes->get('events', 'EventsController::index');
-    $routes->get('addevents/(:any)', 'EventsController::addPage/$1');
-    $routes->get('editevents/(:any)/(:any)', 'EventsController::editPage/$1/$2');
-    $routes->post('deleteevents', 'EventsController::deletedetails');
-    $routes->post('setevents', 'EventsController::dataInsert');
-    $routes->post('setupdateevents', 'EventsController::dataUpdate');
-    $routes->post('getevents', 'EventsController::getalldetails');
-
-    //profile
-    $routes->get('profile', 'ProfileController::index');
-    $routes->get('profile/(:any)', 'ProfileController::editprofile/$1');
-    $routes->post('updateprofile', 'ProfileController::update');
+$session = session();
+$checkadmin = $session->get('isAdmin');
 
 
-     //Settings Rolesandpermission Routes
+$routes->get('/', 'Home::index');
+$routes->set404Override('\Core\Home\Controllers\Home::show404');
+$routes->get('login', 'Home::login');
+$routes->post('login', 'Home::submitlogin');
+$routes->get('register', 'Home::register');
+$routes->post('register', 'Home::submitregister');
+$routes->get('forgot', 'Home::forgot');
+$routes->post('forgot', 'Home::submitforgot');
+$routes->get('otp', 'Home::otp');
+$routes->post('otp', 'Home::check_code');
+$routes->get('reset', 'Home::reset');
+$routes->post('reset', 'Home::new_password');
+$routes->get('logout', 'Home::logout');
+$routes->post('singleuploader', 'Home::singleuploader');
+$routes->post('multiuploader', 'Home::multiuploader');
 
-     $routes->get('roleandpermission', 'RoleAndPermissionController::index');
-     $routes->get('roleandpermission/(:any)', 'RoleAndPermissionController::addPage/$1');
-     $routes->get('roleandpermissionedit/(:any)/(:any)', 'RoleAndPermissionController::editPage/$1/$2');
-     $routes->post('setroleandpermission', 'RoleAndPermissionController::dataInsert');
-     $routes->post('deleteroleandpermission', 'RoleAndPermissionController::deletedetails');
-     $routes->post('getroleandpermission', 'RoleAndPermissionController::getalldetails');
- 
-     //Settings Rolessetup Routes
-     $routes->get('Permissions', 'RoleSetup::index');
-     $routes->get('addPermissions/(:any)', 'RoleSetup::addPage/$1');
-     $routes->get('editPermissions/(:any)/(:any)', 'RoleSetup::editPage/$1/$2');
-     $routes->post('deletePermissions', 'RoleSetup::deletedetails');
-     $routes->post('getPermissions', 'RoleSetup::getalldetails');
-     $routes->post('setPermissions', 'RoleSetup::dataInsert');
-     $routes->post('setupdatePermissions', 'RoleSetup::dataUpdate');
-     
-     //Calendar
-     $routes->get('calendar', 'CalendarController::index');
+$routes->group('', ['namespace' => 'Core\Auth\Controllers'], static function ($routes) {
+    $routes->get('login/(:any)', 'Auth::social_login/$1');
+    $routes->post('timezone', 'Auth::timezone');
+});
+/*
+ * --------------------------------------------------------------------
+ * Additional Routing
+ * --------------------------------------------------------------------
+ *
+ * There will often be times that you need additional routing and you
+ * need it to be able to override any defaults in this file. Environment
+ * based routes is one such time. require() additional route files here
+ * to make that happen.
+ *
+ * You will have access to the $routes object within that file without
+ * needing to reload it.
+ */
 
-      //Settings Rolesandpermission Routes
+/**
+ * --------------------------------------------------------------------
+ * Include Modules Routes Files
+ * --------------------------------------------------------------------
+ */
 
-      $routes->get('roleandpermission', 'RoleAndPermissionController::index');
-      $routes->get('roleandpermission/(:any)', 'RoleAndPermissionController::addPage/$1');
-      $routes->get('roleandpermissionedit/(:any)/(:any)', 'RoleAndPermissionController::editPage/$1/$2');
-      $routes->post('setroleandpermission', 'RoleAndPermissionController::dataInsert');
-      $routes->post('deleteroleandpermission', 'RoleAndPermissionController::deletedetails');
-      $routes->post('getroleandpermission', 'RoleAndPermissionController::getalldetails');
-  
-      //Settings Rolessetup Routes
-      $routes->get('Permissions', 'RoleSetup::index');
-      $routes->get('addPermissions/(:any)', 'RoleSetup::addPage/$1');
-      $routes->get('editPermissions/(:any)/(:any)', 'RoleSetup::editPage/$1/$2');
-      $routes->post('deletePermissions', 'RoleSetup::deletedetails');
-      $routes->post('getPermissions', 'RoleSetup::getalldetails');
-      $routes->post('setPermissions', 'RoleSetup::dataInsert');
-      $routes->post('setupdatePermissions', 'RoleSetup::dataUpdate');
-      
-      //Calendar
-      $routes->get('calendar', 'CalendarController::index');
-    });
 
-$routes->get('/getschools', 'SchoolController::getalldetails');
-$routes->post('/setcertificate', 'HomeController::dataInsert');
-$routes->get('/', 'HomeController::index');
+if($checkadmin == 1 || $checkadmin == 2) {
+    if (file_exists(ROOTPATH.'inc/core')) {
+        $modulesPath = ROOTPATH.'inc/core/';
+        $modules = scandir($modulesPath);
 
-//Auth Credentials
-$routes->get('/login', 'AuthController::index');
-$routes->get('/register', 'AuthController::register');
-$routes->get('/forgotpassword', 'AuthController::forgotpassword');
-$routes->get('/resetpassword', 'AuthController::resetpassword');
-$routes->post('/registerpost', 'AuthController::registerpost');
-$routes->post('/login', 'AuthController::login');
-$routes->post('/forgotpasswordpost', 'AuthController::forgotpasswordpost');
-$routes->post('/resetPasswordpost', 'AuthController::resetPasswordpost');
-$routes->get('/logout', 'AuthController::logout');
-$routes->post('fileorimageupload', 'FileorImageUploadController::index');
+        foreach ($modules as $module) {
+            if ($module === '.' || $module === '..') continue;
+            if (is_dir($modulesPath) . '/' . $module) {
+                $routesPath = $modulesPath . $module . '/Config/Routes.php';
+                if (file_exists($routesPath)) {
+                    require($routesPath);
+                } else {
+                    continue;
+                }
+            }
+        }
+    }
+}
+
+if($checkadmin == 3) {
+    if (file_exists(ROOTPATH.'inc/superadmin')) {
+        $modulesPath = ROOTPATH.'inc/superadmin/';
+        $modules = scandir($modulesPath);
+
+        foreach ($modules as $module) {
+            if ($module === '.' || $module === '..') continue;
+            if (is_dir($modulesPath) . '/' . $module) {
+                $routesPath = $modulesPath . $module . '/Config/Routes.php';
+                if (file_exists($routesPath)) {
+                    require($routesPath);
+                } else {
+                    continue;
+                }
+            }
+        }
+    }
+}
+
+if (file_exists(ROOTPATH.'inc/setup')) {
+    $modulesPath = ROOTPATH.'inc/setup/';
+    $modules = scandir($modulesPath);
+
+    foreach ($modules as $module) {
+        if ($module === '.' || $module === '..') continue;
+        if (is_dir($modulesPath) . '/' . $module) {
+            $routesPath = $modulesPath . $module . '/Config/Routes.php';
+            if (file_exists($routesPath)) {
+                require($routesPath);
+            } else {
+                continue;
+            }
+        }
+    }
+}
+
+if (file_exists(ROOTPATH.'inc/themes/backend')) {
+    $modulesPath = ROOTPATH.'inc/themes/backend/';
+    $modules = scandir($modulesPath);
+
+    foreach ($modules as $module) {
+        if ($module === '.' || $module === '..') continue;
+        if (is_dir($modulesPath) . '/' . $module) {
+            $routesPath = $modulesPath . $module . '/Config/Routes.php';
+            if (file_exists($routesPath)) {
+                require($routesPath);
+            } else {
+                continue;
+            }
+        }
+    }
+}
+
+if (file_exists(ROOTPATH.'inc/themes/frontend')) {
+    $modulesPath = ROOTPATH.'inc/themes/frontend/';
+    $modules = scandir($modulesPath);
+
+    foreach ($modules as $module) {
+        if ($module === '.' || $module === '..') continue;
+        if (is_dir($modulesPath) . '/' . $module) {
+            $routesPath = $modulesPath . $module . '/Config/Routes.php';
+            if (file_exists($routesPath)) {
+                require($routesPath);
+            } else {
+                continue;
+            }
+        }
+    }
+}
+
+if ( file_exists( realpath(  __DIR__."/../Helpers" ) ) ) {
+    $helperPath = realpath(  __DIR__."/../Helpers/" )."/";
+    $helpers = scandir($helperPath);
+    foreach ($helpers as $helper) {
+        if ($helper === '.' || $helper === '..' || stripos( $helper , "_helper.php") === false) continue;
+        if (  file_exists( $helperPath.$helper ) ) {
+            require_once( $helperPath.$helper );
+        }
+    }
+}

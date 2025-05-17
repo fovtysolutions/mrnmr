@@ -1,0 +1,9 @@
+CRITICAL - 2025-05-10 11:10:32 --> syntax error, unexpected token "return", expecting "function" or "const"
+#0 C:\xampp\htdocs\HMS709\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\HMS709\vendor\codeigniter4\framework\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Core\\Calendar\\C...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('Core\\Calendar\\C...')
+#3 C:\xampp\htdocs\HMS709\vendor\codeigniter4\framework\system\CodeIgniter.php(797): class_exists('\\Core\\Calendar\\...', true)
+#4 C:\xampp\htdocs\HMS709\vendor\codeigniter4\framework\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#5 C:\xampp\htdocs\HMS709\vendor\codeigniter4\framework\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\HMS709\index.php(44): CodeIgniter\CodeIgniter->run()
+#7 {main}

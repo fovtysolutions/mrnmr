@@ -1,67 +1,62 @@
 {
-    "name": "codeigniter4/framework",
-    "description": "The CodeIgniter framework v4",
-    "license": "MIT",
-    "type": "project",
-    "homepage": "https://codeigniter.com",
-    "support": {
-        "forum": "https://forum.codeigniter.com/",
-        "source": "https://github.com/codeigniter4/CodeIgniter4",
-        "slack": "https://codeigniterchat.slack.com"
-    },
-    "require": {
-        "php": "^8.1",
-        "ext-intl": "*",
-        "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^7.9",
-        "laminas/laminas-escaper": "^2.14",
-        "psr/log": "^3.0"
-    },
-    "require-dev": {
-        "codeigniter/coding-standard": "^1.7",
-        "fakerphp/faker": "^1.24",
-        "friendsofphp/php-cs-fixer": "^3.47.1",
-        "kint-php/kint": "^6.0",
-        "mikey179/vfsstream": "^1.6.12",
-        "nexusphp/cs-config": "^3.6",
-        "phpunit/phpunit": "^10.5.16 || ^11.2",
-        "predis/predis": "^1.1 || ^2.3"
-    },
-    "suggest": {
-        "ext-curl": "If you use CURLRequest class",
-        "ext-dom": "If you use TestResponse",
-        "ext-exif": "If you run Image class tests",
-        "ext-fileinfo": "Improves mime type detection for files",
-        "ext-gd": "If you use Image class GDHandler",
-        "ext-imagick": "If you use Image class ImageMagickHandler",
-        "ext-libxml": "If you use TestResponse",
-        "ext-memcache": "If you use Cache class MemcachedHandler with Memcache",
-        "ext-memcached": "If you use Cache class MemcachedHandler with Memcached",
-        "ext-mysqli": "If you use MySQL",
-        "ext-oci8": "If you use Oracle Database",
-        "ext-pgsql": "If you use PostgreSQL",
-        "ext-readline": "Improves CLI::input() usability",
-        "ext-redis": "If you use Cache class RedisHandler",
-        "ext-simplexml": "If you format XML",
-        "ext-sodium": "If you use Encryption SodiumHandler",
-        "ext-sqlite3": "If you use SQLite3",
-        "ext-sqlsrv": "If you use SQL Server",
-        "ext-xdebug": "If you use CIUnitTestCase::assertHeaderEmitted()"
-    },
-    "autoload": {
-        "psr-4": {
-            "CodeIgniter\\": "system/"
+	"name": "codeigniter4/appstarter",
+	"type": "project",
+	"description": "CodeIgniter4 starter app",
+	"homepage": "https://codeigniter.com",
+	"license": "MIT",
+	"require": {
+		"php": "^7.3||^8.0",
+		"codeigniter4/framework": "^4",
+		"statickidz/php-google-translate-free": "^1.2",
+		"janu-software/facebook-php-sdk": "^0.1.13",
+		"guzzlehttp/guzzle": "^7.5",
+		"php-http/guzzle7-adapter": "^1.0",
+		"phpmailer/phpmailer": "^6.7",
+		"google/apiclient": "2.12.1",
+		"smolblog/oauth2-twitter": "^1.0",
+		"abraham/twitteroauth": "^5.0",
+		"nojimage/twitter-text-php": "^3.2",
+		"phplicengine/bitly": "^1.0",
+		"league/csv": "9.0",
+		"yidas/csv": "^1.0",
+		"dompdf/dompdf": "^2.0",
+		"coderjerk/bird-elephant": "*",
+		"mpdf/mpdf": "^8.1"
+	},
+	"config": {
+		"platform": {
+            "php": "8.0.0"
         },
-        "exclude-from-classmap": [
-            "**/Database/Migrations/**"
-        ]
+        "platform-check": false
     },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "scripts": {
-        "test": "phpunit"
-    }
+	"require-dev": {
+		"fakerphp/faker": "^1.9",
+		"mikey179/vfsstream": "^1.6",
+		"phpunit/phpunit": "^9.1"
+	},
+	"suggest": {
+		"ext-fileinfo": "Improves mime type detection for files"
+	},
+	"autoload": {
+		"psr-4": {
+			"App\\": "app",
+			"Config\\": "app/Config"
+		},
+		"exclude-from-classmap": [
+			"**/Database/Migrations/**"
+		]
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\Support\\": "tests/_support"
+		}
+	},
+	"scripts": {
+		"test": "phpunit"
+	},
+	"support": {
+		"forum": "http://forum.codeigniter.com/",
+		"source": "https://github.com/codeigniter4/CodeIgniter4",
+		"slack": "https://codeigniterchat.slack.com"
+	}
 }
