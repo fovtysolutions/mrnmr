@@ -33,21 +33,24 @@ class ProfileModel extends Model
             $data = [
                 'uid' => $this->uid
             ];
-            $this->insertit($data);
+            return $this->insertit($data);
         }
+        return true;
+    }
+
+    public function getByuId($table){
+        $query = $this->db->table($table)->where('uid', $this->uid)->get();
+        return $query->getRow(); 
     }
 
     public function getById($id){
-        $query = $this->db->table('profile_details')->where('id', $id)->get();
+        $query = $this->db->table('profile_details')->where('uid', $id)->get();
         return $query->getRow(); 
     } 
 
-    public function updateit($id, $data)
+    public function updateit($table, $id, $data)
     {
-        if (!is_numeric($id)) {
-            return $id; 
-        }
-        return $this->db->table('profile_details')->where('id', $id)->update($data);
+        return $this->db->table($table)->where('uid', $id)->update($data);
     }
 
     public function insertit($data)
