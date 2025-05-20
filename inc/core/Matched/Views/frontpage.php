@@ -12,7 +12,13 @@
                         <i class="fas fa-print me-2"></i> Print <?=$heading?> Statement
                     </button>
                 <?php } ?>
-                
+                <?php if($addbtnroute != '') { ?>
+                    <a href="<?= base_url($addbtnroute) ?>" class="me-2">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i> Add <?=$heading?>
+                        </button>
+                    </a>
+                <?php } ?>
             </div>
         </div>
 
@@ -58,10 +64,10 @@
                 <thead>
                     <tr>
                         <th class="w-5">Sr No</th>
-                        <th class="w-10">Action</th>
                         <?php foreach ($th as $valueth) { ?>
                             <th><?=$valueth?></th>
                         <?php } ?>
+                        <th class="w-10">Action</th>
                     </tr>
                 </thead>
                 <tbody id="<?=$mainid?>">
@@ -79,5 +85,5 @@
     </div>
 </div>
 <?php echo $this->section('script') ?>
-    <?php _ec( $this->include('Core\Perfect\Views\frontjavascript'), false )?>
+    <?php _ec( $this->include('Core\Settings\Views\frontjavascript'), false )?>
 <?php echo $this->endSection() ?>
