@@ -286,8 +286,8 @@
         <div class="form-group row">
             <label for="hobbies" class="col-sm-4 col-form-label">Hobbies</label>
             <div class="col-sm-8">
-                <textarea class="form-control form-control-sm" id="hobbies" name="hobbies" placeholder="Enter Hobbies"
-                    value="<?= $detailsdata->hobbies ?? '' ?>"></textarea>
+                <textarea class="form-control form-control-sm" id="hobbies" name="hobbies"
+                    placeholder="Enter Hobbies"><?= $detailsdata->hobbies ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -342,7 +342,7 @@
             <label for="family_info" class="col-sm-4 col-form-label">Family Info</label>
             <div class="col-sm-8">
                 <textarea class="form-control form-control-sm" id="family_info" name="family_info"
-                    placeholder="Enter Family Info" value="<?= $detailsdata->family_info ?? '' ?>"></textarea>
+                    placeholder="Enter Family Info"><?= $detailsdata->family_info ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -353,7 +353,7 @@
             <label for="Describe" class="col-sm-4 col-form-label">Describe</label>
             <div class="col-sm-8">
                 <textarea class="form-control form-control-sm" id="describe_d" name="describe_d"
-                    placeholder="Enter Description" value="<?= $detailsdata->describe_d ?? '' ?>"></textarea>
+                    placeholder="Enter Description"><?= $detailsdata->describe_d ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -365,8 +365,7 @@
             <label for="past_relationship" class="col-sm-4 col-form-label">Past Relationship</label>
             <div class="col-sm-8">
                 <textarea class="form-control form-control-sm" id="past_relationship" name="past_relationship"
-                    placeholder="Enter Past Relationship Details"
-                    value="<?= $detailsdata->past_relationship ?? '' ?>"></textarea>
+                    placeholder="Enter Past Relationship Details"><?= $detailsdata->past_relationship ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -833,7 +832,7 @@
             <label for="qualities" class="col-sm-4 col-form-label">Qualities</label>
             <div class="col-sm-8">
                 <textarea class="form-control form-control-sm" id="qualities" name="qualities"
-                    placeholder="Enter Qualities" value="<?= $detailsdata->qualities ?? '' ?>"></textarea>
+                    placeholder="Enter Qualities"><?= $detailsdata->qualities ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -843,7 +842,7 @@
             <label for="additional" class="col-sm-4 col-form-label">Additional</label>
             <div class="col-sm-8">
                 <textarea class="form-control form-control-sm" id="additional" name="additional"
-                    placeholder="Enter Additional Information" value="<?= $detailsdata->additional ?? '' ?>"></textarea>
+                    placeholder="Enter Additional Information"><?= $detailsdata->additional ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -853,8 +852,7 @@
             <label for="negotiable_requirement" class="col-sm-4 col-form-label">Negotiable Requirement</label>
             <div class="col-sm-8">
                 <textarea class="form-control form-control-sm" id="negotiable_requirement" name="negotiable_requirement"
-                    placeholder="Enter Negotiable Requirement"
-                    value="<?= $detailsdata->negotiable_requirement ?? '' ?>"></textarea>
+                    placeholder="Enter Negotiable Requirement"><?= $detailsdata->negotiable_requirement ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -864,8 +862,8 @@
             <label for="non_negotiable_requirements" class="col-sm-4 col-form-label">Non-Negotiable Requirements</label>
             <div class="col-sm-8">
                 <textarea class="form-control form-control-sm" id="non_negotiable_requirements"
-                    name="non_negotiable_requirements" placeholder="Enter Non-Negotiable Requirements"
-                    value="<?= $detailsdata->non_negotiable_requirement ?? '' ?>"></textarea>
+                    name="non_negotiable_requirements"
+                    placeholder="Enter Non-Negotiable Requirements"><?= $detailsdata->non_negotiable_requirement ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -953,7 +951,8 @@
                     <option value="Select">Select</option>
                     <option <?= isset($detailsdata->want_to_get_married) == 'Yes' ? 'selected' : '' ?>>Yes</option>
                     <option <?= isset($detailsdata->want_to_get_married) == 'No' ? 'selected' : '' ?>>No</option>
-                    <option <?= isset($detailsdata->want_to_get_married) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter
+                    <option <?= isset($detailsdata->want_to_get_married) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't
+                        matter
                     </option>
                 </select>
             </div>
@@ -968,7 +967,8 @@
                     <option value="Select">Select</option>
                     <option <?= isset($detailsdata->have_children) == 'Yes' ? 'selected' : '' ?>>Yes</option>
                     <option <?= isset($detailsdata->have_children) == 'No' ? 'selected' : '' ?>>No</option>
-                    <option <?= isset($detailsdata->have_children) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter</option>
+                    <option <?= isset($detailsdata->have_children) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter
+                    </option>
                 </select>
             </div>
         </div>
@@ -982,7 +982,8 @@
                     <option value="Select">Select</option>
                     <option <?= isset($detailsdata->previous_marriage) == 'Yes' ? 'selected' : '' ?>>Yes</option>
                     <option <?= isset($detailsdata->previous_marriage) == 'No' ? 'selected' : '' ?>>No</option>
-                    <option <?= isset($detailsdata->previous_marriage) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter</option>
+                    <option <?= isset($detailsdata->previous_marriage) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't
+                        matter</option>
                 </select>
             </div>
         </div>
@@ -994,11 +995,12 @@
             <div class="col-sm-8">
                 <select class="form-control form-control-sm" id="hiv_status" name="hiv_status">
                     <option value="Select">Select</option>
-                     <option <?= isset($detailsdata->hiv_status) == 'Positive' ? 'selected' : '' ?>>
+                    <option <?= isset($detailsdata->hiv_status) == 'Positive' ? 'selected' : '' ?>>
                         Positive</option>
                     <option <?= isset($detailsdata->hiv_status) == 'Negative' ? 'selected' : '' ?>>
                         Negative</option>
-                    <option <?= isset($detailsdata->hiv_status) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter</option>
+                    <option <?= isset($detailsdata->hiv_status) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter
+                    </option>
                 </select>
             </div>
         </div>
