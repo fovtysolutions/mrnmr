@@ -88,7 +88,7 @@
                             <?php foreach ($config['menu']['sub_menu'] as $submenu): ?>
                                 <?php if(permissionvaluecheck($submenu['id'], 'view')): ?>
                                     <li class="nav-item">
-                                        <a href="<?= base_url($submenu['id']) ?>"><?= $submenu['name'] ?></a>
+                                        <a href="<?= base_url($submenu['id']) ?>" style="color:#ffffff"><?= $submenu['name'] ?></a>
                                     </li>
                                 <?php endif; ?>
                             <?php endforeach; ?>
@@ -99,7 +99,7 @@
                         <h6 class="az-iconbar-title"><?= $config['name'] ?></h6>
                         <ul class="nav">
                             <li class="nav-item">
-                                <a href="<?= base_url($config['id']) ?>"><?= $config['name'] ?></a>
+                                <a href="<?= base_url($config['id']) ?>" style="color:#ffffff"><?= $config['name'] ?></a>
                             </li>
                         </ul>
                     </div>

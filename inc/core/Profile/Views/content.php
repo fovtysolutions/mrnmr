@@ -93,8 +93,7 @@
                     <div class="form-group row">
                         <label for="complete_address" class="col-sm-4 col-form-label">Complete Address</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control form-control-sm" id="complete_address" name="complete_address"
-                                placeholder="Enter Complete Address"><?= $profile->complete_address ?? '' ?></textarea>
+                            <textarea class="form-control form-control-sm" id="complete_address" name="complete_address" placeholder="Enter Complete Address"><?= $profile->complete_address ?? '' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -102,13 +101,13 @@
                     <div class="form-group row">
                         <label for="education" class="col-sm-4 col-form-label">Education</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="education" name="education" value="<?= $profile->education ?? '' ?>">
+                            <select class="form-control form-control-sm" id="education" name="education">
                                 <option>Select Education</option>
-                                <option>Metrics</option>
-                                <option>Graduate</option>
-                                <option>Post-Graduate</option>
-                                <option>Masters</option>
-                                <option>PhD</option>
+                                <option <?= isset($profile->education) == 'Metrics' ? 'selected' : '' ?>>Metrics</option>
+                                <option <?= isset($profile->education) == 'Graduate' ? 'selected' : '' ?>>Graduate</option>
+                                <option <?= isset($profile->education) == 'Post-Graduate' ? 'selected' : '' ?>>Post-Graduate</option>
+                                <option <?= isset($profile->education) == 'Masters' ? 'selected' : '' ?>>Masters</option>
+                                <option <?= isset($profile->education) == 'PhD' ? 'selected' : '' ?>>PhD</option>
                             </select>
                         </div>
                     </div>
@@ -133,13 +132,13 @@
                     <div class="form-group row">
                         <label for="food_pref" class="col-sm-4 col-form-label">Food Preference</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="food_pref" name="food_pref" value="<?= $profile->food_pref ?? '' ?>">
+                            <select class="form-control form-control-sm" id="food_pref" name="food_pref">
                                 <option>Select Food Preference</option>
-                                <option>Veg</option>
-                                <option>Non-Veg</option>
-                                <option>Vegan</option>
-                                <option>Pescatarian</option>
-                                <option>Jain</option>
+                                <option <?= isset($profile->food_pref) == 'Veg' ? 'selected' : '' ?>>Veg</option>
+                                <option <?= isset($profile->food_pref) == 'Non-Veg' ? 'selected' : '' ?>>Non-Veg</option>
+                                <option <?= isset($profile->food_pref) == 'Vegan' ? 'selected' : '' ?>>Vegan</option>
+                                <option <?= isset($profile->food_pref) == 'Pescatarian' ? 'selected' : '' ?>>Pescatarian</option>
+                                <option <?= isset($profile->food_pref) == 'Jain' ? 'selected' : '' ?>>Jain</option>
                             </select>
                         </div>
                     </div>
@@ -158,19 +157,18 @@
                     <div class="form-group row">
                         <label for="religion" class="col-sm-4 col-form-label">Religion</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="religion" name="religion"
-                                value="<?= $profile->religion ?? '' ?>">
+                            <select class="form-control form-control-sm" id="religion" name="religion">
                                 <option>Select Religion</option>
-                                <option>Hindu</option>
-                                <option>Muslim</option>
-                                <option>Christian</option>
-                                <option>Agnostic</option>
-                                <option>Buddhist</option>
-                                <option>Atheist</option>
-                                <option>Jewish</option>
-                                <option>Jain</option>
-                                <option>Sikh</option>
-                                <option>Other</option>
+                                <option <?= isset($profile->religion) == 'Hindu' ? 'selected' : '' ?>>Hindu</option>
+                                <option <?= isset($profile->religion) == 'Muslim' ? 'selected' : '' ?>>Muslim</option>
+                                <option <?= isset($profile->religion) == 'Christian' ? 'selected' : '' ?>>Christian</option>
+                                <option <?= isset($profile->religion) == 'Agnostic' ? 'selected' : '' ?>>Agnostic</option>
+                                <option <?= isset($profile->religion) == 'Buddhist' ? 'selected' : '' ?>>Buddhist</option>
+                                <option <?= isset($profile->religion) == 'Atheist' ? 'selected' : '' ?>>Atheist</option>
+                                <option <?= isset($profile->religion) == 'Jewish' ? 'selected' : '' ?>>Jewish</option>
+                                <option <?= isset($profile->religion) == 'Jain' ? 'selected' : '' ?>>Jain</option>
+                                <option <?= isset($profile->religion) == 'Sikh' ? 'selected' : '' ?>>Sikh</option>
+                                <option <?= isset($profile->religion) == 'Other' ? 'selected' : '' ?>>Other</option>
                             </select>
                         </div>
                     </div>
@@ -179,14 +177,13 @@
                     <div class="form-group row">
                         <label for="drinker" class="col-sm-4 col-form-label">Do you drink?</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="drinker" name="drinker"
-                                value="<?= $profile->drinker ?? '' ?>">
+                            <select class="form-control form-control-sm" id="drinker" name="drinker">
                                 <option value="Select">Select</option>
-                                <option value="Yes">Yes</option>
-                                <option value="Sometimes">Sometimes</option>
-                                <option value="Socially">Socially</option>
-                                <option value="No">No</option>
-                                <option value="Sober">Sober</option>
+                                <option <?= isset($profile->drinker) == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                                <option <?= isset($profile->drinker) == 'Sometimes' ? 'selected' : '' ?>>Sometimes</option>
+                                <option <?= isset($profile->drinker) == 'Socially' ? 'selected' : '' ?>>Socially</option>
+                                <option <?= isset($profile->drinker) == 'No' ? 'selected' : '' ?>>No</option>
+                                <option <?= isset($profile->drinker) == 'Sober' ? 'selected' : '' ?>>Sober</option>
                             </select>
                         </div>
                     </div>
@@ -195,13 +192,12 @@
                     <div class="form-group row">
                         <label for="smoker" class="col-sm-4 col-form-label">Do you smoke?</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="smoker" name="smoker"
-                                value="<?= $profile->smoker ?? '' ?>">
+                            <select class="form-control form-control-sm" id="smoker" name="smoker">
                                 <option>Select</option>
-                                <option>Sometimes</option>
-                                <option>No</option>
-                                <option>Yes</option>
-                                <option>Trying to quit</option>
+                                <option <?= isset($profile->smoker) == 'Sometimes' ? 'selected' : '' ?>>Sometimes</option>
+                                <option <?= isset($profile->smoker) == 'No' ? 'selected' : '' ?>>No</option>
+                                <option <?= isset($profile->smoker) == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                                <option <?= isset($profile->smoker) == 'Trying to quit' ? 'selected' : '' ?>>Trying to quit</option>
                             </select>
                         </div>
                     </div>
@@ -211,13 +207,13 @@
                         <label for="degree_of_openness" class="col-sm-4 col-form-label">Degree of Openness</label>
                         <div class="col-sm-8">
                             <select class="form-control form-control-sm" id="degree_of_openness"
-                                name="degree_of_openness" value="<?= $profile->degree_of_openness ?? '' ?>">
+                                name="degree_of_openness">
                                 <option>Select Degree of Openness</option>
-                                <option>Out to family</option>
-                                <option>Out to close friends</option>
-                                <option>Out at work</option>
-                                <option>Out to the whole world</option>
-                                <option>Closeted</option>
+                                <option <?= isset($profile->degree_of_openness) == 'Out to family' ? 'selected' : '' ?>>Out to family</option>
+                                <option <?= isset($profile->degree_of_openness) == 'Out to close friends' ? 'selected' : '' ?>>Out to close friends</option>
+                                <option <?= isset($profile->degree_of_openness) == 'Out at work' ? 'selected' : '' ?>>Out at work</option>
+                                <option <?= isset($profile->degree_of_openness) == 'Out to the whole world' ? 'selected' : '' ?>>Out to the whole world</option>
+                                <option <?= isset($profile->degree_of_openness) == 'Closeted' ? 'selected' : '' ?>>Closeted</option>
                             </select>
                         </div>
                     </div>
@@ -226,15 +222,14 @@
                     <div class="form-group row">
                         <label for="ideology" class="col-sm-4 col-form-label">Ideology</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="ideology" name="ideology"
-                                value="<?= $profile->ideology ?? '' ?>">
+                            <select class="form-control form-control-sm" id="ideology" name="ideology">
                                 <option>Select Ideology</option>
-                                <option>Right-wing</option>
-                                <option>Left-wing</option>
-                                <option>Moderate</option>
-                                <option>Apolitical</option>
-                                <option>Liberal</option>
-                                <option>Doesn't matter</option>
+                                <option <?= isset($profile->ideology) == 'Right-wing' ? 'selected' : '' ?>>Right-wing</option>
+                                <option <?= isset($profile->ideology) == 'Left-wing' ? 'selected' : '' ?>>Left-wing</option>
+                                <option <?= isset($profile->ideology) == 'Moderate' ? 'selected' : '' ?>>Moderate</option>
+                                <option <?= isset($profile->ideology) == 'Apolitical' ? 'selected' : '' ?>>Apolitical</option>
+                                <option <?= isset($profile->ideology) == 'Liberal' ? 'selected' : '' ?>>Liberal</option>
+                                <option <?= isset($profile->ideology) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter</option>
                             </select>
                         </div>
                     </div>
@@ -262,7 +257,7 @@
                         <label for="describe_d" class="col-sm-4 col-form-label">Describe Yourself</label>
                         <div class="col-sm-8">
                             <textarea class="form-control form-control-sm" id="describe_d" name="describe_d"
-                                placeholder="Describe Yourself" <?= $profile->describe_d ?? '' ?>></textarea>
+                                placeholder="Describe Yourself"><?= $profile->describe_d ?? '' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -272,8 +267,7 @@
                             Information</label>
                         <div class="col-sm-8">
                             <textarea class="form-control form-control-sm" id="past_relationship"
-                                name="past_relationship" placeholder="Enter Past Relationship Information"
-                                <?= $profile->past_relationship ?? '' ?>></textarea>
+                                name="past_relationship" placeholder="Enter Past Relationship Information"><?= $profile->past_relationship ?? '' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -305,7 +299,7 @@
                         <label for="ref1_address" class="col-sm-4 col-form-label">Reference#1 Address</label>
                         <div class="col-sm-8">
                             <textarea class="form-control form-control-sm" id="ref1_address" name="ref1_address"
-                                placeholder="Enter Reference#1 Address" <?= $profile->ref1_address ?? '' ?>></textarea>
+                                placeholder="Enter Reference#1 Address"> <?= $profile->ref1_address ?? '' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -332,7 +326,7 @@
                         <label for="ref2_address" class="col-sm-4 col-form-label">Reference#2 Address</label>
                         <div class="col-sm-8">
                             <textarea class="form-control form-control-sm" id="ref2_address" name="ref2_address"
-                                placeholder="Enter Reference#2 Address" <?= $profile->ref2_address ?? '' ?>></textarea>
+                                placeholder="Enter Reference#2 Address"><?= $profile->ref2_address ?? '' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -471,8 +465,7 @@
                     <div class="form-group row">
                         <label for="partner_state" class="col-sm-4 col-form-label">State</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="partner_state" name="partner_state"
-                                value="<?= $profile->partner_state ?? '' ?>">
+                            <select class="form-control form-control-sm" id="partner_state" name="partner_state">
                                 <option>Select</option>
                             </select>
                         </div>
@@ -483,8 +476,7 @@
                     <div class="form-group row">
                         <label for="partner_city" class="col-sm-4 col-form-label">City</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="partner_city" name="partner_city"
-                                value="<?= $profile->partner_city ?? '' ?>">
+                            <select class="form-control form-control-sm" id="partner_city" name="partner_city">
                                 <option>Select</option>
                             </select>
                         </div>
@@ -494,14 +486,13 @@
                     <div class="form-group row">
                         <label for="partner_education" class="col-sm-4 col-form-label">Education</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="partner_education" name="partner_education"
-                                placeholder="Enter Education" value="<?= $profile->partner_education ?? '' ?>">
+                            <select class="form-control form-control-sm" id="partner_education" name="partner_education" placeholder="Enter Education">
                                 <option>Select Education</option>
-                                <option>Metrics</option>
-                                <option>Graduate</option>
-                                <option>Post-Graduate</option>
-                                <option>Masters</option>
-                                <option>PhD</option>
+                                <option <?= isset($profile->partner_education) == 'Metrics' ? 'selected' : '' ?>>Metrics</option>
+                                <option <?= isset($profile->partner_education) == 'Graduate' ? 'selected' : '' ?>>Graduate</option>
+                                <option <?= isset($profile->partner_education) == 'Post-Graduate' ? 'selected' : '' ?>>Post-Graduate</option>
+                                <option <?= isset($profile->partner_education) == 'Masters' ? 'selected' : '' ?>>Masters</option>
+                                <option <?= isset($profile->partner_education) == 'PhD' ? 'selected' : '' ?>>PhD</option>
                             </select>
                         </div>
                     </div>
@@ -531,14 +522,13 @@
                     <div class="form-group row">
                         <label for="partner_food_pref" class="col-sm-4 col-form-label">Food Preference</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="partner_food_pref" name="partner_food_pref"
-                                value="<?= $profile->partner_food_pref ?? '' ?>">
+                            <select class="form-control form-control-sm" id="partner_food_pref" name="partner_food_pref">
                                 <option>Select Food Preference</option>
-                                <option>Veg</option>
-                                <option>Non-Veg</option>
-                                <option>Vegan</option>
-                                <option>Pescatarian</option>
-                                <option>Jain</option>
+                                <option <?= isset($profile->partner_food_pref) == 'Veg' ? 'selected' : '' ?>>Veg</option>
+                                <option <?= isset($profile->partner_food_pref) == 'Non-Veg' ? 'selected' : '' ?>>Non-Veg</option>
+                                <option <?= isset($profile->partner_food_pref) == 'Vegan' ? 'selected' : '' ?>>Vegan</option>
+                                <option <?= isset($profile->partner_food_pref) == 'Pescatarian' ? 'selected' : '' ?>>Pescatarian</option>
+                                <option <?= isset($profile->partner_food_pref) == 'Jain' ? 'selected' : '' ?>>Jain</option>
                             </select>
                         </div>
                     </div>
@@ -559,14 +549,13 @@
                             Openness</label>
                         <div class="col-sm-8">
                             <select class="form-control form-control-sm" id="partner_degree_of_openness"
-                                name="partner_degree_of_openness"
-                                value="<?= $profile->partner_degree_of_openness ?? '' ?>">
+                                name="partner_degree_of_openness">
                                 <option>Select Degree of Openness</option>
-                                <option>Out to family</option>
-                                <option>Out to close friends</option>
-                                <option>Out at work</option>
-                                <option>Out to the whole world</option>
-                                <option>Closeted</option>
+                                <option <?= isset($profile->partner_degree_of_openness) == 'Out to family' ? 'selected' : '' ?>>Out to family</option>
+                                <option <?= isset($profile->partner_degree_of_openness) == 'Out to close friends' ? 'selected' : '' ?>>Out to close friends</option>
+                                <option <?= isset($profile->partner_degree_of_openness) == 'Out at work' ? 'selected' : '' ?>>Out at work</option>
+                                <option <?= isset($profile->partner_degree_of_openness) == 'Out to the whole world' ? 'selected' : '' ?>>Out to the whole world</option>
+                                <option <?= isset($profile->partner_degree_of_openness) == 'Closeted' ? 'selected' : '' ?>>Closeted</option>
                             </select>
                         </div>
                     </div>
@@ -585,19 +574,18 @@
                     <div class="form-group row">
                         <label for="partner_religion" class="col-sm-4 col-form-label">Religion</label>
                         <div class="col-sm-8">
-                            <select class="form-control form-control-sm" id="partner_religion" name="partner_religion"
-                                value="<?= $profile->partner_religion ?? '' ?>">
+                            <select class="form-control form-control-sm" id="partner_religion" name="partner_religion">
                                 <option>Select Religion</option>
-                                <option>Hindu</option>
-                                <option>Muslim</option>
-                                <option>Christian</option>
-                                <option>Agnostic</option>
-                                <option>Buddhist</option>
-                                <option>Atheist</option>
-                                <option>Jewish</option>
-                                <option>Jain</option>
-                                <option>Sikh</option>
-                                <option>Other</option>
+                                <option <?= isset($profile->partner_religion) == 'Hindu' ? 'selected' : '' ?>>Hindu</option>
+                                <option <?= isset($profile->partner_religion) == 'Muslim' ? 'selected' : '' ?>>Muslim</option>
+                                <option <?= isset($profile->partner_religion) == 'Christian' ? 'selected' : '' ?>>Christian</option>
+                                <option <?= isset($profile->partner_religion) == 'Agnostic' ? 'selected' : '' ?>>Agnostic</option>
+                                <option <?= isset($profile->partner_religion) == 'Buddhist' ? 'selected' : '' ?>>Buddhist</option>
+                                <option <?= isset($profile->partner_religion) == 'Atheist' ? 'selected' : '' ?>>Atheist</option>
+                                <option <?= isset($profile->partner_religion) == 'Jewish' ? 'selected' : '' ?>>Jewish</option>
+                                <option <?= isset($profile->partner_religion) == 'Jain' ? 'selected' : '' ?>>Jain</option>
+                                <option <?= isset($profile->partner_religion) == 'Sikh' ? 'selected' : '' ?>>Sikh</option>
+                                <option <?= isset($profile->partner_religion) == 'Other' ? 'selected' : '' ?>>Other</option>
                             </select>
                         </div>
                     </div>
@@ -609,12 +597,12 @@
                             <select class="form-control form-control-sm" id="partner_ideology" name="partner_ideology"
                                 value="<?= $profile->partner_ideology ?? '' ?>">
                                 <option>Select Ideology</option>
-                                <option>Right-wing</option>
-                                <option>Left-wing</option>
-                                <option>Moderate</option>
-                                <option>Apolitical</option>
-                                <option>Liberal</option>
-                                <option>Doesn't matter</option>
+                                <option <?= isset($profile->partner_ideology) == 'Right-wing' ? 'selected' : '' ?>>Right-wing</option>
+                                <option <?= isset($profile->partner_ideology) == 'Left-wing' ? 'selected' : '' ?>>Left-wing</option>
+                                <option <?= isset($profile->partner_ideology) == 'Moderate' ? 'selected' : '' ?>>Moderate</option>
+                                <option <?= isset($profile->partner_ideology) == 'Apolitical' ? 'selected' : '' ?>>Apolitical</option>
+                                <option <?= isset($profile->partner_ideology) == 'Liberal' ? 'selected' : '' ?>>Liberal</option>
+                                <option <?= isset($profile->partner_ideology) == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter</option>
                             </select>
                         </div>
                     </div>
@@ -624,8 +612,7 @@
                         <label for="partner_family_info" class="col-sm-4 col-form-label">Family Information</label>
                         <div class="col-sm-8">
                             <textarea class="form-control form-control-sm" id="partner_family_info"
-                                name="partner_family_info" placeholder="Enter Family Information"
-                                <?= $profile->partner_family_info ?? '' ?>></textarea>
+                                name="partner_family_info" placeholder="Enter Family Information"><?= $profile->partner_family_info ?? '' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -634,8 +621,7 @@
                         <label for="partner_describe_d" class="col-sm-4 col-form-label">Describe Your Partner</label>
                         <div class="col-sm-8">
                             <textarea class="form-control form-control-sm" id="partner_describe_d"
-                                name="partner_describe_d" placeholder="Describe Your Partner"
-                                <?= $profile->partner_describe_d ?? '' ?>></textarea>
+                                name="partner_describe_d" placeholder="Describe Your Partner"><?= $profile->partner_describe_d ?? '' ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -647,8 +633,7 @@
                             consider while looking for a suitable partner for you?</label>
                         <div class="col-sm-6">
                             <textarea class="form-control form-control-sm" id="partner_us_to_consider"
-                                name="partner_us_to_consider" placeholder="Share additional thoughts"
-                                <?= $profile->partner_us_to_consider ?? '' ?>></textarea>
+                                name="partner_us_to_consider" placeholder="Share additional thoughts"><?= $profile->partner_us_to_consider ?? '' ?></textarea>
                         </div>
                     </div>
                 </div>
