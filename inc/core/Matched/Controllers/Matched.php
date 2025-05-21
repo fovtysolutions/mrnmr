@@ -15,27 +15,25 @@ class Matched extends \CodeIgniter\Controller
     public function index()
     {
         $master = $this->master;
-        $contentdetails = [
+        $permission = permissionvaluecheck($this->config['id'], 'create');
+        if(!$permission){
+            session()->setFlashdata('error', 'You have not permission to access this page!');
+            return redirect()->to($master);
+        }
+        $addDatas = [
             'contentfilename' => 'Core\Matched\Views\contentinputfields',
-            'title' => $master, 
-            'heading' => "Matched List", 
-            'print' => '', 
-            'searchname' => "Matched List", 
-            'searching'=> '',
-            'filterinput'=> '',
-            'filterids'=>json_encode([]),
-            'th'=>["Event Id","Event Date","Event Name","Participants","Matchedes Percentage"],
-            'mainid' => "get$master",
-            'addbtnroute' => "$master/add",
-            'routeURL' => "$master/get",
-            'editroute' => "/$master/edit/",
-            'deleteURL' => "$master/deleteit",
-            'td' => json_encode(["event_id","event_date","event_name","participants","Matchedes_percentage"]),
+            'title' => "Matched",
+            'heading' => "Add Matched",
+            'detailsdata' => [],
+            'editit' => false,
+            'formid' => "form$master",
+            'formroute' => "$master/datasetup",
+            'successroute' => $master,
         ];
         $data = [
             "title" => $this->config['name'],
             "desc" => $this->config['desc'],
-            "content" => view('Core\Matched\Views\frontpage', $contentdetails)
+            "content" => view('Core\Matched\Views\content', $addDatas)
         ];
         return view('Core\Matched\Views\index', $data);
     }
