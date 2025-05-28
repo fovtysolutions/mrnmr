@@ -85,5 +85,5 @@
     </div>
 </div>
 <?php echo $this->section('script') ?>
-    <?php _ec( $this->include('Core\Settings\Views\frontjavascript'), false )?>
+    <?php _ec( $this->include('Core\Member\Views\frontjavascript'), false )?>
 <?php echo $this->endSection() ?>

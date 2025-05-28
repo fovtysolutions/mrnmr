@@ -43,11 +43,16 @@ class MemberModel extends Model
     }
 
     public function getById($id){
-        $query = $this->db->table('member')->where('id', $id)->get();
+        $query = $this->db->table('member')->where('uid', $id)->get();
         return $query->getRow(); 
     } 
 
-    public function updateit($id, $data)
+    public function getperfectById($id){
+        $query = $this->db->table('mymrperfect')->where('uid', $id)->get();
+        return $query->getRow(); 
+    }
+
+    public function updateDataone($id, $data)
     {
         if (!is_numeric($id)) {
             return $id; 
@@ -55,9 +60,22 @@ class MemberModel extends Model
         return $this->db->table('member')->where('id', $id)->update($data);
     }
 
-    public function insertit($data)
+    public function updateDatatwo($id, $data)
+    {
+        if (!is_numeric($id)) {
+            return $id; 
+        }
+        return $this->db->table('mymrperfect')->where('id', $id)->update($data);
+    }
+
+    public function inserDataone($data)
     {
         return $this->db->table('member')->insert($data);
+    }
+
+    public function inserDatatwo($data)
+    {
+        return $this->db->table('mymrperfect')->insert($data);
     }
 
     public function deleteit($id)

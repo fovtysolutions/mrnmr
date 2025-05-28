@@ -92,6 +92,7 @@ class Member extends \CodeIgniter\Controller
             'title' => "Member",
             'heading' => "Add Member",
             'detailsdata' => [],
+            'perfectdata' => [],
             'editit' => false,
             'formid' => "form$master",
             'formroute' => "$master/datasetup",
@@ -114,12 +115,14 @@ class Member extends \CodeIgniter\Controller
             return redirect()->to($master);
         }
         $detailsModel = $this->model->getById($id);
+        $perfectdetailsModel = $this->model->getperfectById($id);
         $id = $detailsModel->id;
         $addDatas = [
             'contentfilename' => 'Core\Member\Views\contentinputfields',
             'title' => "Member",
             'heading' => "Edit Member",
             'detailsdata' => $detailsModel,
+            'perfectdata' => $perfectdetailsModel,
             'editit' => $id,
             'formid' => "form$master",
             'formroute' => "$master/datasetup",
@@ -135,11 +138,15 @@ class Member extends \CodeIgniter\Controller
 
     public function datasetup()
     {
-        $isEdit = $this->request->getPost('edit');
-        $postData = $this->request->getPost();
+        $dataone = $this->request->getPost('dataone') ?? [];
+        $datatwo = $this->request->getPost('datatwo') ?? [];
+
+        $isEdit = isset($dataone['edit']) && !empty($dataone['edit']);
+
         if ($isEdit) {
-            $id = $this->request->getPost('edit');
+            $id = $dataone['edit'];
             $selectedValue = $this->model->getById($id);
+
             if (!$selectedValue) {
                 return $this->response->setJSON([
                     'status' => 'error',
@@ -147,30 +154,48 @@ class Member extends \CodeIgniter\Controller
                     'new_csrf_token' => csrf_hash()
                 ]);
             }
-            $postData['updated_at'] = date('Y-m-d H:i:s');   
+
+            $dataone['updated_at'] = date('Y-m-d H:i:s');
+            $datatwo['updated_at'] = date('Y-m-d H:i:s');
         } else {
-            $postData['uid'] = bin2hex(random_bytes(8)); 
-            $postData['masterkey'] = $this->master; 
-            $postData['created_at'] = date('Y-m-d H:i:s'); 
-            $postData['updated_at'] = date('Y-m-d H:i:s');   
+            $uid = bin2hex(random_bytes(8));
+            $timestamp = date('Y-m-d H:i:s');
+
+            $dataone['uid'] = $uid;
+            $datatwo['uid'] = $uid;
+            $dataone['masterkey'] = $this->master;
+            $datatwo['masterkey'] = $this->master;
+            $dataone['created_at'] = $timestamp;
+            $dataone['updated_at'] = $timestamp;
+            $datatwo['created_at'] = $timestamp;
+            $datatwo['updated_at'] = $timestamp;
         }
+
         try {
-            unset($postData['csrf']);
+            unset($dataone['csrf']);
+            unset($datatwo['csrf']);
+
             if ($isEdit) {
-                unset($postData['edit']);
-                if(!$this->model->updateit($isEdit, $postData)){
+                unset($dataone['edit']);
+                if (
+                    !$this->model->updateDataone($id, $dataone) ||
+                    !$this->model->updateDatatwo($id, $datatwo)
+                ) {
                     return $this->response->setJSON([
                         'status' => 'error',
-                        'message' => "something went wrong!!",
+                        'message' => 'Something went wrong!!',
                         'new_csrf_token' => csrf_hash()
                     ]);
                 }
                 $message = 'Data updated successfully!!';
             } else {
-                if(!$this->model->insertit($postData)){
+                if (
+                    !$this->model->inserDataone($dataone) ||
+                    !$this->model->inserDatatwo($datatwo)
+                ) {
                     return $this->response->setJSON([
                         'status' => 'error',
-                        'message' => "something went wrong!!",
+                        'message' => 'Something went wrong!!',
                         'new_csrf_token' => csrf_hash()
                     ]);
                 }
@@ -189,9 +214,10 @@ class Member extends \CodeIgniter\Controller
             'status' => 'success',
             'locationChange' => base_url($this->master),
             'message' => $message,
-            'csrf_token' => csrf_hash(),
+            'new_csrf_token' => csrf_hash()
         ]);
     }
+
 
     public function deleteit()
     {

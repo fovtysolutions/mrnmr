@@ -107,7 +107,7 @@
                                 <td>${index + 1}</td>
                                 ${tdData}
                                 <td>
-                                    <a href="${base_url}${details.id}" class="btn-table btn-table-secondary" title="Edit">
+                                    <a href="${base_url}${details.uid}" class="btn-table btn-table-secondary" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <button class="btn-table btn-table-danger ms-2 deletetr" data-delete-id="${details.id}" title="Delete">
