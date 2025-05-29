@@ -116,13 +116,13 @@ class Member extends \CodeIgniter\Controller
         }
         $detailsModel = $this->model->getById($id);
         $perfectdetailsModel = $this->model->getperfectById($id);
-        $id = $detailsModel->id;
+        $id = $detailsModel->uid;
         $addDatas = [
             'contentfilename' => 'Core\Member\Views\contentinputfields',
             'title' => "Member",
             'heading' => "Edit Member",
             'detailsdata' => $detailsModel,
-            'perfectdata' => $perfectdetailsModel,
+            'perfectdatas' => $perfectdetailsModel,
             'editit' => $id,
             'formid' => "form$master",
             'formroute' => "$master/datasetup",

@@ -54,18 +54,12 @@ class MemberModel extends Model
 
     public function updateDataone($id, $data)
     {
-        if (!is_numeric($id)) {
-            return $id; 
-        }
-        return $this->db->table('member')->where('id', $id)->update($data);
+        return $this->db->table('member')->where('uid', $id)->update($data);
     }
 
     public function updateDatatwo($id, $data)
     {
-        if (!is_numeric($id)) {
-            return $id; 
-        }
-        return $this->db->table('mymrperfect')->where('id', $id)->update($data);
+        return $this->db->table('mymrperfect')->where('uid', $id)->update($data);
     }
 
     public function inserDataone($data)

@@ -172,33 +172,88 @@
                     </div>
                     <div class="field">
                         <span class="field-label">Non-Negotiable Requirements</span>
-                        <span class="field-value"><?= $detailsdata->non_negotiable_requirement ?? '' ?></span>
+                        <span class="field-value"><?= $detailsdata->non_negotiable_requirements ?? '' ?></span>
                     </div>
                     <div class="field">
                         <span class="field-label">Partner Sexual Position</span>
-                        <span class="field-value"><?= $detailsdata->partner_sexual_position ?? '' ?></span>
+                        <span class="field-value">
+                            <?php
+                                if (isset($detailsdata->partner_sexual_positionR)) {
+                                    $religions = json_decode($detailsdata->partner_sexual_positionR);
+                                    if (is_array($religions)) {
+                                        foreach ($religions as $value) {
+                                            echo htmlspecialchars($value).', ';
+                                        }
+                                    }
+                                }
+                            ?>
+                        </span>
                     </div>
                 </div>
                 <div class="perfectcard-info">
                     <h2>Beliefs & Values</h2>
                     <div class="field">
                         <span class="field-label">Religion</span>
-                        <span class="field-value"><?= $detailsdata->religion ?? '' ?></span>
+                        <span class="field-value">
+                            <?php
+                                if (isset($detailsdata->religionR)) {
+                                    $religions = json_decode($detailsdata->religionR);
+                                    if (is_array($religions)) {
+                                        foreach ($religions as $value) {
+                                            echo htmlspecialchars($value).', ';
+                                        }
+                                    }
+                                }
+                            ?>
+                        </span>
                     </div>
                     <div class="field">
                         <span class="field-label">Ideology</span>
-                        <span class="field-value"><?= $detailsdata->ideology ?? '' ?></span>
+                        <span>
+                            <?php
+                                if (isset($detailsdata->ideologyR)) {
+                                    $religions = json_decode($detailsdata->ideologyR);
+                                    if (is_array($religions)) {
+                                        foreach ($religions as $value) {
+                                            echo htmlspecialchars($value).', ';
+                                        }
+                                    }
+                                }
+                            ?>
+                        </span>
                     </div>
                     <div class="field">
                         <span class="field-label">Political Ideology</span>
-                        <span class="field-value"><?= $detailsdata->political_ideology ?? '' ?></span>
+                        <span class="field-value">
+                            <?php
+                                if (isset($detailsdata->political_ideologyR)) {
+                                    $religions = json_decode($detailsdata->political_ideologyR);
+                                    if (is_array($religions)) {
+                                        foreach ($religions as $value) {
+                                            echo htmlspecialchars($value).', ';
+                                        }
+                                    }
+                                }
+                            ?>
+                        </span>
                     </div>
                 </div>
                 <div class="perfectcard-info">
                     <h2>Preferences</h2>
                     <div class="field">
                         <span class="field-label">Food Preference</span>
-                        <span class="field-value"><?= $detailsdata->food_pref ?? '' ?></span>
+                        <span class="field-value">
+                        <?php
+                            if (isset($detailsdata->food_prefR)) {
+                                $religions = json_decode($detailsdata->food_prefR);
+                                if (is_array($religions)) {
+                                    foreach ($religions as $value) {
+                                        echo htmlspecialchars($value).', ';
+                                    }
+                                }
+                            }
+                        ?>
+                        </span>
                     </div>
                     <div class="field">
                         <span class="field-label">Lifestyle</span>
@@ -206,7 +261,18 @@
                     </div>
                     <div class="field">
                         <span class="field-label">Degree of Openness</span>
-                        <span class="field-value"><?= $detailsdata->degree_of_openness ?? '' ?></span>
+                        <span class="field-value">
+                            <?php
+                                if (isset($detailsdata->degree_of_opennessR)) {
+                                    $religions = json_decode($detailsdata->degree_of_opennessR);
+                                    if (is_array($religions)) {
+                                        foreach ($religions as $value) {
+                                            echo htmlspecialchars($value).', ';
+                                        }
+                                    }
+                                }
+                            ?>
+                        </span>
                     </div>
                     <div class="field">
                         <span class="field-label">Hobbies</span>

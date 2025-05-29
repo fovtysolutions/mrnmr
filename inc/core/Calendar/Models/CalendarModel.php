@@ -47,6 +47,11 @@ class CalendarModel extends Model
         return $query->getRow(); 
     } 
 
+    public function getAll(){
+        $query = $this->db->table('events')->get();
+        return $query->getResultArray(); 
+    } 
+
     public function updateit($id, $data)
     {
         if (!is_numeric($id)) {

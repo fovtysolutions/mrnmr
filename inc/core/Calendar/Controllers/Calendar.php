@@ -15,22 +15,12 @@ class Calendar extends \CodeIgniter\Controller
     public function index()
     {
         $master = $this->master;
+        $events = $this->model->getAll();
         $contentdetails = [
             'contentfilename' => 'Core\Calendar\Views\contentinputfields',
             'title' => $master, 
             'heading' => "Calendar List", 
-            'print' => '', 
-            'searchname' => "Calendar List", 
-            'searching'=> '',
-            'filterinput'=> '',
-            'filterids'=>json_encode([]),
-            'th'=>["Event Id","Event Date","Event Name","Participants","Matches Percentage"],
-            'mainid' => "get$master",
-            'addbtnroute' => "$master/add",
-            'routeURL' => "$master/get",
-            'editroute' => "/$master/edit/",
-            'deleteURL' => "$master/deleteit",
-            'td' => json_encode(["event_id","event_date","event_name","participants","matches_percentage"]),
+            'eventdata' => $events,
         ];
         $data = [
             "title" => $this->config['name'],

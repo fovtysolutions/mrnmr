@@ -189,6 +189,7 @@
             const calendarEl = document.getElementById('calendars');
 
             let lastClickedEventId = null;
+            const eventdata = <?= json_encode( isset($eventdata) ? $eventdata : [] )?>
 
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
@@ -197,29 +198,7 @@
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
-                events: [
-                    {
-                        event_id: '1',
-                        event_name: 'Conference',
-                        event_date: '2025-02-01',
-                        matches_percentage: '85%',
-                        participants: '150'
-                    },
-                    {
-                        event_id: '14',
-                        event_name: 'visit',
-                        event_date: '2025-02-14',
-                        matches_percentage: '8%',
-                        participants: '2'
-                    },
-                    {
-                        event_id: '2',
-                        event_name: 'Team Meeting',
-                        event_date: '2025-02-15',
-                        matches_percentage: '92%',
-                        participants: '12'
-                    }
-                ].map(event => ({
+                events: eventdata.map(event => ({
                     id: event.event_id,
                     title: event.event_name,
                     start: event.event_date,
