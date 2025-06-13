@@ -2,34 +2,36 @@
     <div class="col-12">
         <h4 class="mb-4">Member Details</h4>
     </div>
+
+    <!-- MrnMr ID (Auto-generated) -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="mrnmr_id" class="col-sm-4 col-form-label">MrnMr ID</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control form-control-sm" id="mrnmr_id" name="mrnmr_id"
+                    placeholder="Generated MrnMr ID" readonly value="<?= $detailsdata->mrnmr_id ?? '' ?>">
+            </div>
+        </div>
+    </div>
+
+    <!-- First Name -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="first_name" class="col-sm-4 col-form-label">First Name</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control form-control-sm" id="first_name" name="first_name"
-                    placeholder="Enter First Name" value="<?= $detailsdata->first_name ?? '' ?>">
+                    placeholder="Enter First Name" maxlength="20" value="<?= $detailsdata->first_name ?? '' ?>">
             </div>
         </div>
     </div>
 
-    <!-- Last Name -->
-    <div class="col-md-6 col-xl-4">
+     <!-- Last Name -->
+     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="last_name" class="col-sm-4 col-form-label">Last Name</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control form-control-sm" id="last_name" name="last_name"
-                    placeholder="Enter Last Name" value="<?= $detailsdata->last_name ?? '' ?>">
-            </div>
-        </div>
-    </div>
-
-    <!-- MRnMR ID (Auto-filled) -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="mrnmr_id" class="col-sm-4 col-form-label">MRnMR ID</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="mrnmr_id" name="mrnmr_id"
-                    placeholder="Generated MRnMR ID" readonly value="<?= $detailsdata->mrnmr_id ?? '' ?>">
+                    placeholder="Enter Last Name" maxlength="20" value="<?= $detailsdata->last_name ?? '' ?>">
             </div>
         </div>
     </div>
@@ -71,7 +73,7 @@
         <div class="form-group row">
             <label for="membership_status" class="col-sm-4 col-form-label">Membership Status</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="membership_status" name="membership_status">
+                <select class="form-control form-control-sm form-select" id="membership_status" name="membership_status">
                     <option>Select Membership Status</option>
                     <option <?= (isset($detailsdata->membership_status ) && $detailsdata->membership_status == 'Internal') ? 'selected' : '' ?> value="Internal">Internal</option>
                     <option <?= (isset($detailsdata->membership_status ) && $detailsdata->membership_status == 'Paid') ? 'selected' : '' ?> value="Paid">Paid</option>
@@ -102,23 +104,24 @@
             </div>
         </div>
     </div>
-
     <!-- Date of Birth -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="dob" class="col-sm-4 col-form-label">Date of Birth</label>
             <div class="col-sm-8">
-                <input type="date" class="form-control form-control-sm" id="dob" name="dob" value="<?= $detailsdata->dob ?? '' ?>">
+                <input type="date" class="form-control form-control-sm" id="dob" name="dob"
+                    value="<?= $detailsdata->dob ?? '' ?>">
             </div>
         </div>
     </div>
 
-    <!-- Age (Auto-filled) -->
+    <!-- Age (Auto-calculated) -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="age" class="col-sm-4 col-form-label">Age</label>
             <div class="col-sm-8">
-                <input type="number" class="form-control form-control-sm" id="age" name="age" placeholder="Auto-calculated Age" readonly value="<?= $detailsdata->age ?? '' ?>">
+                <input type="number" class="form-control form-control-sm" id="age" name="age"
+                    placeholder="Auto-calculated Age" readonly value="<?= $detailsdata->age ?? '' ?>">
             </div>
         </div>
     </div>
@@ -140,13 +143,23 @@
         });
     </script>
 
-
     <!-- Height -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="height" class="col-sm-4 col-form-label">Height</label>
             <div class="col-sm-8">
-                <input type="number" class="form-control form-control-sm" id="height" name="height" placeholder="Enter Height (cm)" value="<?= $detailsdata->height ?? '' ?>">
+                <div class="input-group input-group-sm">
+                    <input type="number" class="form-control" id="height_feet" name="height_feet"
+                        placeholder="Feet" min="0" value="<?= $detailsdata->height_feet ?? '' ?>">
+                    <div class="input-group-append">
+                        <span class="input-group-text">ft</span>
+                    </div>
+                    <input type="number" class="form-control" id="height_inches" name="height_inches"
+                        placeholder="Inches" min="0" max="11" value="<?= $detailsdata->height_inches ?? '' ?>">
+                    <div class="input-group-append">
+                        <span class="input-group-text">in</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -156,88 +169,204 @@
         <div class="form-group row">
             <label for="weight" class="col-sm-4 col-form-label">Weight</label>
             <div class="col-sm-8">
-                <input type="number" class="form-control form-control-sm" id="weight" name="weight" placeholder="Enter Weight (kg)" value="<?= $detailsdata->weight ?? '' ?>">
+                <div class="input-group input-group-sm">
+                    <input type="number" class="form-control" id="weight" name="weight"
+                        placeholder="Enter Weight (kg)" min="0" value="<?= $detailsdata->weight ?? '' ?>">
+                    <div class="input-group-append">
+                        <span class="input-group-text">kg</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- country -->
+
+    <!-- Location: Country -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="membercountry" class="col-sm-4 col-form-label">Country</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="membercountry" name="country">
-                    <option>Select</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <!-- state -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="memberstate" class="col-sm-4 col-form-label">State</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="memberstate" name="state">
-                    <option>Select</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <!-- city -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="membercity" class="col-sm-4 col-form-label">City</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="membercity" name="city">
-                    <option>Select</option>
+                <select class="form-control form-control-sm form-select" id="membercountry" name="country">
+                    <option>Select country</option>
                 </select>
             </div>
         </div>
     </div>
 
-    <!-- Education -->
+    <!-- Location: State -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
-            <label for="education" class="col-sm-4 col-form-label">Education</label>
+            <label for="memberstate" class="col-sm-4 col-form-label">State</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="education" name="education">
-                    <option>Select Education</option>
-                    <option <?= isset($detailsdata->education) && $detailsdata->education == 'Metrics' ? 'selected' : '' ?>>Metrics</option>
+                <select class="form-control form-control-sm form-select" id="memberstate" name="state">
+                    <option>Select state</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location: City/District -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="membercity" class="col-sm-4 col-form-label">City/district</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="membercity" name="city">
+                    <option>Select City</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Address -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="memberaddress" class="col-sm-4 col-form-label">Complete Address</label>
+            <div class="col-sm-8">
+                <textarea class="form-control form-control-sm" id="memberaddress" name="memberaddress"
+                    placeholder="Enter Address" maxlength="30"><?= $detailsdata->address ?? '' ?></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="email" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control form-control-sm" id="email" name="email"
+                    placeholder="Enter Email" maxlength="20" value="<?= $detailsdata->email ?? '' ?>">
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Number -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="whatsapp_number" class="col-sm-4 col-form-label">WhatsApp Number</label>
+            <div class="col-sm-8">
+                <input type="tel" class="form-control form-control-sm" id="whatsapp_number" name="whatsapp_number"
+                    placeholder="Enter WhatsApp Number" pattern="[0-9]{10}" maxlength="10"
+                    value="<?= $detailsdata->whatsapp_number ?? '' ?>">
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Number -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="phone" class="col-sm-4 col-form-label">Mobile Number</label>
+            <div class="col-sm-8">
+                <input type="tel" class="form-control form-control-sm" id="phone" name="phone"
+                    placeholder="Enter Mobile Number" pattern="[0-9]{10}" maxlength="10"
+                    value="<?= $detailsdata->phone ?? '' ?>">
+            </div>
+        </div>
+    </div>
+
+    <!-- Highest Completed Education -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="education" class="col-sm-4 col-form-label">Highest Education</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="education" name="education">
+                    <option value="">Select Education</option>
+                    <option <?= isset($detailsdata->education) && $detailsdata->education == 'Metrics/Secondary School' ? 'selected' : '' ?>>Metrics/Secondary School</option>
                     <option <?= isset($detailsdata->education) && $detailsdata->education == 'Graduate' ? 'selected' : '' ?>>Graduate</option>
-                    <option <?= isset($detailsdata->education) && $detailsdata->education == 'Post-Graduate' ? 'selected' : '' ?>>Post-Graduate</option>
-                    <option <?= isset($detailsdata->education) && $detailsdata->education == 'Masters' ? 'selected' : '' ?>>Masters</option>
+                    <option <?= isset($detailsdata->education) && $detailsdata->education == 'Master\'s' ? 'selected' : '' ?>>Master's</option>
                     <option <?= isset($detailsdata->education) && $detailsdata->education == 'PhD' ? 'selected' : '' ?>>PhD</option>
                 </select>
             </div>
         </div>
     </div>
 
+    <!-- List of Schools and Colleges -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="member_schools_colleges" class="col-sm-4 col-form-label">Schools/Colleges</label>
+            <div class="col-sm-8">
+                <div id="">
+                    <input type="text" class="form-control form-control-sm mb-2" id="member_schools_colleges" name="member_schools_colleges"
+                        placeholder="Enter School/College" value="<?= $detailsdata->member_schools_colleges[0] ?? '' ?>">
+                </div>
+            </div>
+        </div>
+        <?php 
+            $addDeleteEditData = [
+                'mainArray' => json_encode(isset($perfectdatas->member_schools_colleges) ? json_decode($perfectdatas->member_schools_colleges) : []),
+                'MainColumn' => 'member_schools_colleges'
+            ];
+            echo view('common_script/singleSelectOption', $addDeleteEditData);
+        ?>
+    </div>
     <!-- Profession -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="profession" class="col-sm-4 col-form-label">Profession</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="profession" name="profession" placeholder="Enter Profession" value="<?= $detailsdata->profession ?? '' ?>">
+                <input type="text" class="form-control form-control-sm" id="profession" name="profession"
+                    placeholder="Enter Profession" value="<?= $detailsdata->profession ?? '' ?>">
             </div>
         </div>
     </div>
+
+    <!-- Organisations -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="member_organisations" class="col-sm-4 col-form-label">Organisations</label>
+            <div class="col-sm-8">
+                <div id="member_organisations_container">
+                    <input type="text" class="form-control form-control-sm mb-2" id="member_organisations" name="member_organisations"
+                        placeholder="Enter Organisation" value="<?= $detailsdata->member_organisations[0] ?? '' ?>">
+                </div>
+            </div>
+        </div>
+        <?php 
+        $addDeleteEditData = [
+            'mainArray' => json_encode(isset($perfectdatas->member_organisations) ? json_decode($perfectdatas->member_organisations) : []),
+            'MainColumn' => 'member_organisations'
+        ];
+        echo view('common_script/singleSelectOption', $addDeleteEditData);
+    ?>
+    </div>
+   
 
     <!-- Annual Income -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="annual_income" class="col-sm-4 col-form-label">Annual Income (INR)</label>
             <div class="col-sm-8">
-                <input type="number" class="form-control form-control-sm" id="annual_income" name="annual_income" placeholder="Enter Annual Income" value="<?= $detailsdata->annual_income ?? '' ?>">
+                <select class="form-control form-control-sm form-select" id="annual_income" name="annual_income">
+                    <option value="">Select Income</option>
+                    <option <?= isset($detailsdata->annual_income) && $detailsdata->annual_income == 'below25K' ? 'selected' : '' ?>>below 25K</option>
+                    <option <?= isset($detailsdata->annual_income) && $detailsdata->annual_income == '25K-50K' ? 'selected' : '' ?>>25K - 50K</option>
+                    <option <?= isset($detailsdata->annual_income) && $detailsdata->annual_income == '50K-100K' ? 'selected' : '' ?>>50K - 100K</option>
+                    <option <?= isset($detailsdata->annual_income) && $detailsdata->annual_income == '100K-200K' ? 'selected' : '' ?>>100K - 200K</option>
+                    <option <?= isset($detailsdata->annual_income) && $detailsdata->annual_income == '200K-400K' ? 'selected' : '' ?>>200K - 400K</option>
+                    <option <?= isset($detailsdata->annual_income) && $detailsdata->annual_income == '400K-800K' ? 'selected' : '' ?>>400K - 800K</option>
+                    <option <?= isset($detailsdata->annual_income) && $detailsdata->annual_income == 'above800K' ? 'selected' : '' ?>>above 800K</option>   
+                </select>
             </div>
         </div>
     </div>
 
-    <!-- Food Preferences -->
+    <!-- Languages Spoken -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="languages_spoken" class="col-sm-4 col-form-label">Languages Spoken</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="languages_spoken" name="languages_spoken[]" multiple>
+                    <option value="">Select Languages</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Food Preference -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="food_pref" class="col-sm-4 col-form-label">Food Preference</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="food_pref" name="food_pref">
-                    <option>Select Food Preference</option>
+                <select class="form-control form-control-sm form-select" id="food_pref" name="food_pref">
+                    <option value="">Select Food Preference</option>
                     <option <?= isset($detailsdata->food_pref) && $detailsdata->food_pref == 'Veg' ? 'selected' : '' ?>>Veg</option>
                     <option <?= isset($detailsdata->food_pref) && $detailsdata->food_pref == 'Non-Veg' ? 'selected' : '' ?>>Non-Veg</option>
                     <option <?= isset($detailsdata->food_pref) && $detailsdata->food_pref == 'Vegan' ? 'selected' : '' ?>>Vegan</option>
@@ -253,13 +382,12 @@
         <div class="form-group row">
             <label for="smoker" class="col-sm-4 col-form-label">Smoker?</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="smoker" name="smoker">
-                    <option>Select</option>
+                <select class="form-control form-control-sm form-select" id="smoker" name="smoker">
+                    <option value="">Select</option>
                     <option <?= isset($detailsdata->smoker) && $detailsdata->smoker == 'Sometimes' ? 'selected' : '' ?>>Sometimes</option>
                     <option <?= isset($detailsdata->smoker) && $detailsdata->smoker == 'No' ? 'selected' : '' ?>>No</option>
                     <option <?= isset($detailsdata->smoker) && $detailsdata->smoker == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($detailsdata->smoker) && $detailsdata->smoker == 'Trying to quit' ? 'selected' : '' ?>>Trying to quit
-                    </option>
+                    <option <?= isset($detailsdata->smoker) && $detailsdata->smoker == 'Trying to quit' ? 'selected' : '' ?>>Trying to quit</option>
                 </select>
             </div>
         </div>
@@ -270,7 +398,7 @@
         <div class="form-group row">
             <label for="drinker" class="col-sm-4 col-form-label">Drinker?</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="drinker" name="drinker">
+                <select class="form-control form-control-sm mb-2 form-select" id="drinker" name="drinker">
                     <option>Select</option>
                     <option <?= isset($detailsdata->drinker) && $detailsdata->drinker == 'Yes' ? 'selected' : '' ?> value="Yes">Yes</option>
                     <option <?= isset($detailsdata->drinker) && $detailsdata->drinker == 'Sometimes' ? 'selected' : '' ?> value="Sometimes" >Sometimes</option>
@@ -287,7 +415,8 @@
         <div class="form-group row">
             <label for="hobbies" class="col-sm-4 col-form-label">Hobbies</label>
             <div class="col-sm-8">
-                <textarea class="form-control form-control-sm" id="hobbies" name="hobbies" placeholder="Enter Hobbies"><?= $detailsdata->hobbies ?? '' ?></textarea>
+                <textarea class="form-control form-control-sm" id="hobbies" name="hobbies"
+                    placeholder="Enter Hobbies"><?= $detailsdata->hobbies ?? '' ?></textarea>
             </div>
         </div>
     </div>
@@ -297,16 +426,16 @@
         <div class="form-group row">
             <label for="religion" class="col-sm-4 col-form-label">Religion</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="religion" name="religion">
-                    <option>Select Religion</option>
+                <select class="form-control form-control-sm form-select" id="religion" name="religion">
+                    <option value="">Select Religion</option>
                     <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Hindu' ? 'selected' : '' ?>>Hindu</option>
                     <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Muslim' ? 'selected' : '' ?>>Muslim</option>
                     <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Christian' ? 'selected' : '' ?>>Christian</option>
-                    <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Agnostic' ? 'selected' : '' ?>>Agnostic</option>
-                    <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Buddhist' ? 'selected' : '' ?>>Buddhist</option>
                     <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Atheist' ? 'selected' : '' ?>>Atheist</option>
-                    <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Jewish' ? 'selected' : '' ?>>Jewish</option>
                     <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Jain' ? 'selected' : '' ?>>Jain</option>
+                    <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Buddhist' ? 'selected' : '' ?>>Buddhist</option>
+                    <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Judaism' ? 'selected' : '' ?>>Judaism</option>
+                    <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Agnostic' ? 'selected' : '' ?>>Agnostic</option>
                     <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Sikh' ? 'selected' : '' ?>>Sikh</option>
                     <option <?= isset($detailsdata->religion) && $detailsdata->religion == 'Other' ? 'selected' : '' ?>>Other</option>
                 </select>
@@ -319,8 +448,8 @@
         <div class="form-group row">
             <label for="political_ideology" class="col-sm-4 col-form-label">Political Ideology</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="political_ideology" name="political_ideology">
-                    <option>Select Political Ideology</option>
+                <select class="form-control form-control-sm form-select" id="political_ideology" name="political_ideology">
+                    <option value="">Select Political Ideology</option>
                     <option <?= isset($detailsdata->political_ideology) && $detailsdata->political_ideology == 'Right-wing' ? 'selected' : '' ?>>Right-wing</option>
                     <option <?= isset($detailsdata->political_ideology) && $detailsdata->political_ideology == 'Left-wing' ? 'selected' : '' ?>>Left-wing</option>
                     <option <?= isset($detailsdata->political_ideology) && $detailsdata->political_ideology == 'Moderate' ? 'selected' : '' ?>>Moderate</option>
@@ -332,8 +461,214 @@
         </div>
     </div>
 
-    <!-- Family Info -->
+    <!-- Out to Parents -->
     <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="out_to_parents" class="col-sm-4 col-form-label">Out to Parents</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="out_to_parents" name="out_to_parents">
+                    <option value="">Select</option>
+                    <option <?= isset($detailsdata->out_to_parents) && $detailsdata->out_to_parents == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                    <option <?= isset($detailsdata->out_to_parents) && $detailsdata->out_to_parents == 'No' ? 'selected' : '' ?>>No</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Degree of Openness -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="degree_of_openness" class="col-sm-4 col-form-label">Degree of Openness</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="degree_of_openness" name="degree_of_openness">
+                    <option value="">Select Degree of Openness</option>
+                    <option <?= isset($detailsdata->degree_of_openness) && $detailsdata->degree_of_openness == 'Closeted' ? 'selected' : '' ?>>Closeted</option>
+                    <option <?= isset($detailsdata->degree_of_openness) && $detailsdata->degree_of_openness == 'Selectively out' ? 'selected' : '' ?>>Selectively out</option>
+                    <option <?= isset($detailsdata->degree_of_openness) && $detailsdata->degree_of_openness == 'Out to whole world' ? 'selected' : '' ?>>Out to whole world</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Type of Relationship -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="relationship_type" class="col-sm-4 col-form-label">Type of Relationship</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select mb-2" id="relationship_type" name="relationship_type">
+                    <option>Select Type of Relationship</option>
+                    <option <?= isset($detailsdata->relationship_type) && $detailsdata->relationship_type == 'Monogamous' ? 'selected' : '' ?>>Monogamous</option>
+                    <option <?= isset($detailsdata->relationship_type) && $detailsdata->relationship_type == 'Open' ? 'selected' : '' ?>>Open</option>
+                    <option <?= isset($detailsdata->relationship_type) && $detailsdata->relationship_type == 'Polygamous' ? 'selected' : '' ?>>Polygamous</option>
+                    <option <?= isset($detailsdata->relationship_type) && $detailsdata->relationship_type == 'Polyamorous' ? 'selected' : '' ?>>Polyamorous</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Want to Get Married -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="want_to_get_married" class="col-sm-4 col-form-label">Want to Get Married</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="want_to_get_married" name="want_to_get_married">
+                    <option value="">Select</option>
+                    <option <?= isset($detailsdata->want_to_get_married) && $detailsdata->want_to_get_married == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                    <option <?= isset($detailsdata->want_to_get_married) && $detailsdata->want_to_get_married == 'No' ? 'selected' : '' ?>>No</option>
+                    <option <?= isset($detailsdata->want_to_get_married) && $detailsdata->want_to_get_married == 'Open to discuss' ? 'selected' : '' ?>>Open to discuss</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Want to Have Children -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="want_to_have_children" class="col-sm-4 col-form-label">Want to Have Children</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="want_to_have_children" name="want_to_have_children">
+                    <option value="">Select</option>
+                    <option <?= isset($detailsdata->want_to_have_children) && $detailsdata->want_to_have_children == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                    <option <?= isset($detailsdata->want_to_have_children) && $detailsdata->want_to_have_children == 'No' ? 'selected' : '' ?>>No</option>
+                    <option <?= isset($detailsdata->want_to_have_children) && $detailsdata->want_to_have_children == 'Open to discuss' ? 'selected' : '' ?>>Open to discuss</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pet Friendly -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="pet_friendly" class="col-sm-4 col-form-label">Pet Friendly</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="pet_friendly" name="pet_friendly">
+                    <option value="">Select</option>
+                    <option <?= isset($detailsdata->pet_friendly) && $detailsdata->pet_friendly == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                    <option <?= isset($detailsdata->pet_friendly) && $detailsdata->pet_friendly == 'No' ? 'selected' : '' ?>>No</option>
+                    <option <?= isset($detailsdata->pet_friendly) && $detailsdata->pet_friendly == 'Open to discuss' ? 'selected' : '' ?>>Open to discuss</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Long Distance Relationship -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="long_distance_relationship" class="col-sm-4 col-form-label">Are you ok with long distance relationship ?</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="long_distance_relationship" name="long_distance_relationship">
+                    <option value="">Select</option>
+                    <option <?= isset($detailsdata->long_distance_relationship) && $detailsdata->long_distance_relationship == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                    <option <?= isset($detailsdata->long_distance_relationship) && $detailsdata->long_distance_relationship == 'No' ? 'selected' : '' ?>>No</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Open to Relocation -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="open_to_relocation" class="col-sm-4 col-form-label">Are you open to relocation </label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="open_to_relocation" name="open_to_relocation">
+                    <option value="">Select</option>
+                    <option <?= isset($detailsdata->open_to_relocation) && $detailsdata->open_to_relocation == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                    <option <?= isset($detailsdata->open_to_relocation) && $detailsdata->open_to_relocation == 'No' ? 'selected' : '' ?>>No</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Sexual Position -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="sexual_position" class="col-sm-4 col-form-label">My Sexual Position</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="sexual_position" name="sexual_position">
+                    <option value="">Select Sexual Position</option>
+                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Top' ? 'selected' : '' ?>>Top</option>
+                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Vers Top' ? 'selected' : '' ?>>Vers Top</option>
+                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Versatile' ? 'selected' : '' ?>>Versatile</option>
+                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Vers Bottom' ? 'selected' : '' ?>>Vers Bottom</option>
+                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Bottom' ? 'selected' : '' ?>>Bottom</option>
+                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Side' ? 'selected' : '' ?>>Side</option>
+                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Asexual' ? 'selected' : '' ?>>Asexual</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anal Sex Mandatory -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="anal_sex_mandatory" class="col-sm-4 col-form-label">Anal Sex Mandatory</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm form-select" id="anal_sex_mandatory" name="anal_sex_mandatory">
+                    <option value="">Select</option>
+                    <option <?= isset($detailsdata->anal_sex_mandatory) && $detailsdata->anal_sex_mandatory == 'Mandatory' ? 'selected' : '' ?>>Mandatory</option>
+                    <option <?= isset($detailsdata->anal_sex_mandatory) && $detailsdata->anal_sex_mandatory == 'Not Mandatory' ? 'selected' : '' ?>>Not Mandatory</option>
+                    <option <?= isset($detailsdata->anal_sex_mandatory) && $detailsdata->anal_sex_mandatory == 'Open to discuss' ? 'selected' : '' ?>>Open to discuss</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Physical Health Issues -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="physical_health_issues" class="col-sm-4 col-form-label">Physical Health Issues</label>
+            <div class="col-sm-8">
+                <textarea class="form-control form-control-sm" id="physical_health_issues" name="physical_health_issues"
+                    placeholder="Enter Physical Health Issues" maxlength="30"><?= $detailsdata->physical_health_issues ?? '' ?></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mental Health Issues -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="mental_health_issues" class="col-sm-4 col-form-label">Mental Health Issues</label>
+            <div class="col-sm-8">
+                <textarea class="form-control form-control-sm" id="mental_health_issues" name="mental_health_issues"
+                    placeholder="Enter Mental Health Issues" maxlength="30"><?= $detailsdata->mental_health_issues ?? '' ?></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- HIV Status -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="hiv_status" class="col-sm-4 col-form-label">HIV Status</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm" id="hiv_status" name="hiv_status">
+                    <option value="">Select</option>
+                    <option <?= isset($detailsdata->hiv_status) && $detailsdata->hiv_status == 'Negative' ? 'selected' : '' ?>>Negative</option>
+                    <option <?= isset($detailsdata->hiv_status) && $detailsdata->hiv_status == 'Acute/very recent infection' ? 'selected' : '' ?>>Acute/very recent infection</option>
+                    <option <?= isset($detailsdata->hiv_status) && $detailsdata->hiv_status == 'Chronic HIV' ? 'selected' : '' ?>>Chronic HIV</option>
+                    <option <?= isset($detailsdata->hiv_status) && $detailsdata->hiv_status == 'AIDS' ? 'selected' : '' ?>>AIDS</option>
+                    <option <?= isset($detailsdata->hiv_status) && $detailsdata->hiv_status == 'Undetectable' ? 'selected' : '' ?>>Undetectable</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Traditionally Masculine/Feminine Scale -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="masculine_feminine" class="col-sm-4 col-form-label">Masculine/Feminine</label>
+            <div class="col-sm-8">
+                <input type="range" class="form-control-range" id="masculine_feminine" name="masculine_feminine"
+                    min="0" max="10" value="<?= $detailsdata->masculine_feminine ?? 5 ?>">
+                <div class="d-flex justify-content-between">
+                    <span>Traditionally Masculine (0)</span>
+                    <span>Traditionally Feminine (10)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Family Info -->
+     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="family_info" class="col-sm-4 col-form-label">Family Info</label>
             <div class="col-sm-8">
@@ -373,135 +708,8 @@
             </div>
         </div>
     </div>
-
-    <!-- Email -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="email" class="col-sm-4 col-form-label">Email</label>
-            <div class="col-sm-8">
-                <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Enter Email" value="<?= $detailsdata->email ?? '' ?>">
-            </div>
-        </div>
-    </div>
-
-    <!-- Phone -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="phone" class="col-sm-4 col-form-label">Phone</label>
-            <div class="col-sm-8">
-                <input type="tel" class="form-control form-control-sm" id="phone" name="phone" placeholder="Enter Phone Number" value="<?= $detailsdata->phone ?? '' ?>">
-            </div>
-        </div>
-    </div>
-
-    <!-- My Sexual Position -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="sexual_position" class="col-sm-4 col-form-label">My Sexual Position</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="sexual_position" name="sexual_position">
-                    <option>Select Sexual Position</option>
-                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Top' ? 'selected' : '' ?>>Top</option>
-                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Bottom' ? 'selected' : '' ?>>Bottom</option>
-                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Side' ? 'selected' : '' ?>>Side</option>
-                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Versatile' ? 'selected' : '' ?>>Versatile</option>
-                    <option <?= isset($detailsdata->sexual_position) && $detailsdata->sexual_position == 'Asexual' ? 'selected' : '' ?>>Asexual</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Anal Sex Mandatory -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="anal_sex_mandatory" class="col-sm-4 col-form-label">Anal Sex Mandatory</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="anal_sex_mandatory" name="anal_sex_mandatory">
-                    <option>Select</option>
-                    <option <?= isset($detailsdata->anal_sex_mandatory) && $detailsdata->anal_sex_mandatory == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($detailsdata->anal_sex_mandatory) && $detailsdata->anal_sex_mandatory == 'No' ? 'selected' : '' ?>>No</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Out to Parents -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="out_to_parents" class="col-sm-4 col-form-label">Out to Parents</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="out_to_parents" name="out_to_parents">
-                    <option>Select</option>
-                    <option <?= isset($detailsdata->out_to_parents) && $detailsdata->out_to_parents == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($detailsdata->out_to_parents) && $detailsdata->out_to_parents == 'No' ? 'selected' : '' ?>>No</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Degree of Openness -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="degree_of_openness" class="col-sm-4 col-form-label">Degree of Openness</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="degree_of_openness" name="degree_of_openness">
-                    <option>Select Degree of Openness</option>
-                    <option <?= isset($detailsdata->degree_of_openness) && $detailsdata->degree_of_openness == 'Out to family' ? 'selected' : '' ?>>Out to family</option>
-                    <option <?= isset($detailsdata->degree_of_openness) && $detailsdata->degree_of_openness == 'Out to close friends' ? 'selected' : '' ?>>Out to close friends</option>
-                    <option <?= isset($detailsdata->degree_of_openness) && $detailsdata->degree_of_openness == 'Out at work' ? 'selected' : '' ?>>Out at work</option>
-                    <option <?= isset($detailsdata->degree_of_openness) && $detailsdata->degree_of_openness == 'Out to the whole world' ? 'selected' : '' ?>>Out to the whole world</option>
-                    <option <?= isset($detailsdata->degree_of_openness) && $detailsdata->degree_of_openness == 'Closeted' ? 'selected' : '' ?>>Closeted</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Type of Relationship -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="relationship_type" class="col-sm-4 col-form-label">Type of Relationship</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="relationship_type" name="relationship_type">
-                    <option>Select Type of Relationship</option>
-                    <option <?= isset($detailsdata->relationship_type) && $detailsdata->relationship_type == 'Monogamous' ? 'selected' : '' ?>>Monogamous</option>
-                    <option <?= isset($detailsdata->relationship_type) && $detailsdata->relationship_type == 'Open' ? 'selected' : '' ?>>Open</option>
-                    <option <?= isset($detailsdata->relationship_type) && $detailsdata->relationship_type == 'Polygamous' ? 'selected' : '' ?>>Polygamous</option>
-                    <option <?= isset($detailsdata->relationship_type) && $detailsdata->relationship_type == 'Polyamorous' ? 'selected' : '' ?>>Polyamorous</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Want to Get Married -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="want_to_get_married" class="col-sm-4 col-form-label">Want to Get Married</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="want_to_get_married" name="want_to_get_married">
-                    <option>Select</option>
-                    <option <?= isset($detailsdata->want_to_get_married) && $detailsdata->want_to_get_married == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($detailsdata->want_to_get_married) && $detailsdata->want_to_get_married == 'No' ? 'selected' : '' ?>>No</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Want to Have Children -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="want_to_have_children" class="col-sm-4 col-form-label">Want to Have Children</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="want_to_have_children" name="want_to_have_children">
-                    <option>Select</option>
-                    <option <?= isset($detailsdata->want_to_have_children) && $detailsdata->want_to_have_children == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($detailsdata->want_to_have_children) && $detailsdata->want_to_have_children == 'No' ? 'selected' : '' ?>>No</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- Idea of Romance -->
-    <div class="col-md-6 col-xl-4">
+     <!-- Idea of Romance -->
+     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="idea_of_romance" class="col-sm-4 col-form-label">The Idea of Romance</label>
             <div class="col-sm-8">
@@ -509,69 +717,16 @@
             </div>
         </div>
     </div>
-
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="social_media_handles" class="col-sm-4 col-form-label">Social Media Handles</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="social_media_handles" name="social_media_handles">
+                <select class="form-control form-control-sm form-select" id="social_media_handles" name="social_media_handles">
                     <option>Select</option>
                     <option <?= isset($detailsdata->social_media_handles) && $detailsdata->social_media_handles == '1' ? 'selected' : '' ?>>1</option>
                     <option <?= isset($detailsdata->social_media_handles) && $detailsdata->social_media_handles == '2' ? 'selected' : '' ?>>2</option>
                     <option <?= isset($detailsdata->social_media_handles) && $detailsdata->social_media_handles == '3' ? 'selected' : '' ?>>3</option>
                     <option <?= isset($detailsdata->social_media_handles) && $detailsdata->social_media_handles == '4' ? 'selected' : '' ?>>4</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="pet_friendly" class="col-sm-4 col-form-label">Pet Friendly</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="pet_friendly" name="pet_friendly">
-                    <option>Select</option>
-                    <option <?= isset($detailsdata->pet_friendly) && $detailsdata->pet_friendly == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($detailsdata->pet_friendly) && $detailsdata->pet_friendly == 'No' ? 'selected' : '' ?>>No</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="have_children" class="col-sm-4 col-form-label">Have Children?</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="have_children" name="have_children">
-                    <option>Select</option>
-                    <option <?= isset($detailsdata->have_children) &&$detailsdata->have_children == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($detailsdata->have_children) &&$detailsdata->have_children == 'No' ? 'selected' : '' ?>>No</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="previous_marriage" class="col-sm-4 col-form-label">Previous Marriage?</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="previous_marriage" name="previous_marriage">
-                    <option>Select</option>
-                    <option <?= isset($detailsdata->previous_marriage) && $detailsdata->previous_marriage == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($detailsdata->previous_marriage) && $detailsdata->previous_marriage == 'No' ? 'selected' : '' ?>>No</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="hiv_status" class="col-sm-4 col-form-label">HIV Status</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="hiv_status" name="hiv_status">
-                    <option value="Select">Select</option>
-                    <option <?= isset($detailsdata->hiv_status) && $detailsdata->hiv_status == 'Positive' ? 'selected' : '' ?>>Positive</option>
-                    <option <?= isset($detailsdata->hiv_status) && $detailsdata->hiv_status == 'Negative' ? 'selected' : '' ?>>Negative</option>
                 </select>
             </div>
         </div>

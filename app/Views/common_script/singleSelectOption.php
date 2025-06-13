@@ -15,7 +15,7 @@
         const parentElement = $('#<?=$MainColumn?>_datajoin');
         joinData(mainArray, parentElement);
 
-        $('#<?=$MainColumn?>').on('input', function () {
+        $('#<?=$MainColumn?>').on('change', function () {
             const item = $(this).val().trim(); 
             if (!mainArray.includes(item)) {
                 mainArray.push(item);

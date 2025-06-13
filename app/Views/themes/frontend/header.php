@@ -7,11 +7,11 @@
     <!-- viewport meta -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="MartPlace - Complete Online Multipurpose Marketplace HTML Template">
-    <meta name="keywords" content="marketplace, easy digital download, digital product, digital, html5">
+    <meta name="description" content="Mr&Mr">
+    <meta name="keywords" content="">
 
 
-    <title>Martplace - Home</title>
+    <title>Mr&Mr - Home</title>
 
     <!-- inject:css -->
     <link rel="stylesheet" href="themes/frontend/css/animate.css">
@@ -30,7 +30,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
 </head>
 
-<body class="preload home1 mutlti-vendor">
+<body class="preload home1 mutlti-vendor">  
+    
 
     <!-- ================================
     START MENU AREA
