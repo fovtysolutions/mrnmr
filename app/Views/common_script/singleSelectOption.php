@@ -15,7 +15,8 @@
         const parentElement = $('#<?=$MainColumn?>_datajoin');
         joinData(mainArray, parentElement);
 
-        $('#<?=$MainColumn?>').on('change', function () {
+        $('#<?=$MainColumn?>').on('change keyup', function (event) {
+            if(event.type === 'keyup' && event.keyCode !== 13) return;
             const item = $(this).val().trim(); 
             if (!mainArray.includes(item)) {
                 mainArray.push(item);
@@ -23,6 +24,7 @@
             } else {
                 toastr.error(`Duplicate value not added: ${item}`);
             }
+            $(this).val('');
         });
 
         $(document).on('click', '.deleteit', function() {

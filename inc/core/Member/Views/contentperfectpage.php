@@ -2,18 +2,18 @@
     <h4 class="mb-4">Mr Perfect Detail</h4>
 </div>
 <div class="row">
-    <!-- MmMR_ID -->
-    <div hidden class="col-md-6 col-xl-4">
+    <!-- ID -->
+    <div class="col-md-6 col-xl-4">
         <div class="form-group row">
-            <label for="mrnmr_idperfect" class="col-sm-4 col-form-label">MmMR ID</label>
+            <label for="mrnmr_idperfect" class="col-sm-4 col-form-label">ID</label>
             <div class="col-sm-8">
-                <input type="hidden" class="form-control form-control-sm" id="mrnmr_idperfect" name="mrnmr_id"
+                <input type="text" readonly class="form-control form-control-sm" id="mrnmr_idperfect" name="mrnmr_id"
                     placeholder="Enter MRnMR ID" value="<?= $perfectdatas->mrnmr_id ?? '' ?>">
             </div>
         </div>
     </div>
 
-    <!-- Age -->
+    <!-- Age Range -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="age_range" class="col-sm-4 col-form-label">Age Range</label>
@@ -41,7 +41,8 @@
             });
         });
     </script>
-    <!-- Height -->
+
+    <!-- Height Range -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="height_range" class="col-sm-4 col-form-label">Height Range</label>
@@ -49,12 +50,12 @@
                 <div class="row">
                     <div class="col-6">
                         <input class="form-control form-control-sm" type="number" id="heightRangeMin"
-                            name="heightRangeMin" min="18" max="99" placeholder="Min Height"
+                            name="heightRangeMin" min="100" max="250" placeholder="Min Height (cm)"
                             value="<?= $perfectdatas->heightRangeMin ?? '' ?>">
                     </div>
                     <div class="col-6">
                         <input class="form-control form-control-sm" type="number" id="heightRangeMax"
-                            name="heightRangeMax" min="18" max="99" placeholder="Max Height"
+                            name="heightRangeMax" min="100" max="250" placeholder="Max Height (cm)"
                             value="<?= $perfectdatas->heightRangeMax ?? '' ?>">
                     </div>
                 </div>
@@ -71,6 +72,8 @@
             });
         });
     </script>
+
+    <!-- Weight Range -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="weight_range" class="col-sm-4 col-form-label">Weight Range</label>
@@ -78,12 +81,12 @@
                 <div class="row">
                     <div class="col-6">
                         <input class="form-control form-control-sm" type="number" id="weightRangeMin"
-                            name="weightRangeMin" min="18" max="99" placeholder="Min Weight"
+                            name="weightRangeMin" min="30" max="200" placeholder="Min Weight (kg)"
                             value="<?= $perfectdatas->weightRangeMin ?? '' ?>">
                     </div>
                     <div class="col-6">
                         <input class="form-control form-control-sm" type="number" id="weightRangeMax"
-                            name="weightRangeMax" min="18" max="99" placeholder="Max Weight"
+                            name="weightRangeMax" min="30" max="200" placeholder="Max Weight (kg)"
                             value="<?= $perfectdatas->weightRangeMax ?? '' ?>">
                     </div>
                 </div>
@@ -100,45 +103,117 @@
             });
         });
     </script>
-    <!-- country -->
+
+    <!-- Traditionally Masculine/Feminine Scale -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
-            <label for="perfectcountry" class="col-sm-4 col-form-label">Country</label>
+            <label for="masculine_feminine" class="col-sm-4 col-form-label">My preferred partner should be</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="perfectcountry" name="country">
-                    <option>Select</option>
-                </select>
+                <input type="range" class="form-control-range form-range" id="masculine_feminine"
+                    name="masculine_feminine" min="0" max="10" value="<?= $perfectdatas->masculine_feminine ?? 5 ?>">
+                <div class="d-flex justify-content-between">
+                    <span>Traditionally Masculine (0)</span>
+                    <span>Traditionally Feminine (10)</span>
+                </div>
             </div>
         </div>
     </div>
-    <!-- state -->
+
+    <!-- Location -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
-            <label for="perfectstate" class="col-sm-4 col-form-label">State</label>
+            <label for="location_R" class="col-sm-4 col-form-label">Location Preference</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="perfectstate" name="state">
+                <select class="form-control form-select form-control-sm mb-2" id="location_R">
                     <option>Select</option>
+                    <option>Anywhere in World</option>
+                    <option>Only Outside India</option>
+                    <option>Only in My Home Country</option>
+                    <option>Anywhere in India</option>
+                    <option>Same State as Me within India</option>
+                    <option>Same City as Me within India</option>
                 </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->location_R) ? json_decode($perfectdatas->location_R) : []),
+                    'MainColumn' => 'location_R'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
             </div>
         </div>
     </div>
-    <!-- city -->
+
+    <!-- Education -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
-            <label for="perfectcity" class="col-sm-4 col-form-label">City</label>
+            <label for="education_R" class="col-sm-4 col-form-label">Education</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="perfectcity" name="city">
+                <select class="form-control form-select form-control-sm mb-2" id="education_R">
                     <option>Select</option>
+                    <option>Min High School</option>
+                    <option>Min Graduate</option>
+                    <option>Min Master's</option>
+                    <option>Doesn't Matter</option>
                 </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->education_R) ? json_decode($perfectdatas->education_R) : []),
+                    'MainColumn' => 'education_R'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
             </div>
         </div>
     </div>
+
+    <!-- Financial Stability -->
+
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="financial_stability" class="col-sm-4 col-form-label">Financial Stability (INR)</label>
+            <div class="col-sm-8">
+                <input class="form-control form-control-sm mb-2" type="number" id="financial_stability"
+                    name="financial_stability" min="0" placeholder="Annual Net Income"
+                    value="<?= $perfectdatas->financial_stability ?? '' ?>">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="financial_stability"
+                        id="financial_doesnt_matter" value="Dos'nt Matter" <?= isset($perfectdatas->financial_stability) && $perfectdatas->financial_stability == 'doesnt_matter' ? 'checked' : '' ?>>
+                    <label class="form-check-label" for="financial_doesnt_matter">Doesn't Matter</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            if ($('#financial_doesnt_matter').is(':checked')) {
+                $('#financial_stability').attr('disabled', true);
+                $('#financial_stability').val('');
+            } else {
+                $('#financial_stability').attr('disabled', false);
+            }
+            $('#financial_doesnt_matter').on('change', function () {
+                if ($(this).is(':checked')) {
+                    $('#financial_stability').attr('disabled', true);
+                    $('#financial_stability').val('');
+                } else {
+                    $('#financial_stability').attr('disabled', false);
+                }
+            });
+            $('#financial_stability').on('input', function () {
+                if ($('#financial_doesnt_matter').is(':checked')) {
+                    $('#financial_stability').val('');
+                }
+            });
+        })
+    </script>
+
     <!-- Food Preferences -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
             <label for="food_prefR" class="col-sm-4 col-form-label">Food Preference</label>
             <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="food_prefR">
+                <select class="form-control form-select form-control-sm mb-2" id="food_prefR">
                     <option>Select Food Preference</option>
                     <option>Veg</option>
                     <option>Non-Veg</option>
@@ -147,203 +222,203 @@
                     <option>Jain</option>
                     <option>Doesn't Matter</option>
                 </select>
-                <?php 
-                    $addDeleteEditData = [
-                        'mainArray' => json_encode(isset($perfectdatas->food_prefR) ? json_decode($perfectdatas->food_prefR) : []),
-                        'MainColumn' => 'food_prefR'
-                    ];
-                    echo view('common_script/singleSelectOption', $addDeleteEditData);
-                ?>
-            </div>
-        </div>
-    </div>
-    <!-- Life Style -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="lifestyle" class="col-sm-4 col-form-label">Lifestyle</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="lifestyle" name="lifestyle"
-                    placeholder="Enter Lifestyle" value="<?= $perfectdatas->lifestyle ?? '' ?>">
-            </div>
-        </div>
-    </div>
-    <!-- Degree of Openness -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="degree_of_opennessR" class="col-sm-4 col-form-label">Degree of Openness</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="degree_of_opennessR">
-                    <option>Select Degree of Openness</option>
-                    <option>Out to family</option>
-                    <option>Out to close friends</option>
-                    <option>Out at work</option>
-                    <option>Out to the whole world</option>
-                    <option>Closeted</option>
-                    <option>Doesn't matter</option>
-                </select>
-                <?php 
-                    $addDeleteEditData = [
-                        'mainArray' => json_encode(isset($perfectdatas->degree_of_opennessR) ? json_decode($perfectdatas->degree_of_opennessR) : []),
-                        'MainColumn' => 'degree_of_opennessR'
-                    ];
-                    echo view('common_script/singleSelectOption', $addDeleteEditData);
-                ?>
-            </div>
-        </div>
-    </div>
-    <!-- Hobbies -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="hobbies" class="col-sm-4 col-form-label">Hobbies</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control form-control-sm" id="hobbies" name="hobbies"
-                    placeholder="Enter Hobbies" value="<?= $perfectdatas->hobbies ?? '' ?>">
-            </div>
-        </div>
-    </div>
-    <!-- Religion -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="religionR" class="col-sm-4 col-form-label">Religion</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="religionR">
-                    <option>Select Religion</option>
-                    <option>Agnostic</option>
-                    <option>Atheist</option>
-                    <option>Buddhist</option>
-                    <option>Christian</option>
-                    <option>Hindu</option>
-                    <option>Jain</option>
-                    <option>Judaism</option>
-                    <option>Muslim</option>
-                    <option>Sikh</option>
-                    <option>Doesn't matter</option>
-                </select>
-                <?php 
-                    $addDeleteEditData = [
-                        'mainArray' => json_encode(isset($perfectdatas->religionR) ? json_decode($perfectdatas->religionR) : []),
-                        'MainColumn' => 'religionR'
-                    ];
-                    echo view('common_script/singleSelectOption', $addDeleteEditData);
-                ?>
-            </div>
-        </div>
-    </div>
-    <!-- Ideology -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="ideologyR" class="col-sm-4 col-form-label">Ideology</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="ideologyR">
-                    <option>Select Ideology</option>
-                    <option>Right-wing</option>
-                    <option>Left-wing</option>
-                    <option>Moderate</option>
-                    <option>Apolitical</option>
-                    <option>Liberal</option>
-                    <option>Doesn't matter</option>
-                </select>
-                <?php 
-                    $addDeleteEditData = [
-                        'mainArray' => json_encode(isset($perfectdatas->ideologyR) ? json_decode($perfectdatas->ideologyR) : []),
-                        'MainColumn' => 'ideologyR'
-                    ];
-                    echo view('common_script/singleSelectOption', $addDeleteEditData);
-                ?>
-            </div>
-        </div>
-    </div>
-    <!-- Qualities -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="qualities" class="col-sm-4 col-form-label">Qualities</label>
-            <div class="col-sm-8">
-                <textarea class="form-control form-control-sm" id="qualities" name="qualities"
-                    placeholder="Enter Qualities" value=""><?= $perfectdatas->qualities ?? '' ?></textarea>
-            </div>
-        </div>
-    </div>
-    <!-- Additional -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="additional" class="col-sm-4 col-form-label">Additional</label>
-            <div class="col-sm-8">
-                <textarea class="form-control form-control-sm" id="additional" name="additional"
-                    placeholder="Enter Additional Information" value=""><?= $perfectdatas->additional ?? '' ?></textarea>
-            </div>
-        </div>
-    </div>
-    <!-- Negotiable Requirement -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="negotiable_requirement" class="col-sm-4 col-form-label">Negotiable Requirement</label>
-            <div class="col-sm-8">
-                <textarea class="form-control form-control-sm" id="negotiable_requirement" name="negotiable_requirement"
-                    placeholder="Enter Negotiable Requirement"
-                    value=""><?= $perfectdatas->negotiable_requirement ?? '' ?></textarea>
-            </div>
-        </div>
-    </div>
-    <!-- Non-Negotiable Requirements -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="non_negotiable_requirements" class="col-sm-4 col-form-label">Non-Negotiable Requirements</label>
-            <div class="col-sm-8">
-                <textarea class="form-control form-control-sm" id="non_negotiable_requirements"
-                    name="non_negotiable_requirements" placeholder="Enter Non-Negotiable Requirements"
-                    value=""><?= $perfectdatas->non_negotiable_requirements ?? '' ?></textarea>
-            </div>
-        </div>
-    </div>
-    <!-- Partner Sexual Position -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="partner_sexual_positionR" class="col-sm-4 col-form-label">Partner Sexual Position</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="partner_sexual_positionR">
-                    <option>Select Partner Sexual Position</option>
-                    <option>Top</option>
-                    <option>Bottom</option>
-                    <option>Side</option>
-                    <option>Versatile</option>
-                    <option>Asexual</option>
-                    <option>Doesn't matter</option>
-                </select>
-                <?php 
-                    $addDeleteEditData = [
-                        'mainArray' => json_encode(isset($perfectdatas->partner_sexual_positionR) ? json_decode($perfectdatas->partner_sexual_positionR) : []),
-                        'MainColumn' => 'partner_sexual_positionR'
-                    ];
-                    echo view('common_script/singleSelectOption', $addDeleteEditData);
-                ?>
-            </div>
-        </div>
-    </div>
-    <!-- Political Ideology -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="political_ideologyR" class="col-sm-4 col-form-label">Political Ideology</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm mb-2" id="political_ideologyR">
-                    <option value="political_ideologyR">Select Political Ideology</option>
-                    <option>Right-wing</option>
-                    <option>Left-wing</option>
-                    <option>Moderate</option>
-                    <option>Apolitical</option>
-                    <option>Liberal</option>
-                    <option>Doesn'tmatter</option>
-                </select>
-                <?php 
-                    $addDeleteEditData = [
-                        'mainArray' => json_encode(isset($perfectdatas->political_ideologyR) ? json_decode($perfectdatas->political_ideologyR) : []),
-                        'MainColumn' => 'political_ideologyR'
-                    ];
-                    echo view('common_script/singleSelectOption', $addDeleteEditData);
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->food_prefR) ? json_decode($perfectdatas->food_prefR) : []),
+                    'MainColumn' => 'food_prefR'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
                 ?>
             </div>
         </div>
     </div>
 
+    <!-- Drinking -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="drinking" class="col-sm-4 col-form-label">Drinking</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm mb-2 form-select" id="drinking" name="drinking">
+                    <option>Select</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Social">Social</option>
+                    <option value="Not at All">Not at All</option>
+                    <option value="Doesnt Matter">Doesn't Matter</option>
+                </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->drinking) ? json_decode($perfectdatas->drinking) : []),
+                    'MainColumn' => 'drinking'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smoking -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="smoking" class="col-sm-4 col-form-label">Smoking</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm mb-2 form-select" id="smoking" name="smoking">
+                    <option value="regular">Regular</option>
+                    <option value="social">Social</option>
+                    <option value="not_at_all">Not at All</option>
+                    <option value="doesnt_matter">Doesn't Matter</option>
+                </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->smoking) ? json_decode($perfectdatas->smoking) : []),
+                    'MainColumn' => 'smoking'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Out to Parents -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="out_to_parents" class="col-sm-4 col-form-label">Out to Parents</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm mb-2 form-select" id="out_to_parents" name="out_to_parents">
+                <option value="Select">Select</option>
+                    <option <?= isset($perfectdatas->out_to_parents) && $perfectdatas->out_to_parents == 'Yes' ? 'selected' : '' ?>>Yes</option>
+                    <option <?= isset($perfectdatas->out_to_parents) && $perfectdatas->out_to_parents == 'No' ? 'selected' : '' ?>>No</option>
+                    <option <?= isset($perfectdatas->out_to_parents) && $perfectdatas->out_to_parents == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter
+                    </option>
+                </select>
+               
+            </div>
+        </div>
+    </div>
+
+    <!-- Degree of Openness -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="degree_of_opennessR" class="col-sm-4 col-form-label">Degree of Openness</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm mb-2 form-select" id="degree_of_opennessR"
+                    name="degree_of_opennessR">
+                    <option value="closeted">Closeted</option>
+                    <option value="selectively_out">Selectively Out</option>
+                    <option value="out_to_whole_world">Out to Whole World</option>
+                    <option value="doesnt_matter">Doesn't Matter</option>
+                </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->degree_of_opennessR) ? json_decode($perfectdatas->degree_of_opennessR) : []),
+                    'MainColumn' => 'degree_of_opennessR'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Religion -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="religionR" class="col-sm-4 col-form-label">Religion</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm mb-2 form-select" id="religionR" name="religionR">
+                    <option value="Agnostic">Agnostic</option>
+                    <option value="Atheist">Atheist</option>
+                    <option value="Buddhist">Buddhist</option>
+                    <option value="Christian">Christian</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Jain">Jain</option>
+                    <option value="Judaism">Judaism</option>
+                    <option value="Muslim">Muslim</option>
+                    <option value="Sikh">Sikh</option>
+                    <option value="Doesnt_matter">Doesn't Matter</option>
+                </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->religionR) ? json_decode($perfectdatas->religionR) : []),
+                    'MainColumn' => 'religionR'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ideology -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="ideologyR" class="col-sm-4 col-form-label">Ideology</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm mb-2 form-select" id="ideologyR" name="ideologyR">
+                    <option value="Right-wing">Right-wing</option>
+                    <option value="Left-wing">Left-wing</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Apolitical">Apolitical</option>
+                    <option value="Liberal">Liberal</option>
+                    <option value="Doesnt_matter">Doesn't Matter</option>
+                </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->ideologyR) ? json_decode($perfectdatas->ideologyR) : []),
+                    'MainColumn' => 'ideologyR'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partner Sexual Position -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="partner_sexual_positionR" class="col-sm-4 col-form-label">Partner Sexual Position</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm mb-2 form-select" id="partner_sexual_positionR"
+                    name="partner_sexual_positionR">
+                    <option value="Top">Top</option>
+                    <option value="Vers_Top">Vers Top</option>
+                    <option value="Versatile">Versatile</option>
+                    <option value="Vers_Bottom">Vers Bottom</option>
+                    <option value="Bottom">Bottom</option>
+                    <option value="Side">Side</option>
+                    <option value="Asexual">Asexual</option>
+                    <option value="Doesnt_matter">Doesn't Matter</option>
+                </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->partner_sexual_positionR) ? json_decode($perfectdatas->partner_sexual_positionR) : []),
+                    'MainColumn' => 'partner_sexual_positionR'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
+            </div>
+        </div>
+    </div>
+    <!-- HIV Status -->
+    <div class="col-md-6 col-xl-4">
+        <div class="form-group row">
+            <label for="hiv_status" class="col-sm-4 col-form-label">HIV Status</label>
+            <div class="col-sm-8">
+                <select class="form-control form-control-sm mb-2 form-select" id="hiv_status" name="hiv_status">
+                    <option value="Acute_very_recent_infection">Acute/Very Recent Infection</option>
+                    <option value="Chronic_HIV">Chronic HIV</option>
+                    <option value="AIDS">AIDS</option>
+                    <option value="Undetectable">Undetectable</option>
+                    <option value="Doesnt_matter">Doesn't Matter</option>
+                </select>
+                <?php
+                $addDeleteEditData = [
+                    'mainArray' => json_encode(isset($perfectdatas->hiv_status) ? json_decode($perfectdatas->hiv_status) : []),
+                    'MainColumn' => 'hiv_status'
+                ];
+                echo view('common_script/singleSelectOption', $addDeleteEditData);
+                ?>
+            </div>
+        </div>
+    </div>
     <!-- Pet Friendly -->
     <div class="col-md-6 col-xl-4">
         <div class="form-group row">
@@ -389,46 +464,5 @@
             </div>
         </div>
     </div>
-    <!-- Have Children -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="have_children" class="col-sm-4 col-form-label">Have Children ?</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="have_children" name="have_children">
-                    <option value="Select">Select</option>
-                    <option <?= isset($perfectdatas->have_children) && $perfectdatas->have_children == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($perfectdatas->have_children) && $perfectdatas->have_children == 'No' ? 'selected' : '' ?>>No</option>
-                    <option <?= isset($perfectdatas->have_children) && $perfectdatas->have_children == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <!-- Previous Marriage -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="previous_marriage" class="col-sm-4 col-form-label">Previous Marriage?</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="previous_marriage" name="previous_marriage">
-                    <option value="Select">Select</option>
-                    <option <?= isset($perfectdatas->previous_marriage) && $perfectdatas->previous_marriage == 'Yes' ? 'selected' : '' ?>>Yes</option>
-                    <option <?= isset($perfectdatas->previous_marriage) && $perfectdatas->previous_marriage == 'No' ? 'selected' : '' ?>>No</option>
-                    <option <?= isset($perfectdatas->previous_marriage) && $perfectdatas->previous_marriage == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <!-- HIV Status -->
-    <div class="col-md-6 col-xl-4">
-        <div class="form-group row">
-            <label for="hiv_status" class="col-sm-4 col-form-label">HIV Status</label>
-            <div class="col-sm-8">
-                <select class="form-control form-control-sm" id="hiv_status" name="hiv_status">
-                    <option value="Select">Select</option>
-                    <option <?= isset($perfectdatas->hiv_status) && $perfectdatas->hiv_status == 'Positive' ? 'selected' : '' ?>>Positive</option>
-                    <option <?= isset($perfectdatas->hiv_status) && $perfectdatas->hiv_status == 'Negative' ? 'selected' : '' ?>>Negative</option>
-                    <option <?= isset($perfectdatas->hiv_status) && $perfectdatas->hiv_status == 'Doesnt matter' ? 'selected' : '' ?>>Doesn't matter</option>
-                </select>
-            </div>
-        </div>
-    </div>
+
 </div>

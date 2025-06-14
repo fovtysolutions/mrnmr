@@ -36,12 +36,15 @@
             $('#savebtn').click(function(){
                 $('#inputform1').submit();
             })
+            $('#masculine_feminine').change(function(){
+                 let range =  $(this).val();
+            })
         })
     </script>
     <?php //echo view('common_script/formsubmit', ['formid' => 'inputform1', 'submitbtn' => 'savebtn', 'formurl' => 'member/datasetup']); ?>
     <?php // echo view('common_script/formsubmit', ['formid' => 'inputform2', 'submitbtn' => 'savebtn', 'formurl' => 'perfect/datasetup']); ?>
     <?php echo view('common_script/imageorfileupload', ['imageids'=>'photovalue','input'=>'photo','filetype'=>'image']); ?>
-    <?php echo view('common_script/allCountryStateCity', ['countryid'=>'membercountry', 'stateid'=>'memberstate', 'cityid'=>'membercity', 'selectedcountry'=>$detailsdata->country ?? '', 'selectedstate'=>$detailsdata->state ?? '', 'selectedcity' =>$detailsdata->city ?? '']); ?>
+    <?php echo view('common_script/allCountryStateCity', ['countryid'=>'country', 'stateid'=>'state', 'cityid'=>'city', 'selectedcountry'=>$detailsdata->country ?? '', 'selectedstate'=>$detailsdata->state ?? '', 'selectedcity' =>$detailsdata->city ?? '']); ?>
     <?php echo view('common_script/allCountryStateCity', ['countryid'=>'perfectcountry', 'stateid'=>'perfectstate', 'cityid'=>'perfectcity', 'selectedcountry'=>$perfectdatas->country ?? '', 'selectedstate'=>$perfectdatas->state ?? '', 'selectedcity' =>$perfectdatas->city ?? '']); ?>
 
     <script>
