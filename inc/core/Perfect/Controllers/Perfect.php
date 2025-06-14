@@ -24,13 +24,13 @@ class Perfect extends \CodeIgniter\Controller
             'searching'=> '',
             'filterinput'=> '',
             'filterids'=>json_encode([]),
-            'th'=>["MrnMr ID","Age Range","Height Range","Weight Range","Location","Food Pref","Lifestyle","Degree of Openness","Hobbies","Religion","Ideology","Qualities","Additional","Negotiable Requirement","Non Negotiable Requirements","Partner Sexual Position","Political Ideology","Pet Friendly","Want To Have Children","Want To Get Married","Have Children ?","Previous Marriage ?","HIV Status"],
+            'th'=>["MrnMr ID","Age Range","Height Range","Weight Range","Location","Food Pref","Hobbies","Religion","HIV Status"],
             'mainid' => "get$master",
             'addbtnroute' => "$master/add",
             'routeURL' => "$master/get",
             'editroute' => "/$master/edit/",
             'deleteURL' => "$master/deleteit",
-            'td' => json_encode(["mrnmr_id", "age_range", "height_range", "weight_range", "location", "food_pref", "lifestyle", "degree_of_openness", "hobbies", "religion", "ideology", "qualities", "additional", "negotiable_requirement", "non_negotiable_requirements", "partner_sexual_position", "political_ideology", "pet_friendly", "want_to_have_children", "want_to_get_married", "have_children", "previous_marriage", "hiv_status",]),
+            'td' => json_encode(["mrnmr_id", "age_range", "height_range", "weight_range", "location", "food_pref", "hobbies", "religion", "hiv_status",]),
         ];
         $data = [
             "title" => $this->config['name'],

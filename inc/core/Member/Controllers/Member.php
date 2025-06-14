@@ -24,13 +24,13 @@ class Member extends \CodeIgniter\Controller
             'searching'=> '',
             'filterinput'=> '',
             'filterids'=>json_encode([]),
-            'th'=>["MrnMr ID","Date of registration","First Name","Last Name","Membership Status","Personal Interview Date","Days To Reg. End","DOB","Age","Height","Weight","Location","Education","Profession","Annual Income (INR)","Food Pref","Smoker","Drinker","Hobbies","Religion","Political Ideology","Family Info.","Describe","Past Relationship","Photo","Email","Phone","MySexual Position","Anal Sex Mandatory","Out To Parents","Degree of Openness","Type of Relationship","Want To Get Married","Want To Have Children","The Idea Of Romance","Social Media Handles","Pet Friendly","Have Children ?","Previous Marriage ?","HIV Status"],
+            'th'=>["MrnMr ID","First Name","Last Name","DOB","Education","Email","Phone"],
             'mainid' => "get$master",
             'addbtnroute' => "$master/add",
             'routeURL' => "$master/get",
             'editroute' => "/$master/edit/",
             'deleteURL' => "$master/deleteit",
-            'td' => json_encode(["mrnmr_id","registration_date","first_name","last_name","membership_status","personal_interview_date","days_to_reg_end","dob","age","height","weight","location","education","profession","annual_income","food_pref","smoker","drinker","hobbies","religion","political_ideology","family_info","describe_d","past_relationship","photo","email","phone","sexual_position","anal_sex_mandatory","out_to_parents","degree_of_openness","relationship_type","want_to_get_married","want_to_have_children","idea_of_romance","social_media_handles","pet_friendly","have_children","previous_marriage","hiv_status"]),
+            'td' => json_encode(["mrnmr_id","first_name","last_name","dob","education","email","phone"]),
         ];
         $data = [
             "title" => $this->config['name'],
